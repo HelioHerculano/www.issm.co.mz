@@ -1184,7 +1184,7 @@ chart.render();
 //
 // AREA CHART WITH NULL VALUES
 //
-var colors = ["#ff6c2f"];
+var colors = ["#D78B29"];
 var options = {
   chart: {
     toolbar: {

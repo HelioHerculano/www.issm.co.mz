@@ -158,7 +158,7 @@ var chart = new ApexCharts(
 chart.render();
 
 // DISTRIBUTED TREEMAP
-var colors = ["#1c84ee", "#ff6c2f", "#f9b931"];
+var colors = ["#1c84ee", "#D78B29", "#f9b931"];
 var options = {
   series: [
     {
@@ -245,7 +245,6 @@ var chart = new ApexCharts(
   options
 );
 chart.render();
-
 
 // COLOR RANGE TREEMAP
 var colors = ["#1c84ee", "#4ecac2"];
