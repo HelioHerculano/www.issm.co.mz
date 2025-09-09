@@ -28,7 +28,47 @@
     <!-- Theme Config js (Require in all Page) -->
     <script src="assets/js/config.js"></script>
   </head>
+  <style>
+    /* Altura “do box” do logo – ajuste como quiser */
+    .logo-box {
+      height: 56px; /* mobile */
+      display: inline-flex;
+      align-items: center;
+    }
 
+    /* A imagem ocupa a altura do box sem distorcer */
+    .logo-box .logo {
+      max-height: 100%;
+      width: 92%; /* mantém proporção */
+      object-fit: contain; /* garante que caiba no box */
+      display: block;
+    }
+
+    /* Aumenta um pouco em telas maiores */
+    @media (min-width: 992px) {
+      /* lg */
+      .logo-box {
+        height: 64px;
+      }
+    }
+    @media (min-width: 1400px) {
+      /* xxl */
+      .logo-box {
+        height: 72px;
+      }
+    }
+
+    /* (Opcional) se tiver tema claro/escuro, controle visibilidade */
+    .logo-light {
+      display: none;
+    }
+    [data-bs-theme="light"] .logo-light {
+      display: inline-flex;
+    }
+    [data-bs-theme="light"] .logo-dark {
+      display: none;
+    }
+  </style>
   <body>
     <!-- START Wrapper -->
     <div class="wrapper">
@@ -809,36 +849,18 @@
       <!-- ========== Topbar End ========== -->
 
       <!-- ========== App Menu Start ========== -->
+      <!-- o meu logo -->
       <div class="main-nav">
         <!-- Sidebar Logo -->
         <div class="logo-box">
-          <a href="index.html" class="logo-dark">
+          <a
+            href="index.html"
+            class="logo-dark d-inline-flex align-items-center"
+          >
             <img
               src="assets/images/Logo/LOGO-ISSM-2025.png"
-              class="logo-sm img-fluid"
-              alt="logo sm"
-              style="max-height: 160px !important"
-            />
-            <img
-              src="assets/images/Logo/LOGO-ISSM-2025.png"
-              class="logo-lg img-fluid"
-              alt="logo dark"
-              style="max-height: 190px !important"
-            />
-          </a>
-
-          <a href="index.html" class="logo-light">
-            <img
-              src="assets/images/Logo/LOGO-ISSM-2025.png"
-              class="logo-sm img-fluid"
-              alt="logo sm"
-              style="max-height: 160px !important"
-            />
-            <img
-              src="assets/images/Logo/LOGO-ISSM-2025.png"
-              class="logo-lg img-fluid"
-              alt="logo light"
-              style="max-height: 190px !important"
+              class="logo img-fluid"
+              alt="Logo"
             />
           </a>
         </div>

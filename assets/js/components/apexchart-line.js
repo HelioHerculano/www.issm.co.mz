@@ -583,7 +583,7 @@ var options = {
     height: 374,
     type: "line",
     toolbar: {
-        show: false,
+      show: false,
     },
     shadow: {
       enabled: false,
@@ -706,8 +706,8 @@ var options = {
     height: 380,
     type: "line",
     toolbar: {
-        show: false,
-      },
+      show: false,
+    },
     zoom: {
       enabled: false,
     },
@@ -801,7 +801,7 @@ var options = {
     height: 380,
     type: "line",
     toolbar: {
-        show: false,
+      show: false,
     },
     zoom: {
       enabled: false,
@@ -888,13 +888,13 @@ for (var i = 0; i < 30; i++) {
   var innerArr = [ts2, dataSeries[1][i].value];
   data.push(innerArr);
 }
-var colors = ["#ff6c2f"];
+var colors = ["#D78B29"];
 var options = {
   chart: {
     type: "line",
     height: 344,
     toolbar: {
-        show: false,
+      show: false,
     },
   },
   stroke: {
@@ -934,7 +934,7 @@ chart.render();
         ...
     ]
     */
-  var colors = ["#1c84ee"];
+var colors = ["#1c84ee"];
 function generateDayWiseTimeSeries(baseval, count, yrange) {
   var i = 0;
   var series = [];
@@ -1136,8 +1136,6 @@ var chart = new ApexCharts(
   options
 );
 chart.render();
-
-
 
 var dataPointsLength = 10;
 
