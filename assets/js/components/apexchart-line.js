@@ -821,7 +821,7 @@ var options = {
       data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10],
     },
     {
-      name: "Page Views",
+      name: "Aprovadas",
       data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35],
     },
     {
@@ -855,7 +855,7 @@ var options = {
       title: {
         formatter: function (val) {
           if (val === "Session Duration") return val + " (mins)";
-          else if (val === "Page Views") return val + " per session";
+          else if (val === "Aprovadas") return val + " per session";
           return val;
         },
       },
