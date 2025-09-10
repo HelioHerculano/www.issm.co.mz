@@ -1,0 +1,979 @@
+/**
+ * ISSM Portal Landing Page - Custom Styles
+ * Modern landing page design for Instituto de Supervisão de Seguros de Moçambique
+ */
+
+/* ===========================================
+   LANDING PAGE VARIABLES
+   =========================================== */
+:root {
+    /* Landing Page Specific Colors */
+    --landing-hero-bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    --landing-section-padding: 5rem 0;
+    --landing-card-radius: 16px;
+    --landing-animation-duration: 0.6s;
+    --landing-text-gradient: linear-gradient(135deg, #d78b29 0%, #2b6cb0 100%);
+    
+    /* Shadows */
+    --landing-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --landing-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --landing-shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --landing-shadow-xl: 0 12px 35px rgba(0, 0, 0, 0.15);
+    
+    /* Spacing */
+    --landing-section-gap: 6rem;
+    --landing-element-gap: 2rem;
+}
+
+/* ===========================================
+   GENERAL LANDING PAGE LAYOUT
+   =========================================== */
+.landing-wrapper {
+    overflow-x: hidden;
+    position: relative;
+}
+
+.landing-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: var(--landing-hero-bg);
+    z-index: -1;
+}
+
+/* ===========================================
+   NAVIGATION BAR
+   =========================================== */
+.landing-navbar {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+}
+
+.landing-navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: var(--landing-shadow-md);
+    padding: 0.5rem 0;
+}
+
+.landing-logo {
+    height: 48px;
+    transition: all 0.3s ease;
+}
+
+.landing-navbar.scrolled .landing-logo {
+    height: 40px;
+}
+
+.landing-navbar .navbar-nav .nav-link {
+    font-weight: 500;
+    color: #4a5568 !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.landing-navbar .navbar-nav .nav-link:hover {
+    color: var(--issm-primary) !important;
+    background: rgba(215, 139, 41, 0.1);
+}
+
+.landing-navbar .navbar-nav .nav-link.btn {
+    color: white !important;
+    background: var(--issm-gradient);
+    border: none;
+}
+
+.landing-navbar .navbar-nav .nav-link.btn:hover {
+    background: var(--issm-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--landing-shadow-md);
+}
+
+/* ===========================================
+   HERO SECTION
+   =========================================== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-badge .badge {
+    font-size: 0.875rem;
+    border-radius: 25px;
+    animation: slideInDown 1s ease-out 0.2s both;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.text-gradient {
+    background: var(--landing-text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #6b7280;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.hero-benefits {
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: #374151;
+    padding: 0.75rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(215, 139, 41, 0.1);
+}
+
+.benefit-item:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(215, 139, 41, 0.3);
+    transform: translateX(8px);
+}
+
+.benefit-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon iconify-icon {
+    font-size: 1.25rem;
+}
+
+.benefit-content {
+    flex: 1;
+}
+
+.benefit-title {
+    display: block;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+}
+
+.benefit-desc {
+    display: block;
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.hero-actions {
+    animation: fadeInUp 1s ease-out 1s both;
+}
+
+.hero-actions .btn {
+    font-weight: 600;
+    padding: 0.875rem 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.hero-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--landing-shadow-lg);
+}
+
+/* Hero Visual */
+.hero-visual {
+    position: relative;
+    animation: slideInRight 1s ease-out 0.5s both;
+}
+
+.hero-card {
+    position: relative;
+    z-index: 2;
+}
+
+.verification-demo-card {
+    border: none;
+    border-radius: var(--landing-card-radius);
+    box-shadow: var(--landing-shadow-xl);
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite;
+}
+
+.verification-demo-card .card-header {
+    background: var(--issm-gradient) !important;
+    border: none;
+    padding: 1.25rem 1.5rem;
+}
+
+.verification-demo-card .card-body {
+    padding: 2rem 1.5rem;
+}
+
+.verification-demo-card .form-control,
+.verification-demo-card .form-select {
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.verification-demo-card .form-control:focus,
+.verification-demo-card .form-select:focus {
+    border-color: var(--issm-accent);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+/* Floating Stats */
+.floating-stat {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--landing-shadow-lg);
+    text-align: center;
+    animation: float 4s ease-in-out infinite;
+}
+
+.stat-1 {
+    top: 20%;
+    right: -10%;
+    animation-delay: -2s;
+}
+
+.stat-2 {
+    bottom: 20%;
+    left: -15%;
+    animation-delay: -4s;
+}
+
+.floating-stat h4 {
+    font-weight: 800;
+    margin: 0.5rem 0;
+}
+
+/* ===========================================
+   SECTION STYLING
+   =========================================== */
+.features-section,
+.portal-section,
+.support-section {
+    padding: var(--landing-section-padding);
+}
+
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: #6b7280;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===========================================
+   PROCESS CARDS (HOW IT WORKS)
+   =========================================== */
+.process-card {
+    padding: 2rem;
+    height: 100%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.process-card:hover {
+    transform: translateY(-8px);
+}
+
+.process-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: var(--issm-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.process-number {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    background: var(--issm-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+}
+
+.process-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.process-description {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.process-features {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.feature-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b7280;
+    background: rgba(215, 139, 41, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(215, 139, 41, 0.2);
+    transition: all 0.3s ease;
+}
+
+.feature-tag:hover {
+    background: rgba(215, 139, 41, 0.2);
+    color: var(--issm-primary);
+    border-color: var(--issm-primary);
+}
+
+.feature-tag iconify-icon {
+    font-size: 0.875rem;
+}
+
+/* ===========================================
+   FEATURE CARDS
+   =========================================== */
+.feature-card {
+    background: white;
+    border-radius: var(--landing-card-radius);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--landing-shadow-sm);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 1px solid #f3f4f6;
+}
+
+.feature-card:hover {
+    box-shadow: var(--landing-shadow-lg);
+    transform: translateY(-4px);
+    border-color: var(--issm-primary);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    background: rgba(215, 139, 41, 0.1);
+}
+
+.feature-card h5 {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===========================================
+   PORTAL CARDS
+   =========================================== */
+.portal-card {
+    background: white;
+    border-radius: var(--landing-card-radius);
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--landing-shadow-md);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.portal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--issm-gradient);
+}
+
+.portal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--landing-shadow-xl);
+    border-color: var(--issm-primary);
+}
+
+.portal-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--issm-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.portal-card h4 {
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.portal-header p {
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    text-align: left;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: #374151;
+}
+
+.feature-list iconify-icon {
+    font-size: 1.125rem;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.portal-actions .btn {
+    font-weight: 600;
+    padding: 0.875rem 2rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.portal-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--landing-shadow-md);
+}
+
+/* Portal Specific Styling */
+.entity-portal .portal-icon {
+    background: var(--issm-gradient);
+}
+
+.seguradora-portal .portal-icon {
+    background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
+}
+
+.admin-portal .portal-icon {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+}
+
+/* ===========================================
+   SUPPORT SECTION
+   =========================================== */
+.support-card {
+    background: white;
+    border-radius: var(--landing-card-radius);
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--landing-shadow-sm);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 1px solid #f3f4f6;
+}
+
+.support-card:hover {
+    box-shadow: var(--landing-shadow-lg);
+    transform: translateY(-4px);
+    border-color: var(--issm-primary);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    background: rgba(215, 139, 41, 0.1);
+}
+
+.support-card h4 {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.support-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: var(--landing-card-radius);
+    padding: 2rem;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+.landing-footer {
+    background: #1f2937 !important;
+    border-top: 1px solid #374151;
+}
+
+.footer-logo {
+    height: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-brand h6 {
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--issm-primary) !important;
+}
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+@media (max-width: 1199px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .floating-stat {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .landing-navbar .navbar-collapse {
+        background: white;
+        border-radius: 12px;
+        margin-top: 1rem;
+        padding: 1rem;
+        box-shadow: var(--landing-shadow-lg);
+    }
+    
+    .hero-visual {
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --landing-section-padding: 3rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .hero-actions .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .portal-card,
+    .feature-card,
+    .support-card {
+        margin-bottom: 2rem;
+    }
+    
+    .process-card {
+        margin-bottom: 2rem;
+    }
+    
+    .verification-demo-card .card-body {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-section {
+        padding: 1rem 0;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .portal-card,
+    .feature-card,
+    .support-card {
+        padding: 1.5rem;
+    }
+    
+    .process-card {
+        padding: 1.5rem;
+    }
+    
+    .process-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .footer-brand {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-links {
+        text-align: center;
+    }
+}
+
+/* ===========================================
+   DARK THEME SUPPORT
+   =========================================== */
+[data-bs-theme="dark"] .landing-wrapper::before {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+}
+
+[data-bs-theme="dark"] .landing-navbar {
+    background: rgba(26, 32, 44, 0.95) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .landing-navbar .navbar-nav .nav-link {
+    color: #e2e8f0 !important;
+}
+
+[data-bs-theme="dark"] .landing-navbar .navbar-nav .nav-link:hover {
+    background: rgba(215, 139, 41, 0.2);
+}
+
+[data-bs-theme="dark"] .hero-title {
+    color: #f7fafc;
+}
+
+[data-bs-theme="dark"] .hero-subtitle {
+    color: #a0aec0;
+}
+
+[data-bs-theme="dark"] .benefit-item {
+    color: #e2e8f0;
+    background: rgba(45, 55, 72, 0.5);
+    border-color: rgba(215, 139, 41, 0.2);
+}
+
+[data-bs-theme="dark"] .benefit-item:hover {
+    background: rgba(45, 55, 72, 0.8);
+    border-color: rgba(215, 139, 41, 0.4);
+}
+
+[data-bs-theme="dark"] .benefit-title {
+    color: #f7fafc;
+}
+
+[data-bs-theme="dark"] .benefit-desc {
+    color: #a0aec0;
+}
+
+[data-bs-theme="dark"] .benefit-icon {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .feature-tag {
+    background: rgba(215, 139, 41, 0.2);
+    border-color: rgba(215, 139, 41, 0.3);
+    color: #a0aec0;
+}
+
+[data-bs-theme="dark"] .feature-tag:hover {
+    background: rgba(215, 139, 41, 0.3);
+    color: var(--issm-primary);
+    border-color: var(--issm-primary);
+}
+
+[data-bs-theme="dark"] .section-title {
+    color: #f7fafc;
+}
+
+[data-bs-theme="dark"] .section-subtitle {
+    color: #a0aec0;
+}
+
+[data-bs-theme="dark"] .feature-card,
+[data-bs-theme="dark"] .portal-card,
+[data-bs-theme="dark"] .support-card {
+    background: #2d3748;
+    border-color: #4a5568;
+}
+
+[data-bs-theme="dark"] .feature-card h5,
+[data-bs-theme="dark"] .portal-card h4,
+[data-bs-theme="dark"] .support-card h4 {
+    color: #f7fafc;
+}
+
+[data-bs-theme="dark"] .feature-card p,
+[data-bs-theme="dark"] .support-card p {
+    color: #a0aec0;
+}
+
+[data-bs-theme="dark"] .process-title {
+    color: #f7fafc;
+}
+
+[data-bs-theme="dark"] .process-description {
+    color: #a0aec0;
+}
+
+/* ===========================================
+   SCROLL ANIMATIONS
+   =========================================== */
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.scroll-animation.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Statistics Dashboard Animation */
+.statistics-dashboard {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.statistics-dashboard.animate-dashboard {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Enhanced Benefit Items Animation */
+.benefit-item {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: all 0.6s ease-out;
+}
+
+.benefit-item.animate {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Process Cards Staggered Animation */
+.process-card {
+    transform: translateY(40px) scale(0.95);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.process-card.animate {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Feature Tags Animation */
+.feature-tag {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+.process-card.animate .feature-tag {
+    transform: scale(1);
+    opacity: 1;
+    transition-delay: 0.6s;
+}
+
+/* ===========================================
+   UTILITY CLASSES
+   =========================================== */
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-ghost-secondary {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: #6b7280;
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-ghost-secondary:hover {
+    background: #f9fafb;
+    border-color: var(--issm-primary);
+    color: var(--issm-primary);
+}
+
+[data-bs-theme="dark"] .btn-ghost-secondary {
+    border-color: #4a5568;
+    color: #a0aec0;
+}
+
+[data-bs-theme="dark"] .btn-ghost-secondary:hover {
+    background: #374151;
+    border-color: var(--issm-primary);
+    color: var(--issm-primary);
+}

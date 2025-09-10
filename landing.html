@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <title>ISSM Portal - Verificação de Apólices de Seguro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Plataforma oficial do ISSM para verificação rápida e segura de autenticidade de apólices de seguro em Moçambique" />
+    <meta name="keywords" content="ISSM, verificação, apólices, seguro, Moçambique, Instituto de Supervisão de Seguros" />
+    <meta name="author" content="Instituto de Supervisão de Seguros de Moçambique" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Vendor css (Required in all pages) -->
+    <link href="assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Icons css (Required in all pages) -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css (Required in all pages) -->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- ISSM Portal css -->
+    <link href="assets/css/issm-portal.css" rel="stylesheet" type="text/css" />
+
+    <!-- Landing Page css -->
+    <link href="assets/css/landing-page.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Statistics Dashboard css -->
+    <link href="assets/css/statistics-dashboard.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme Config js (Required in all pages) -->
+    <script src="assets/js/config.js"></script>
+</head>
+
+<body data-bs-theme="light">
+    <!-- START Landing Page -->
+    <div class="landing-wrapper">
+        
+        <!-- ========== Navigation Bar ========== -->
+        <nav class="navbar navbar-expand-lg landing-navbar fixed-top" id="landingNavbar">
+            <div class="container">
+                <!-- Brand Logo -->
+                <a class="navbar-brand" href="#home">
+                    <img src="assets/images/Logo/LOGO-ISSM-2025.png" alt="ISSM Logo" class="landing-logo" />
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <iconify-icon icon="solar:hamburger-menu-broken" class="fs-24"></iconify-icon>
+                </button>
+
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#como-funciona">Como Funciona</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#portais">Portais</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#suporte">Suporte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary ms-2 px-3" href="entidades/index.html">
+                                Verificar Apólice
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item ms-2">
+                            <button type="button" class="btn btn-ghost-secondary" id="landing-theme-toggle">
+                                <iconify-icon icon="solar:moon-bold-duotone" class="fs-20"></iconify-icon>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ========== Hero Section ========== -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="row align-items-center min-vh-100 py-5">
+                    <div class="col-lg-6">
+                        <div class="hero-content">
+                            <div class="hero-badge mb-3">
+                                <span class="badge bg-primary-subtle text-primary px-3 py-2">
+                                    <iconify-icon icon="solar:shield-check-bold-duotone" class="me-1"></iconify-icon>
+                                    Plataforma Oficial ISSM
+                                </span>
+                            </div>
+                            
+                            <h1 class="hero-title mb-4">
+                                Verificação Rápida e 
+                                <span class="text-gradient">Segura</span> 
+                                de Apólices de Seguro
+                            </h1>
+                            
+                            <p class="hero-subtitle mb-4">
+                                Plataforma oficial do Instituto de Supervisão de Seguros de Moçambique 
+                                para verificação de autenticidade de apólices. Processo simplificado, 
+                                resultados confiáveis, segurança garantida.
+                            </p>
+
+                            <!-- Key Benefits -->
+                            <div class="hero-benefits mb-5">
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">
+                                        <iconify-icon icon="solar:shield-check-bold-duotone" class="text-success"></iconify-icon>
+                                    </div>
+                                    <div class="benefit-content">
+                                        <span class="benefit-title">Verificação Oficial pelo ISSM</span>
+                                        <small class="benefit-desc">Autenticação através do órgão regulador</small>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">
+                                        <iconify-icon icon="solar:clock-circle-bold-duotone" class="text-primary"></iconify-icon>
+                                    </div>
+                                    <div class="benefit-content">
+                                        <span class="benefit-title">Resultados em Tempo Hábil</span>
+                                        <small class="benefit-desc">Resposta média em menos de 18 horas</small>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">
+                                        <iconify-icon icon="solar:shield-keyhole-bold-duotone" class="text-success"></iconify-icon>
+                                    </div>
+                                    <div class="benefit-content">
+                                        <span class="benefit-title">Plataforma Segura e Protegida</span>
+                                        <small class="benefit-desc">Dados protegidos com criptografia avançada</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Call to Action Buttons -->
+                            <div class="hero-actions">
+                                <a href="entidades/index.html" class="btn btn-primary btn-lg me-3">
+                                    <iconify-icon icon="solar:document-text-bold-duotone" class="me-2"></iconify-icon>
+                                    Verificar Apólice
+                                </a>
+                                <a href="#como-funciona" class="btn btn-outline-primary btn-lg">
+                                    <iconify-icon icon="solar:play-circle-bold-duotone" class="me-2"></iconify-icon>
+                                    Saiba Mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="hero-visual">
+                            <!-- Statistics Dashboard -->
+                            <div class="statistics-dashboard-container">
+                                <div class="statistics-dashboard">
+                                    <div class="dashboard-header text-center mb-4">
+                                        <h5 class="dashboard-title">
+                                            <iconify-icon icon="solar:chart-2-bold-duotone" class="me-2"></iconify-icon>
+                                            Estatísticas do Portal ISSM
+                                        </h5>
+                                        <p class="dashboard-subtitle text-muted">Dados em tempo real das verificações</p>
+                                    </div>
+                                    
+                                    <!-- Statistics Cards Grid -->
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-6">
+                                            <div class="statistics-card" id="total-requests-card">
+                                                <div class="stat-icon">
+                                                    <iconify-icon icon="solar:document-text-bold-duotone"></iconify-icon>
+                                                </div>
+                                                <div class="stat-content">
+                                                    <h3 class="stat-number" data-target="3480">0</h3>
+                                                    <span class="stat-label">Total Solicitações</span>
+                                                    <div class="stat-trend trend-up">
+                                                        <iconify-icon icon="solar:arrow-up-bold"></iconify-icon>
+                                                        <span>12%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-6">
+                                            <div class="statistics-card" id="response-time-card">
+                                                <div class="stat-icon">
+                                                    <iconify-icon icon="solar:clock-circle-bold-duotone"></iconify-icon>
+                                                </div>
+                                                <div class="stat-content">
+                                                    <h3 class="stat-number">< 18h</h3>
+                                                    <span class="stat-label">Tempo Médio</span>
+                                                    <div class="stat-trend trend-up">
+                                                        <iconify-icon icon="solar:arrow-down-bold"></iconify-icon>
+                                                        <span>6h</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-6">
+                                            <div class="statistics-card" id="success-rate-card">
+                                                <div class="stat-icon">
+                                                    <iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>
+                                                </div>
+                                                <div class="stat-content">
+                                                    <h3 class="stat-number" data-target="94">0</h3>
+                                                    <span class="stat-label">Taxa Sucesso (%)</span>
+                                                    <div class="stat-trend trend-stable">
+                                                        <iconify-icon icon="solar:arrow-right-bold"></iconify-icon>
+                                                        <span>0.2%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-6">
+                                            <div class="statistics-card" id="active-insurers-card">
+                                                <div class="stat-icon">
+                                                    <iconify-icon icon="solar:buildings-2-bold-duotone"></iconify-icon>
+                                                </div>
+                                                <div class="stat-content">
+                                                    <h3 class="stat-number" data-target="28">0</h3>
+                                                    <span class="stat-label">Seguradoras Ativas</span>
+                                                    <div class="stat-trend trend-up">
+                                                        <iconify-icon icon="solar:arrow-up-bold"></iconify-icon>
+                                                        <span>2</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Interactive Charts -->
+                                    <!-- <div class="charts-container">
+                                        <div class="chart-card mb-3">
+                                            <div class="chart-header">
+                                                <h6 class="chart-title">Tendência Mensal</h6>
+                                                <small class="chart-subtitle text-muted">Solicitações dos últimos 6 meses</small>
+                                            </div>
+                                            <div id="monthly-trend-chart" class="chart-container"></div>
+                                        </div>
+                                        
+                                        <div class="chart-card">
+                                            <div class="chart-header">
+                                                <h6 class="chart-title">Distribuição de Tempo</h6>
+                                                <small class="chart-subtitle text-muted">Tempo de resposta por categoria</small>
+                                            </div>
+                                            <div id="response-distribution-chart" class="chart-container"></div>
+                                        </div>
+                                    </div> -->
+                                    
+                                    <!-- Call to Action -->
+                                    <div class="dashboard-cta text-center mt-4">
+                                        <a href="entidades/index.html" class="btn btn-primary btn-sm px-4">
+                                            <iconify-icon icon="solar:document-add-bold-duotone" class="me-2"></iconify-icon>
+                                            Iniciar Verificação
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== How It Works Section ========== -->
+        <section id="como-funciona" class="features-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <div class="section-header mb-5">
+                            <h2 class="section-title">Como Funciona</h2>
+                            <p class="section-subtitle">
+                                Processo simples e eficiente em três passos para verificar a autenticidade 
+                                das suas apólices de seguro
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Step 1 -->
+                    <div class="col-md-4">
+                        <div class="process-card text-center">
+                            <div class="process-icon">
+                                <iconify-icon icon="solar:document-add-bold-duotone"></iconify-icon>
+                                <span class="process-number">1</span>
+                            </div>
+                            <h4 class="process-title">Submeter Pedido</h4>
+                            <p class="process-description">
+                                Complete o formulário com os dados da apólice e da seguradora. 
+                                Anexe os documentos necessários de forma segura.
+                            </p>
+                            <div class="process-features">
+                                <span class="feature-tag">
+                                    <iconify-icon icon="solar:shield-keyhole-mini-bold"></iconify-icon>
+                                    Seguro
+                                </span>
+                                <span class="feature-tag">
+                                    <iconify-icon icon="solar:clock-circle-mini-bold"></iconify-icon>
+                                    Rápido
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="col-md-4">
+                        <div class="process-card text-center">
+                            <div class="process-icon">
+                                <iconify-icon icon="solar:shield-check-bold-duotone"></iconify-icon>
+                                <span class="process-number">2</span>
+                            </div>
+                            <h4 class="process-title">Verificação ISSM</h4>
+                            <p class="process-description">
+                                O ISSM verifica a autenticidade da apólice junto à seguradora 
+                                através de canais oficiais e seguros.
+                            </p>
+                            <div class="process-features">
+                                <span class="feature-tag">
+                                    <iconify-icon icon="solar:medal-ribbon-star-mini-bold"></iconify-icon>
+                                    Oficial
+                                </span>
+                                <span class="feature-tag">
+                                    <iconify-icon icon="solar:check-circle-mini-bold"></iconify-icon>
+                                    Confiável
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="col-md-4">
+                        <div class="process-card text-center">
+                            <div class="process-icon">
+                                <iconify-icon icon="solar:document-text-bold-duotone"></iconify-icon>
+                                <span class="process-number">3</span>
+                            </div>
+                            <h4 class="process-title">Receber Resultado</h4>
+                            <p class="process-description">
+                                Receba o resultado da verificação com certificado oficial 
+                                do ISSM confirmando a autenticidade da apólice.
+                            </p>
+                            <div class="process-features">
+                                <span class="feature-tag">
+                                    <iconify-icon icon="solar:download-minimalistic-mini-bold"></iconify-icon>
+                                    Download
+                                </span>
+                                <span class="feature-tag">
+                                    <iconify-icon icon="solar:document-mini-bold"></iconify-icon>
+                                    Certificado
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="row g-4 mt-5">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <iconify-icon icon="solar:shield-keyhole-bold-duotone" class="text-primary"></iconify-icon>
+                            </div>
+                            <h5>Segurança Total</h5>
+                            <p>Todos os dados são protegidos com criptografia avançada e protocolos de segurança.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <iconify-icon icon="solar:clock-circle-bold-duotone" class="text-success"></iconify-icon>
+                            </div>
+                            <h5>Rapidez</h5>
+                            <p>Verificações processadas em tempo hábil com notificações em tempo real.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <iconify-icon icon="solar:medal-ribbon-star-bold-duotone" class="text-warning"></iconify-icon>
+                            </div>
+                            <h5>Confiabilidade</h5>
+                            <p>Verificação oficial realizada pelo órgão regulador do sector segurador.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <iconify-icon icon="solar:smartphone-bold-duotone" class="text-info"></iconify-icon>
+                            </div>
+                            <h5>Acessibilidade</h5>
+                            <p>Interface simples e intuitiva, acessível em qualquer dispositivo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Portal Access Section ========== -->
+        <section id="portais" class="portal-section py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <div class="section-header mb-5">
+                            <h2 class="section-title">Acesso aos Portais</h2>
+                            <p class="section-subtitle">
+                                Escolha o portal adequado ao seu perfil para aceder às funcionalidades específicas
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Entity Portal -->
+                    <div class="col-lg-4">
+                        <div class="portal-card entity-portal">
+                            <div class="portal-header">
+                                <div class="portal-icon">
+                                    <iconify-icon icon="solar:user-bold-duotone"></iconify-icon>
+                                </div>
+                                <h4>Portal das Entidades</h4>
+                                <p>Para cidadãos e empresas</p>
+                            </div>
+                            
+                            <div class="portal-features">
+                                <ul class="feature-list">
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Submeter pedidos de verificação
+                                    </li>
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Acompanhar estado dos pedidos
+                                    </li>
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Ver resultados das verificações
+                                    </li>
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Descarregar certificados
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="portal-actions">
+                                <a href="entidades/index.html" class="btn btn-primary w-100">
+                                    <iconify-icon icon="solar:login-3-bold-duotone" class="me-2"></iconify-icon>
+                                    Aceder Portal
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insurance Company Portal -->
+                    <div class="col-lg-4">
+                        <div class="portal-card seguradora-portal">
+                            <div class="portal-header">
+                                <div class="portal-icon">
+                                    <iconify-icon icon="solar:buildings-2-bold-duotone"></iconify-icon>
+                                </div>
+                                <h4>Portal das Seguradoras</h4>
+                                <p>Para companhias de seguros</p>
+                            </div>
+                            
+                            <div class="portal-features">
+                                <ul class="feature-list">
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Responder a verificações
+                                    </li>
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Gerir apólices e dados
+                                    </li>
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Dashboard de gestão
+                                    </li>
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Relatórios e estatísticas
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="portal-actions">
+                                <a href="seguradoras-index.html" class="btn btn-secondary w-100">
+                                    <iconify-icon icon="solar:login-3-bold-duotone" class="me-2"></iconify-icon>
+                                    Aceder Portal
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ISSM Admin Portal -->
+                    <div class="col-lg-4">
+                        <div class="portal-card admin-portal">
+                            <div class="portal-header">
+                                <div class="portal-icon">
+                                    <iconify-icon icon="solar:shield-user-bold-duotone"></iconify-icon>
+                                </div>
+                                <h4>Portal Administrativo</h4>
+                                <p>Para funcionários do ISSM</p>
+                            </div>
+                            
+                            <div class="portal-features">
+                                <ul class="feature-list">
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Administração do sistema
+                                    </li>
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Relatórios e analytics
+                                    </li>
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Gestão de utilizadores
+                                    </li>
+                                    <li>
+                                        <iconify-icon icon="solar:check-circle-bold-duotone" class="text-success"></iconify-icon>
+                                        Configurações do sistema
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="portal-actions">
+                                <a href="issm/index.html" class="btn btn-dark w-100">
+                                    <iconify-icon icon="solar:login-3-bold-duotone" class="me-2"></iconify-icon>
+                                    Aceder Portal
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Information & Support Section ========== -->
+        <section id="suporte" class="support-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <div class="section-header mb-5">
+                            <h2 class="section-title">Suporte e Informações</h2>
+                            <p class="section-subtitle">
+                                Encontre respostas às suas questões ou entre em contacto connosco
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- FAQ -->
+                    <div class="col-lg-6">
+                        <div class="support-card">
+                            <div class="card-icon">
+                                <iconify-icon icon="solar:question-circle-bold-duotone" class="text-primary"></iconify-icon>
+                            </div>
+                            <h4>Perguntas Frequentes</h4>
+                            <p>Consulte as respostas às perguntas mais comuns sobre o processo de verificação.</p>
+                            <a href="pages-faqs.html" class="btn btn-outline-primary">
+                                Ver FAQ
+                                <iconify-icon icon="solar:arrow-right-linear" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-lg-6">
+                        <div class="support-card">
+                            <div class="card-icon">
+                                <iconify-icon icon="solar:phone-bold-duotone" class="text-success"></iconify-icon>
+                            </div>
+                            <h4>Contactar Suporte</h4>
+                            <p>Precisa de ajuda? A nossa equipa está disponível para apoiá-lo.</p>
+                            <a href="help-center.html" class="btn btn-outline-success">
+                                Contactar
+                                <iconify-icon icon="solar:arrow-right-linear" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Info -->
+                <div class="row mt-5">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="info-box">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h5 class="mb-2">
+                                        <iconify-icon icon="solar:info-circle-bold-duotone" class="text-info me-2"></iconify-icon>
+                                        Documentos Necessários
+                                    </h5>
+                                    <p class="mb-0">
+                                        Para verificar uma apólice, necessita do número da apólice, 
+                                        nome da seguradora e documento de identificação do segurado.
+                                    </p>
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <a href="entidades/verificacao-criar.html" class="btn btn-info">
+                                        Iniciar Verificação
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Footer ========== -->
+        <footer class="landing-footer py-4 bg-dark text-white">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="footer-brand d-flex align-items-center">
+                            <img src="assets/images/Logo/LOGO-ISSM-2025.png" alt="ISSM Logo" class="footer-logo me-3" />
+                            <div>
+                                <h6 class="mb-0">Instituto de Supervisão de Seguros de Moçambique</h6>
+                                <small class="text-muted">Portal de Verificação de Apólices</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-links">
+                            <a href="privacy-policy.html" class="text-muted me-3">Política de Privacidade</a>
+                            <a href="pages-faqs.html" class="text-muted me-3">FAQ</a>
+                            <a href="help-center.html" class="text-muted">Suporte</a>
+                        </div>
+                        <div class="footer-copyright mt-2">
+                            <small class="text-muted">© 2025 ISSM. Todos os direitos reservados.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Vendor js (Required in all pages) -->
+    <script src="assets/js/vendor.min.js"></script>
+
+    <!-- ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
+
+    <!-- App js (Required in all pages) -->
+    <script src="assets/js/app.min.js"></script>
+
+    <!-- Statistics Dashboard js -->
+    <script src="assets/js/pages/statistics-dashboard.js"></script>
+
+    <!-- Landing Page js -->
+    <script src="assets/js/pages/landing-page.js"></script>
+
+</body>
+</html>
