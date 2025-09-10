@@ -1,0 +1,645 @@
+/**
+ * ISSM Entity Portal - Custom Styles
+ * Enhanced styling for the Instituto de Supervisão de Seguros de Moçambique
+ * Entity Portal interface
+ */
+
+/* ===========================================
+   ISSM BRANDING & COLORS
+   =========================================== */
+:root {
+    --issm-primary: #d78b29;
+    --issm-secondary: #2b6cb0;
+    --issm-accent: #3182ce;
+    --issm-success: #38a169;
+    --issm-warning: #d69e2e;
+    --issm-danger: #e53e3e;
+    --issm-info: #3182ce;
+    --issm-light: #f7fafc;
+    --issm-dark: #1a202c;
+    --issm-gradient: linear-gradient(135deg, #d78b29 0%, #d78b29 100%);
+    --issm-shadow: 0 4px 6px -1px rgba(26, 54, 93, 0.1);
+    --issm-shadow-lg: 0 10px 15px -3px rgba(26, 54, 93, 0.1);
+}
+
+/* ===========================================
+   HEADER & TOPBAR CUSTOMIZATION
+   =========================================== */
+.navbar-custom {
+    background: var(--issm-gradient);
+    border-bottom: 3px solid var(--issm-accent);
+    box-shadow: var(--issm-shadow);
+}
+
+.navbar-custom .topbar .logo-topbar img {
+    filter: brightness(0) invert(1);
+}
+
+.navbar-custom .topbar .app-search .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.navbar-custom .topbar .app-search .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar-custom .topbar .app-search .input-group-text {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.navbar-custom .nav-user h5 {
+    color: white !important;
+}
+
+/* ===========================================
+   SIDEBAR STYLING
+   =========================================== */
+.leftside-menu {
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+}
+
+.leftside-menu .logo img {
+    filter: none;
+}
+
+.side-nav .side-nav-title {
+    color: var(--issm-primary);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.side-nav .side-nav-item .side-nav-link {
+    color: #4a5568;
+    border-radius: 8px;
+    margin: 2px 8px;
+    transition: all 0.3s ease;
+}
+
+.side-nav .side-nav-item .side-nav-link:hover,
+.side-nav .side-nav-item .side-nav-link.active {
+    background: var(--issm-gradient);
+    color: white;
+    transform: translateX(4px);
+    box-shadow: var(--issm-shadow);
+}
+
+.side-nav .side-nav-item .side-nav-link .menu-icon {
+    width: 20px;
+    text-align: center;
+}
+
+/* ===========================================
+   CARDS & STATISTICS
+   =========================================== */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--issm-shadow-lg);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background: transparent;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1.25rem 1.5rem;
+}
+
+.card-header h5 {
+    color: var(--issm-primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Statistics Cards */
+.stats-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--issm-shadow);
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--issm-shadow-lg);
+}
+
+.stats-card.total-requests {
+    border-left-color: var(--issm-primary);
+}
+
+.stats-card.pending-requests {
+    border-left-color: var(--issm-warning);
+}
+
+.stats-card.approved-requests {
+    border-left-color: var(--issm-success);
+}
+
+.stats-card.rejected-requests {
+    border-left-color: var(--issm-danger);
+}
+
+.stats-card .stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.stats-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+}
+
+.stats-card .stat-label {
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.stats-card .stat-change {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* ===========================================
+   BUTTONS & FORM ELEMENTS
+   =========================================== */
+.btn-primary {
+    background: var(--issm-gradient);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--issm-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--issm-shadow);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--issm-primary);
+    color: var(--issm-primary);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background: var(--issm-primary);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.form-control {
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--issm-accent);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.form-select {
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus {
+    border-color: var(--issm-accent);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+/* ===========================================
+   TABLES & DATA DISPLAY
+   =========================================== */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background: var(--issm-light);
+    color: var(--issm-primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    padding: 1rem;
+}
+
+.table tbody td {
+    padding: 1rem;
+    border-top: 1px solid #e2e8f0;
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(49, 130, 206, 0.02);
+}
+
+/* ===========================================
+   STATUS BADGES & INDICATORS
+   =========================================== */
+.badge {
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.badge.bg-warning {
+    background-color: #fbbf24 !important;
+    color: #92400e;
+}
+
+.badge.bg-success {
+    background-color: #34d399 !important;
+    color: #065f46;
+}
+
+.badge.bg-danger {
+    background-color: #f87171 !important;
+    color: #991b1b;
+}
+
+.badge.bg-info {
+    background-color: #60a5fa !important;
+    color: #1e40af;
+}
+
+/* Status-specific styling */
+.status-pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-approved {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-in-review {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+/* ===========================================
+   TIMELINE & PROGRESS
+   =========================================== */
+.timeline-alt .timeline-item .timeline-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    box-shadow: var(--issm-shadow);
+}
+
+.timeline-alt .timeline-item .timeline-icon.bg-success {
+    background: var(--issm-success);
+}
+
+.timeline-alt .timeline-item .timeline-icon.bg-warning {
+    background: var(--issm-warning);
+}
+
+.timeline-alt .timeline-item .timeline-icon.bg-info {
+    background: var(--issm-info);
+}
+
+.timeline-alt .timeline-item .timeline-icon.bg-primary {
+    background: var(--issm-primary);
+}
+
+/* Progress bars */
+.progress {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e2e8f0;
+}
+
+.progress-bar {
+    border-radius: 4px;
+}
+
+.progress-lg {
+    height: 12px;
+}
+
+/* ===========================================
+   DOCUMENT & FILE HANDLING
+   =========================================== */
+.document-item {
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.document-item:hover {
+    border-color: var(--issm-accent);
+    box-shadow: var(--issm-shadow);
+}
+
+.document-upload-area {
+    border: 2px dashed #cbd5e0;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.document-upload-area:hover,
+.document-upload-area.border-primary {
+    border-color: var(--issm-accent);
+    background-color: rgba(49, 130, 206, 0.02);
+}
+
+/* ===========================================
+   CHARTS & VISUALIZATIONS
+   =========================================== */
+.chart-container {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--issm-shadow);
+}
+
+/* ApexCharts customization */
+.apexcharts-canvas {
+    border-radius: 8px;
+}
+
+.apexcharts-tooltip {
+    border-radius: 8px !important;
+    box-shadow: var(--issm-shadow-lg) !important;
+}
+
+/* ===========================================
+   MODALS & OVERLAYS
+   =========================================== */
+.modal-content {
+    border: none;
+    border-radius: 16px;
+    box-shadow: var(--issm-shadow-lg);
+}
+
+.modal-header {
+    background: var(--issm-light);
+    border-bottom: 1px solid #e2e8f0;
+    border-radius: 16px 16px 0 0;
+}
+
+.modal-title {
+    color: var(--issm-primary);
+    font-weight: 600;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+@media (max-width: 768px) {
+    .stats-card {
+        margin-bottom: 1rem;
+    }
+    
+    .stats-card .stat-number {
+        font-size: 2rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .btn {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .table {
+        font-size: 0.875rem;
+    }
+    
+    .navbar-custom .topbar .app-search {
+        display: none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .card-header {
+        padding: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .stats-card {
+        padding: 1rem;
+    }
+    
+    .stats-card .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* ===========================================
+   ANIMATIONS & TRANSITIONS
+   =========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+/* ===========================================
+   ISSM SPECIFIC COMPONENTS
+   =========================================== */
+.issm-header {
+    background: var(--issm-gradient);
+    color: white;
+    padding: 2rem 0;
+    border-radius: 0 0 24px 24px;
+    margin-bottom: 2rem;
+}
+
+.issm-logo-section {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.issm-logo-section img {
+    max-height: 60px;
+    filter: brightness(0) invert(1);
+}
+
+.issm-footer {
+    background: var(--issm-primary);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* Entity Profile Styling */
+.entity-profile-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: none;
+    border-radius: 16px;
+}
+
+.entity-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--issm-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Verification Status Indicators */
+.verification-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.verification-status.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.verification-status.approved {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.verification-status.rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.verification-status.in-review {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+/* Action Buttons Enhancement */
+.action-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--issm-shadow);
+}
+
+/* Loading States */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    z-index: 10;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e2e8f0;
+    border-top: 3px solid var(--issm-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

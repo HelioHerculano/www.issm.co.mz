@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt" data-bs-theme="light" data-menu-color="brand" data-topbar-color="light">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Detalhes da Verificação | ISSM - Portal das Entidades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Portal das Entidades ISSM - Detalhes da Solicitação de Verificação" name="description" />
+    <meta content="ISSM" name="author" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+    <!-- Theme Config Js -->
+    <script src="../assets/js/config.js"></script>
+
+    <!-- App css -->
+    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!-- Icons css -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- ISSM Portal Custom CSS -->
+    <link href="../assets/css/issm-portal.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        <!-- ========== Topbar Start ========== -->
+        <div class="navbar-custom">
+            <div class="topbar container-fluid">
+                <div class="d-flex align-items-center gap-1">
+                    <!-- Topbar Brand Logo -->
+                    <div class="logo-topbar">
+                        <a href="index.html" class="logo-light">
+                            <span class="logo-lg">
+                                <img src="../assets/images/logo.png" alt="logo" height="22">
+                            </span>
+                        </a>
+                        <a href="index.html" class="logo-dark">
+                            <span class="logo-lg">
+                                <img src="../assets/images/logo-dark.png" alt="dark logo" height="22">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Sidebar Menu Toggle Button -->
+                    <button class="button-toggle-menu">
+                        <iconify-icon icon="solar:hamburger-menu-broken" class="fs-24 align-middle"></iconify-icon>
+                    </button>
+
+                    <!-- Topbar Search Form -->
+                    <div class="app-search d-none d-lg-block">
+                        <form>
+                            <div class="input-group">
+                                <input type="search" class="form-control" placeholder="Buscar verificações..." autocomplete="off">
+                                <span class="input-group-text">
+                                    <iconify-icon icon="solar:magnifer-linear"></iconify-icon>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <ul class="topbar-menu d-flex align-items-center gap-3">
+                    <li class="topbar-item">
+                        <a class="nav-link" href="javascript:void(0);" id="light-dark-mode">
+                            <iconify-icon icon="solar:moon-bold-duotone" class="fs-22"></iconify-icon>
+                        </a>
+                    </li>
+
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button">
+                            <iconify-icon icon="solar:bell-bing-bold-duotone" class="fs-22"></iconify-icon>
+                            <span class="noti-icon-badge badge text-bg-pink">3</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0">
+                            <div class="p-2 border-dashed border">
+                                <h6 class="m-0 fs-16 fw-semibold">Notificações</h6>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none nav-user" data-bs-toggle="dropdown" href="#" role="button">
+                            <span class="account-user-avatar">
+                                <img src="../assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
+                            </span>
+                            <span class="d-lg-block d-none">
+                                <h5 class="my-0 fw-normal">Entidade XYZ <i class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i></h5>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
+                            <a href="perfil-entidade.html" class="dropdown-item">
+                                <iconify-icon icon="solar:user-circle-bold-duotone" class="fs-18 align-middle me-1"></iconify-icon>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <a href="auth-signin.html" class="dropdown-item">
+                                <iconify-icon icon="solar:logout-3-bold-duotone" class="fs-18 align-middle me-1"></iconify-icon>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ========== Topbar End ========== -->
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="leftside-menu">
+            <a href="index.html" class="logo logo-light">
+                <span class="logo-lg">
+                    <img src="../assets/images/logo.png" alt="logo" height="22">
+                </span>
+            </a>
+
+            <div class="h-100" id="leftside-menu-container" data-simplebar>
+                <ul class="side-nav">
+                    <li class="side-nav-title">Portal das Entidades</li>
+                    <li class="side-nav-item">
+                        <a href="index.html" class="side-nav-link">
+                            <iconify-icon icon="solar:widget-add-bold-duotone" class="menu-icon"></iconify-icon>
+                            <span class="menu-text"> Dashboard </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarVerificacoes" class="side-nav-link">
+                            <iconify-icon icon="solar:document-medicine-bold-duotone" class="menu-icon"></iconify-icon>
+                            <span class="menu-text"> Verificações </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarVerificacoes">
+                            <ul class="side-nav-second-level">
+                                <li><a href="verificacoes-lista.html">Todas as Solicitações</a></li>
+                                <li><a href="verificacao-criar.html">Nova Solicitação</a></li>
+                                <li><a href="verificacoes-lista.html?status=pending">Pendentes</a></li>
+                                <li><a href="verificacoes-lista.html?status=approved">Aprovadas</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="relatorios.html" class="side-nav-link">
+                            <iconify-icon icon="solar:chart-bold-duotone" class="menu-icon"></iconify-icon>
+                            <span class="menu-text"> Relatórios </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-title">Configurações</li>
+                    <li class="side-nav-item">
+                        <a href="perfil-entidade.html" class="side-nav-link">
+                            <iconify-icon icon="solar:user-bold-duotone" class="menu-icon"></iconify-icon>
+                            <span class="menu-text"> Perfil da Entidade </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="configuracoes.html" class="side-nav-link">
+                            <iconify-icon icon="solar:settings-bold-duotone" class="menu-icon"></iconify-icon>
+                            <span class="menu-text"> Configurações </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ========== Left Sidebar End ========== -->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="index.html">Portal das Entidades</a></li>
+                                        <li class="breadcrumb-item"><a href="verificacoes-lista.html">Verificações</a></li>
+                                        <li class="breadcrumb-item active">Detalhes</li>
+                                    </ol>
+                                </div>
+                                <h4 class="page-title">Detalhes da Verificação</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <!-- Request Header -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-8">
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-3">
+                                                    <div class="avatar-lg bg-primary-subtle rounded">
+                                                        <iconify-icon icon="solar:document-medicine-bold-duotone" class="fs-24 text-primary"></iconify-icon>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h4 class="mb-1" id="request-id">Solicitação #REQ-2024-001</h4>
+                                                    <p class="text-muted mb-0">
+                                                        <iconify-icon icon="solar:calendar-bold-duotone" class="me-1"></iconify-icon>
+                                                        Submetida em <span id="submission-date">05 de Janeiro, 2024</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 text-md-end">
+                                            <div class="mb-2">
+                                                <span class="badge bg-warning fs-12 px-3 py-2" id="current-status">Pendente</span>
+                                            </div>
+                                            <div class="d-flex gap-2 justify-content-md-end">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="printRequest()">
+                                                    <iconify-icon icon="solar:printer-bold" class="me-1"></iconify-icon> Imprimir
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                        <iconify-icon icon="solar:menu-dots-bold" class="me-1"></iconify-icon> Ações
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="verificacao-editar.html?id=REQ-2024-001">
+                                                            <iconify-icon icon="solar:pen-bold" class="me-1"></iconify-icon> Editar Solicitação
+                                                        </a></li>
+                                                        <li><a class="dropdown-item" href="#" onclick="downloadRequest()">
+                                                            <iconify-icon icon="solar:download-bold" class="me-1"></iconify-icon> Baixar PDF
+                                                        </a></li>
+                                                        <li><hr class="dropdown-divider"></li>
+                                                        <li><a class="dropdown-item text-danger" href="#" onclick="cancelRequest()">
+                                                            <iconify-icon icon="solar:trash-bin-minimalistic-bold" class="me-1"></iconify-icon> Cancelar
+                                                        </a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Left Column - Request Details -->
+                        <div class="col-lg-8">
+                            
+                            <!-- Policy Information -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <iconify-icon icon="solar:document-text-bold-duotone" class="me-2"></iconify-icon>
+                                        Informações da Apólice
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="text-muted">Número da Apólice</label>
+                                                <p class="fw-semibold mb-0" id="policy-number">POL-2024-789456</p>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="text-muted">Seguradora</label>
+                                                <p class="fw-semibold mb-0" id="insurance-company">Empresa Seguradora A</p>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="text-muted">Tipo de Verificação</label>
+                                                <p class="mb-0">
+                                                    <span class="badge badge-soft-info" id="verification-type">Validade</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="text-muted">Nome do Segurado</label>
+                                                <p class="fw-semibold mb-0" id="insured-name">João Manuel Silva</p>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="text-muted">Vigência da Apólice</label>
+                                                <p class="fw-semibold mb-0" id="policy-period">01/01/2024 - 31/12/2024</p>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="text-muted">Motivo da Verificação</label>
+                                                <p class="mb-0" id="verification-reason">Renovação do contrato de prestação de serviços</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Uploaded Documents -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <iconify-icon icon="solar:folder-with-files-bold-duotone" class="me-2"></iconify-icon>
+                                        Documentos Enviados
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row" id="documents-list">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="border rounded p-3 d-flex align-items-center">
+                                                <div class="me-3">
+                                                    <iconify-icon icon="solar:file-text-bold-duotone" class="fs-24 text-primary"></iconify-icon>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mb-1">apolice-exemplo.pdf</h6>
+                                                    <p class="text-muted mb-0 small">Documento da Apólice • 2.4 MB</p>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-soft-primary btn-sm" onclick="viewDocument('apolice-exemplo.pdf')">
+                                                        <iconify-icon icon="solar:eye-bold"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-soft-success btn-sm ms-1" onclick="downloadDocument('apolice-exemplo.pdf')">
+                                                        <iconify-icon icon="solar:download-bold"></iconify-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="border rounded p-3 d-flex align-items-center">
+                                                <div class="me-3">
+                                                    <iconify-icon icon="solar:file-text-bold-duotone" class="fs-24 text-success"></iconify-icon>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mb-1">identificacao-segurado.pdf</h6>
+                                                    <p class="text-muted mb-0 small">Identificação • 1.8 MB</p>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-soft-primary btn-sm" onclick="viewDocument('identificacao-segurado.pdf')">
+                                                        <iconify-icon icon="solar:eye-bold"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-soft-success btn-sm ms-1" onclick="downloadDocument('identificacao-segurado.pdf')">
+                                                        <iconify-icon icon="solar:download-bold"></iconify-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Column - Status Timeline -->
+                        <div class="col-lg-4">
+                            
+                            <!-- Status Timeline -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <iconify-icon icon="solar:history-bold-duotone" class="me-2"></iconify-icon>
+                                        Timeline de Status
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="timeline-alt pb-0" id="status-timeline">
+                                        <div class="timeline-item">
+                                            <div class="timeline-icon bg-success">
+                                                <iconify-icon icon="solar:check-circle-bold"></iconify-icon>
+                                            </div>
+                                            <div class="timeline-item-info">
+                                                <h6 class="mt-0 mb-1">Solicitação Criada</h6>
+                                                <p class="text-muted mb-1">
+                                                    <small>05 Jan 2024, 14:30</small>
+                                                </p>
+                                                <p class="text-muted mb-0">
+                                                    <small>Documentos enviados e validados</small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-icon bg-info">
+                                                <iconify-icon icon="solar:eye-bold"></iconify-icon>
+                                            </div>
+                                            <div class="timeline-item-info">
+                                                <h6 class="mt-0 mb-1">Em Revisão</h6>
+                                                <p class="text-muted mb-1">
+                                                    <small>05 Jan 2024, 15:00</small>
+                                                </p>
+                                                <p class="text-muted mb-0">
+                                                    <small>Análise técnica iniciada</small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-icon bg-warning">
+                                                <iconify-icon icon="solar:clock-circle-bold"></iconify-icon>
+                                            </div>
+                                            <div class="timeline-item-info">
+                                                <h6 class="mt-0 mb-1">Aguardando Análise</h6>
+                                                <p class="text-muted mb-1">
+                                                    <small>Status Atual</small>
+                                                </p>
+                                                <p class="text-muted mb-0">
+                                                    <small>Tempo estimado: 2-3 dias úteis</small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Actions -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <iconify-icon icon="solar:bolt-bold-duotone" class="me-2"></iconify-icon>
+                                        Ações Rápidas
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-outline-primary" onclick="downloadRequest()">
+                                            <iconify-icon icon="solar:download-bold" class="me-2"></iconify-icon>
+                                            Baixar Solicitação
+                                        </button>
+                                        <button class="btn btn-outline-info" onclick="trackRequest()">
+                                            <iconify-icon icon="solar:eye-bold" class="me-2"></iconify-icon>
+                                            Acompanhar Status
+                                        </button>
+                                        <button class="btn btn-outline-success" onclick="contactSupport()">
+                                            <iconify-icon icon="solar:phone-bold" class="me-2"></iconify-icon>
+                                            Contactar Suporte
+                                        </button>
+                                        <hr>
+                                        <button class="btn btn-outline-danger" onclick="cancelRequest()">
+                                            <iconify-icon icon="solar:trash-bin-minimalistic-bold" class="me-2"></iconify-icon>
+                                            Cancelar Solicitação
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progress Summary -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <iconify-icon icon="solar:chart-bold-duotone" class="me-2"></iconify-icon>
+                                        Resumo do Progresso
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <div class="progress progress-lg mb-3">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <h6 class="mb-1">60% Concluído</h6>
+                                        <p class="text-muted mb-0">Etapa 2 de 3</p>
+                                    </div>
+                                    <hr>
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <h5 class="mb-1 text-success">✓</h5>
+                                            <p class="text-muted mb-0 small">Submetida</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5 class="mb-1 text-warning">●</h5>
+                                            <p class="text-muted mb-0 small">Em Análise</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5 class="mb-1 text-muted">○</h5>
+                                            <p class="text-muted mb-0 small">Finalizada</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Container Fluid -->
+
+                <!-- ========== Footer Start ========== -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script>
+                                &copy; ISSM - Instituto de Supervisão de Seguros de Moçambique. Portal das Entidades.
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- ========== Footer End ========== -->
+            </div>
+        </div>
+        <!-- END Wrapper -->
+
+        <!-- Document Viewer Modal -->
+        <div class="modal fade" id="documentViewerModal" tabindex="-1">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Visualizar Documento</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <iframe id="documentFrame" src="" style="width: 100%; height: 600px; border: none;"></iframe>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="downloadCurrentDocument()">
+                            <iconify-icon icon="solar:download-bold" class="me-1"></iconify-icon> Baixar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vendor Javascript -->
+        <script src="../assets/js/vendor.js"></script>
+        <script src="../assets/js/app.js"></script>
+        <script src="../assets/js/pages/verification-details.js"></script>
+    </body>
+
+</html>
