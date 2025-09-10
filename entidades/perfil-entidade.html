@@ -2,9 +2,9 @@
 <html lang="pt" data-bs-theme="light" data-menu-color="brand" data-topbar-color="light">
 <head>
     <meta charset="utf-8" />
-    <title>Perfil da Entidade | ISSM - Portal das Entidades</title>
+    <title>Perfil da Entidade | ISSM - Portal de verificação de apólices</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Portal das Entidades ISSM - Gestão do Perfil da Entidade" name="description" />
+    <meta content="Portal de verificação de apólices ISSM - Gestão do Perfil da Entidade" name="description" />
     <meta content="ISSM" name="author" />
 
     <!-- App favicon -->
@@ -42,7 +42,7 @@
 
                         <!-- Portal Title -->
                         <div class="topbar-item">
-                            <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Portal das Entidades</h4>
+                            <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Portal de verificação de apólices</h4>
                         </div>
                     </div>
 
@@ -94,10 +94,10 @@
             <!-- Sidebar Logo -->
             <div class="logo-box">
                 <a href="index.html" class="logo-dark">
-                    <img src="../assets/images/logo.png" class="logo-lg" alt="logo">
+                    <img src="../assets/images/Logo/LOGO-ISSM-2025.png" class="logo-lg" alt="logo">
                 </a>
                 <a href="index.html" class="logo-light">
-                    <img src="../assets/images/logo.png" class="logo-lg" alt="logo">
+                    <img src="../assets/images/Logo/LOGO-ISSM-2025.png" class="logo-lg" alt="logo">
                 </a>
             </div>
 
@@ -107,51 +107,101 @@
             </button>
 
             <div class="scrollbar" data-simplebar>
-                <ul class="navbar-nav" id="navbar-nav">
-                    <li class="menu-title">Portal das Entidades</li>
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">
-                            <span class="nav-icon">
-                                <iconify-icon icon="solar:widget-add-bold-duotone"></iconify-icon>
-                            </span>
-                            <span class="nav-text"> Dashboard </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-arrow" href="#sidebarVerificacoes" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarVerificacoes">
-                            <span class="nav-icon">
-                                <iconify-icon icon="solar:document-medicine-bold-duotone"></iconify-icon>
-                            </span>
-                            <span class="nav-text"> Verificações </span>
-                        </a>
-                        <div class="collapse" id="sidebarVerificacoes">
-                            <ul class="nav sub-navbar-nav">
-                                <li class="sub-nav-item"><a href="verificacoes-lista.html" class="sub-nav-link">Todas as Solicitações</a></li>
-                                <li class="sub-nav-item"><a href="verificacao-criar.html" class="sub-nav-link">Nova Solicitação</a></li>
-                                <li class="sub-nav-item"><a href="verificacoes-lista.html?status=pending" class="sub-nav-link">Pendentes</a></li>
-                                <li class="sub-nav-item"><a href="verificacoes-lista.html?status=approved" class="sub-nav-link">Aprovadas</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="menu-title mt-2">Configurações</li>
-                    <li class="nav-item">
-                        <a href="perfil-entidade.html" class="nav-link active">
-                            <span class="nav-icon">
-                                <iconify-icon icon="solar:user-bold-duotone"></iconify-icon>
-                            </span>
-                            <span class="nav-text"> Perfil da Entidade </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="configuracoes.html" class="nav-link">
-                            <span class="nav-icon">
-                                <iconify-icon icon="solar:settings-bold-duotone"></iconify-icon>
-                            </span>
-                            <span class="nav-text"> Configurações </span>
-                        </a>
-                    </li>
+          <ul class="navbar-nav" id="navbar-nav">
+            <li class="menu-title">Portal de verificação de apólices</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <span class="nav-icon">
+                  <iconify-icon
+                    icon="solar:widget-5-bold-duotone"
+                  ></iconify-icon>
+                </span>
+                <span class="nav-text"> Dashboard </span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link menu-arrow"
+                href="#sidebarVerificacoes"
+                data-bs-toggle="collapse"
+                role="button"
+                aria-expanded="false"
+                aria-controls="sidebarVerificacoes"
+              >
+                <span class="nav-icon">
+                  <iconify-icon
+                    icon="solar:document-medicine-bold-duotone"
+                  ></iconify-icon>
+                </span>
+                <span class="nav-text"> Verificações </span>
+              </a>
+              <div class="collapse" id="sidebarVerificacoes">
+                <ul class="nav sub-navbar-nav">
+                  <li class="sub-nav-item">
+                    <a class="sub-nav-link" href="verificacoes-lista.html">Todas as Solicitações</a>
+                  </li>
+                  <li class="sub-nav-item">
+                    <a class="sub-nav-link" href="verificacao-criar.html">Nova Solicitação</a>
+                  </li>
+                  <li class="sub-nav-item">
+                    <a class="sub-nav-link" href="verificacoes-lista.html?status=draft">Rascunhos</a>
+                  </li>
+                  <li class="sub-nav-item">
+                    <a class="sub-nav-link" href="verificacoes-lista.html?status=pending">Pendentes</a>
+                  </li>
+                  <li class="sub-nav-item">
+                    <a class="sub-nav-link" href="verificacoes-lista.html?status=approved">Aprovadas</a>
+                  </li>
                 </ul>
-            </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="relatorios.html">
+                <span class="nav-icon">
+                  <iconify-icon
+                    icon="solar:chart-bold-duotone"
+                  ></iconify-icon>
+                </span>
+                <span class="nav-text"> Relatórios </span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="perfil-entidade.html">
+                <span class="nav-icon">
+                  <iconify-icon
+                    icon="solar:user-bold-duotone"
+                  ></iconify-icon>
+                </span>
+                <span class="nav-text"> Perfil da Entidade </span>
+              </a>
+            </li>
+
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="configuracoes.html">
+                <span class="nav-icon">
+                  <iconify-icon
+                    icon="solar:settings-bold-duotone"
+                  ></iconify-icon>
+                </span>
+                <span class="nav-text"> Configurações </span>
+              </a>
+            </li> -->
+
+            
+
+            <li class="nav-item">
+              <a class="nav-link" href="settings.html">
+                <i class="bx bx-log-out fs-18 align-middle me-1"></i
+                    >
+                <span class="nav-text"> Sair </span>
+              </a>
+            </li>
+          </ul>
+        </div>
         </div>
         <!-- ========== App Menu End ========== -->
 
@@ -168,7 +218,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="index.html">Portal das Entidades</a></li>
+                                        <li class="breadcrumb-item"><a href="index.html">Portal de verificação de apólices</a></li>
                                         <li class="breadcrumb-item active">Perfil da Entidade</li>
                                     </ol>
                                 </div>
@@ -517,7 +567,7 @@ Bairro Central, Maputo</textarea>
                     <div class="row">
                         <div class="col-12 text-center">
                             <script>document.write(new Date().getFullYear());</script>
-                            &copy; ISSM - Instituto de Supervisão de Seguros de Moçambique. Portal das Entidades.
+                            &copy; ISSM - Instituto de Supervisão de Seguros de Moçambique. Portal de verificação de apólices.
                         </div>
                     </div>
                 </div>
