@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Title Meta -->
+    <meta charset="utf-8" />
+    <title>ISSM | Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully responsive premium admin dashboard template" />
+    <meta name="author" content="Techzaa" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/">
+
+    <!-- Vendor css (Require in all Page) -->
+    <link href="/assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Icons css (Require in all Page) -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css (Require in all Page) -->
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme Config js (Require in all Page) -->
+    <script src="/assets/js/config.js"></script>
+
+    <style>
+        /* Altura “do box” do logo – ajuste como quiser */
+        .logo-box {
+            height: 56px;
+            /* mobile */
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* A imagem ocupa a altura do box sem distorcer */
+        .logo-box .logo {
+            max-height: 100%;
+            width: 92%;
+            /* mantém proporção */
+            object-fit: contain;
+            /* garante que caiba no box */
+            display: block;
+        }
+
+        /* Aumenta um pouco em telas maiores */
+        @media (min-width: 992px) {
+
+            /* lg */
+            .logo-box {
+                height: 64px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+
+            /* xxl */
+            .logo-box {
+                height: 72px;
+            }
+        }
+
+        /* (Opcional) se tiver tema claro/escuro, controle visibilidade */
+        .logo-light {
+            display: none;
+        }
+
+        [data-bs-theme="light"] .logo-light {
+            display: inline-flex;
+        }
+
+        [data-bs-theme="light"] .logo-dark {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- START Wrapper -->
+    <div class="wrapper">
+
+        <!-- ========== Topbar Start ========== -->
+        <header class="topbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="d-flex align-items-center">
+                        <!-- Menu Toggle Button -->
+                        <div class="topbar-item">
+                            <button type="button" class="button-toggle-menu me-2">
+                                <iconify-icon icon="solar:hamburger-menu-broken"
+                                    class="fs-24 align-middle"></iconify-icon>
+                            </button>
+                        </div>
+                        <!-- Menu Toggle Button -->
+                        <div class="topbar-item">
+                            <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Dashboard</h4>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-1">
+
+                        <!-- Theme Color (Light/Dark) -->
+                        <div class="topbar-item">
+                            <button type="button" class="topbar-button" id="light-dark-mode">
+                                <iconify-icon icon="solar:moon-bold-duotone" class="fs-24 align-middle"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- Notification -->
+                        <div class="dropdown topbar-item">
+                            <button type="button" class="topbar-button position-relative"
+                                id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <iconify-icon icon="solar:bell-bing-bold-duotone"
+                                    class="fs-24 align-middle"></iconify-icon>
+                                <span
+                                    class="position-absolute topbar-badge fs-10 translate-middle badge bg-danger rounded-pill">3<span
+                                        class="visually-hidden">Mensagens não lidas</span></span>
+                            </button>
+                            <div class="dropdown-menu py-0 dropdown-lg dropdown-menu-end"
+                                aria-labelledby="page-header-notifications-dropdown">
+                                <div class="p-3 border-top-0 border-start-0 border-end-0 border-dashed border">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0 fs-16 fw-semibold"> Notificações</h6>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a href="javascript: void(0);" class="text-dark text-decoration-underline">
+                                                <small>Limpar tudo</small>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-simplebar style="max-height: 280px;">
+                                    <!-- Item -->
+                                    <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom text-wrap">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <img src="/assets/images/users/avatar-1.jpg"
+                                                    class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-1" />
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0">
+                                                    <span class="fw-medium">Joana Matola</span> comentou na solicitação
+                                                    <span class="text-muted">#APL-MT202506894</span> —
+                                                    <span>“Documento atualizado e pronto para revisão.”</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item -->
+                                    <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="avatar-sm me-2">
+                                                    <span
+                                                        class="avatar-title bg-soft-info text-info fs-20 rounded-circle">
+                                                        P
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0 fw-semibold">Paulo M.</p>
+                                                <p class="mb-0 text-wrap">
+                                                    Precisa de validação para envio ao FUNAE (<span
+                                                        class="text-muted">SLA 1h</span>).
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item -->
+                                    <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <img src="/assets/images/users/avatar-3.jpg"
+                                                    class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-3" />
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0 fw-semibold">Jacob G.</p>
+                                                <p class="mb-0 text-wrap">
+                                                    Respondeu ao teu comentário no relatório da Presidência — marcado
+                                                    como <b>Aprovado</b>.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item -->
+                                    <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="avatar-sm me-2">
+                                                    <span
+                                                        class="avatar-title bg-soft-warning text-warning fs-20 rounded-circle d-inline-flex align-items-center justify-content-center">
+                                                        <i class="bx bx-time-five"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0 fw-semibold text-wrap">
+                                                    Tens <b>20</b> novas mensagens nas solicitações em andamento
+                                                    (verificar pendentes).
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item -->
+                                    <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <img src="/assets/images/users/avatar-5.jpg"
+                                                    class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-5" />
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0 fw-semibold">Shawn Bunch</p>
+                                                <p class="mb-0 text-wrap">
+                                                    Comentou na resposta do MISAU — solicitou anexar parecer técnico.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="text-center py-3">
+                                    <a href="javascript:void(0);" class="btn btn-primary btn-sm">
+                                        Ver todas as notificações
+                                        <i class="bx bx-right-arrow-alt ms-1"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Theme Setting -->
+                        <div class="topbar-item d-none d-md-flex">
+                            <button type="button" class="topbar-button" id="theme-settings-btn"
+                                data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas"
+                                aria-controls="theme-settings-offcanvas">
+                                <iconify-icon icon="solar:settings-bold-duotone"
+                                    class="fs-24 align-middle"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- Activity -->
+                        <div class="topbar-item d-none d-md-flex">
+                            <button type="button" class="topbar-button" id="theme-settings-btn"
+                                data-bs-toggle="offcanvas" data-bs-target="#theme-activity-offcanvas"
+                                aria-controls="theme-settings-offcanvas">
+                                <iconify-icon icon="solar:clock-circle-bold-duotone"
+                                    class="fs-24 align-middle"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- User -->
+                        <div class="dropdown topbar-item">
+                            <a type="button" class="topbar-button" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="d-flex align-items-center">
+                                    <img class="rounded-circle" width="32" src="/assets/images/users/avatar-1.jpg"
+                                        alt="avatar-3">
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <h6 class="dropdown-header">Bem Vindo, <strong>Osvaldo</strong>!</h6>
+                                <a class="dropdown-item" href="pages-profile.html">
+                                    <i class="bx bx-user-circle text-muted fs-18 align-middle me-1"></i><span
+                                        class="align-middle">Perfil</span>
+                                </a>
+                                <a class="dropdown-item" href="apps-chat.html">
+                                    <i class="bx bx-message-dots text-muted fs-18 align-middle me-1"></i><span
+                                        class="align-middle">Mensagens</span>
+                                </a>
+                                <a class="dropdown-item" href="auth-lock-screen.html">
+                                    <i class="bx bx-lock text-muted fs-18 align-middle me-1"></i><span
+                                        class="align-middle">Bloquear a tela</span>
+                                </a>
+
+                                <div class="dropdown-divider my-1"></div>
+
+                                <a class="dropdown-item text-danger" href="auth-signin.html">
+                                    <i class="bx bx-log-out fs-18 align-middle me-1"></i><span
+                                        class="align-middle">Sair</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- App Search-->
+                        <form class="app-search d-none d-md-block ms-2">
+                            <div class="position-relative">
+                                <input type="search" class="form-control" placeholder="Pesquisar..." autocomplete="off"
+                                    value="">
+                                <iconify-icon icon="solar:magnifer-linear" class="search-widget-icon"></iconify-icon>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Activity Timeline -->
+        <div>
+            <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-activity-offcanvas"
+                style="max-width: 450px; width: 100%;">
+                <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
+                    <h5 class="text-white m-0 fw-semibold">Activity Stream</h5>
+                    <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body p-0">
+                    <div data-simplebar class="h-100 p-4">
+                        <div class="position-relative ms-2">
+                            <span class="position-absolute start-0  top-0 border border-dashed h-100"></span>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 avatar-sm translate-middle-x bg-danger d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><iconify-icon
+                                            icon="iconamoon:folder-check-duotone"></iconify-icon></span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-1 text-dark fw-semibold fs-15 lh-base">Report-Fix / Update </h5>
+                                        <p class="d-flex align-items-center">Add 3 files to <span
+                                                class=" d-flex align-items-center text-primary ms-1"><iconify-icon
+                                                    icon="iconamoon:file-light"></iconify-icon> Tasks</span></p>
+                                        <div class="bg-light bg-opacity-50 rounded-2 p-2">
+                                            <div class="row">
+                                                <div class="col-lg-6 border-end border-light">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <i class="bx bxl-figma fs-20 text-red"></i>
+                                                        <a href="#!" class="text-dark fw-medium">Concept.fig</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <i class="bx bxl-file-doc fs-20 text-success"></i>
+                                                        <a href="#!" class="text-dark fw-medium">larkon.docs</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h6 class="mt-2 text-muted">Monday , 4:24 PM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 avatar-sm translate-middle-x bg-success d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><iconify-icon
+                                            icon="iconamoon:check-circle-1-duotone"></iconify-icon></span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-1 text-dark fw-semibold fs-15 lh-base">Project Status
+                                        </h5>
+                                        <p class="d-flex align-items-center mb-0">Marked<span
+                                                class=" d-flex align-items-center text-primary mx-1"><iconify-icon
+                                                    icon="iconamoon:file-light"></iconify-icon> Design </span> as <span
+                                                class="badge bg-success-subtle text-success px-2 py-1 ms-1">
+                                                Completed</span></p>
+                                        <div
+                                            class="d-flex align-items-center gap-3 mt-1 bg-light bg-opacity-50 p-2 rounded-2">
+                                            <a href="#!" class="fw-medium text-dark">UI/UX Figma Design</a>
+                                            <div class="ms-auto">
+                                                <a href="#!" class="fw-medium text-primary fs-18"
+                                                    data-bs-toggle="tooltip" data-bs-title="Download"
+                                                    data-bs-placement="bottom"><iconify-icon
+                                                        icon="iconamoon:cloud-download-duotone"></iconify-icon></a>
+                                            </div>
+                                        </div>
+                                        <h6 class="mt-3 text-muted">Monday , 3:00 PM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 avatar-sm translate-middle-x bg-primary d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-16">UI</span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-1 text-dark fw-semibold fs-15">Larkon Application UI v2.0.0 <span
+                                                class="badge bg-primary-subtle text-primary px-2 py-1 ms-1">
+                                                Latest</span>
+                                        </h5>
+                                        <p>Get access to over 20+ pages including a dashboard layout, charts, kanban
+                                            board, calendar, and pre-order E-commerce & Marketing pages.</p>
+                                        <div class="mt-2">
+                                            <a href="#!" class="btn btn-light btn-sm">Download Zip</a>
+                                        </div>
+                                        <h6 class="mt-3 text-muted">Monday , 2:10 PM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 translate-middle-x bg-success bg-gradient d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><img
+                                            src="/assets/images/users/avatar-7.jpg" alt="avatar-5"
+                                            class="avatar-sm rounded-circle"></span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-0 text-dark fw-semibold fs-15 lh-base">Alex Smith Attached Photos
+                                        </h5>
+                                        <div class="row g-2 mt-2">
+                                            <div class="col-lg-4">
+                                                <a href="#!">
+                                                    <img src="/assets/images/small/img-6.jpg" alt=""
+                                                        class="img-fluid rounded">
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="#!">
+                                                    <img src="/assets/images/small/img-3.jpg" alt=""
+                                                        class="img-fluid rounded">
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="#!">
+                                                    <img src="/assets/images/small/img-4.jpg" alt=""
+                                                        class="img-fluid rounded">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <h6 class="mt-3 text-muted">Monday 1:00 PM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 translate-middle-x bg-success bg-gradient d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><img
+                                            src="/assets/images/users/avatar-6.jpg" alt="avatar-5"
+                                            class="avatar-sm rounded-circle"></span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-0 text-dark fw-semibold fs-15 lh-base">Rebecca J. added a new team
+                                            member
+                                        </h5>
+                                        <p class="d-flex align-items-center gap-1"><iconify-icon
+                                                icon="iconamoon:check-circle-1-duotone"
+                                                class="text-success"></iconify-icon> Added a new member to Front
+                                            Dashboard</p>
+                                        <h6 class="mt-3 text-muted">Monday 10:00 AM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 avatar-sm translate-middle-x bg-warning d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><iconify-icon
+                                            icon="iconamoon:certificate-badge-duotone"></iconify-icon></span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-0 text-dark fw-semibold fs-15 lh-base">Achievements
+                                        </h5>
+                                        <p class="d-flex align-items-center gap-1 mt-1">Earned a <iconify-icon
+                                                icon="iconamoon:certificate-badge-duotone"
+                                                class="text-danger fs-20"></iconify-icon>" Best Product Award"</p>
+                                        <h6 class="mt-3 text-muted">Monday 9:30 AM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#!" class="btn btn-outline-dark w-100">View All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar (Theme Settings) -->
+        <div>
+            <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
+                <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
+                    <h5 class="text-white m-0">Theme Settings</h5>
+                    <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body p-0">
+                    <div data-simplebar class="h-100">
+                        <div class="p-3 settings-bar">
+
+                            <div>
+                                <h5 class="mb-3 font-16 fw-semibold">Color Scheme</h5>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-bs-theme"
+                                        id="layout-color-light" value="light">
+                                    <label class="form-check-label" for="layout-color-light">Light</label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-bs-theme"
+                                        id="layout-color-dark" value="dark">
+                                    <label class="form-check-label" for="layout-color-dark">Dark</label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5 class="my-3 font-16 fw-semibold">Topbar Color</h5>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-topbar-color"
+                                        id="topbar-color-light" value="light">
+                                    <label class="form-check-label" for="topbar-color-light">Light</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-topbar-color"
+                                        id="topbar-color-dark" value="dark">
+                                    <label class="form-check-label" for="topbar-color-dark">Dark</label>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <h5 class="my-3 font-16 fw-semibold">Menu Color</h5>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-color"
+                                        id="leftbar-color-light" value="light">
+                                    <label class="form-check-label" for="leftbar-color-light">
+                                        Light
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-color"
+                                        id="leftbar-color-dark" value="dark">
+                                    <label class="form-check-label" for="leftbar-color-dark">
+                                        Dark
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5 class="my-3 font-16 fw-semibold">Sidebar Size</h5>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-size"
+                                        id="leftbar-size-default" value="default">
+                                    <label class="form-check-label" for="leftbar-size-default">
+                                        Default
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-size"
+                                        id="leftbar-size-small" value="condensed">
+                                    <label class="form-check-label" for="leftbar-size-small">
+                                        Condensed
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-size"
+                                        id="leftbar-hidden" value="hidden">
+                                    <label class="form-check-label" for="leftbar-hidden">
+                                        Hidden
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-size"
+                                        id="leftbar-size-small-hover-active" value="sm-hover-active">
+                                    <label class="form-check-label" for="leftbar-size-small-hover-active">
+                                        Small Hover Active
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-size"
+                                        id="leftbar-size-small-hover" value="sm-hover">
+                                    <label class="form-check-label" for="leftbar-size-small-hover">
+                                        Small Hover
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="offcanvas-footer border-top p-3 text-center">
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-danger w-100" id="reset-layout">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ========== Topbar End ========== -->
+
+        <!-- ========== App Menu Start ========== -->
+        <div class="main-nav">
+            <!-- Sidebar Logo -->
+            <div class="logo-box ml-3">
+                <a href="index.html" class="logo-dark d-inline-flex align-items-center">
+                    <img src="/assets/images/Logo/LOGO-ISSM-2025.png" class="logo img-fluid" alt="Logo" />
+                </a>
+            </div>
+
+            <!-- Menu Toggle Button (sm-hover) -->
+            <button type="button" class="button-sm-hover" aria-label="Show Full Sidebar">
+                <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone"
+                    class="button-sm-hover-icon"></iconify-icon>
+            </button>
+
+            <div class="scrollbar" data-simplebar>
+                <ul class="navbar-nav" id="navbar-nav">
+
+                    <!-- Dashboard -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <span class="nav-icon"><i class="bx bx-grid-alt"></i></span>
+                            <span class="nav-text"> Dashboard </span>
+                        </a>
+                    </li>
+
+                    <!-- Pedidos -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarPedidos" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarPedidos">
+                            <span class="nav-icon"><i class="bx bx-notepad"></i></span>
+                            <span class="nav-text"> Pedidos </span>
+                        </a>
+                        <div class="collapse" id="sidebarPedidos">
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="pedidos-listar.html">
+                                        Listar
+                                        <span class="badge bg-secondary badge-pill ms-2">1,432</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Seguradoras -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarSeguradoras" data-bs-toggle="collapse"
+                            role="button" aria-expanded="false" aria-controls="sidebarSeguradoras">
+                            <span class="nav-icon"><i class="bx bx-shield"></i></span>
+                            <span class="nav-text"> Seguradoras </span>
+                        </a>
+                        <div class="collapse" id="sidebarSeguradoras">
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="criar-seguradora.html">Criar</a>
+                                </li>
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="seguradoras.html">
+                                        Listar
+                                        <span class="badge bg-secondary badge-pill ms-2">24</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Entidades -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarEntidades" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarEntidades">
+                            <span class="nav-icon"><i class="bx bx-buildings"></i></span>
+                            <span class="nav-text"> Entidades </span>
+                        </a>
+                        <div class="collapse" id="sidebarEntidades">
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="criar-entidade.html">Criar</a>
+                                </li>
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="entidades.html">
+                                        Listar
+                                        <span class="badge bg-secondary badge-pill ms-2">58</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Usuários -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarUsuarios" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarUsuarios">
+                            <span class="nav-icon"><i class="bx bx-user"></i></span>
+                            <span class="nav-text"> Usuários </span>
+                        </a>
+                        <div class="collapse" id="sidebarUsuarios">
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="usuarios-criar.html">Criar</a>
+                                </li>
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="usuarios-listar.html">
+                                        Listar
+                                        <span class="badge bg-secondary badge-pill ms-2">12</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Emails (badge no menu principal) -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/apps-email.html">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:mailbox-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text"> Emails </span>
+                            <span class="badge bg-info badge-pill ms-auto">9+</span>
+                        </a>
+                    </li>
+
+                    <!-- Perfil -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfil.html">
+                            <span class="nav-icon"><i class="bx bx-id-card"></i></span>
+                            <span class="nav-text"> Perfil </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+        <!-- ========== App Menu End ========== -->
+
+        <!-- ==================================================== -->
+        <!-- Start right Content here -->
+        <!-- ==================================================== -->
+        <div class="page-content">
+
+            <!-- Start Container Fluid -->
+            <div class="container-xxl">
+
+                <!-- Start here.... -->
+
+                <div class="row">
+                    <!-- Total de Pedidos -->
+                    <div class="col-md-3">
+                        <div class="card overflow-hidden">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="avatar-md bg-soft-primary rounded">
+                                            <iconify-icon icon="solar:clipboard-list-bold-duotone"
+                                                class="avatar-title fs-32 text-primary"></iconify-icon>
+                                        </div>
+                                    </div> <!-- end col -->
+                                    <div class="col-6 text-end">
+                                        <p class="text-muted mb-0 text-truncate">Total de Pedidos</p>
+                                        <h3 class="text-dark mt-1 mb-0">12,480</h3>
+                                    </div> <!-- end col -->
+                                </div> <!-- end row-->
+                            </div> <!-- end card body -->
+                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="text-success"> <i class="bx bxs-up-arrow fs-12"></i> 3.1%</span>
+                                        <span class="text-muted ms-1 fs-12">Última Semana</span>
+                                    </div>
+                                    <a href="#!" class="text-reset fw-semibold fs-12">Ver Detalhes</a>
+                                </div>
+                            </div> <!-- end card body -->
+                        </div> <!-- end card -->
+                    </div> <!-- end col -->
+
+                    <!-- Aprovados -->
+                    <div class="col-md-3">
+                        <div class="card overflow-hidden">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="avatar-md bg-soft-primary rounded">
+                                            <i class="bx bx-check-circle avatar-title fs-24 text-primary"></i>
+                                        </div>
+                                    </div> <!-- end col -->
+                                    <div class="col-6 text-end">
+                                        <p class="text-muted mb-0 text-truncate">Aprovados</p>
+                                        <h3 class="text-dark mt-1 mb-0">7,932</h3>
+                                    </div> <!-- end col -->
+                                </div> <!-- end row-->
+                            </div> <!-- end card body -->
+                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="text-success"> <i class="bx bxs-up-arrow fs-12"></i> 5.4%</span>
+                                        <span class="text-muted ms-1 fs-12">Último Mês</span>
+                                    </div>
+                                    <a href="#!" class="text-reset fw-semibold fs-12">Ver Detalhes</a>
+                                </div>
+                            </div> <!-- end card body -->
+                        </div> <!-- end card -->
+                    </div> <!-- end col -->
+
+                    <!-- Pendentes -->
+                    <div class="col-md-3">
+                        <div class="card overflow-hidden">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="avatar-md bg-soft-primary rounded">
+                                            <i class="bx bx-time-five avatar-title fs-24 text-primary"></i>
+                                        </div>
+                                    </div> <!-- end col -->
+                                    <div class="col-6 text-end">
+                                        <p class="text-muted mb-0 text-truncate">Pendentes</p>
+                                        <h3 class="text-dark mt-1 mb-0">3,104</h3>
+                                    </div> <!-- end col -->
+                                </div> <!-- end row-->
+                            </div> <!-- end card body -->
+                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="text-danger"> <i class="bx bxs-down-arrow fs-12"></i> 1.2%</span>
+                                        <span class="text-muted ms-1 fs-12">Último Mês</span>
+                                    </div>
+                                    <a href="#!" class="text-reset fw-semibold fs-12">Ver Detalhes</a>
+                                </div>
+                            </div> <!-- end card body -->
+                        </div> <!-- end card -->
+                    </div> <!-- end col -->
+
+                    <!-- Rejeitados -->
+                    <div class="col-md-3">
+                        <div class="card overflow-hidden">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="avatar-md bg-soft-primary rounded">
+                                            <i class="bx bx-x-circle avatar-title text-primary fs-24"></i>
+                                        </div>
+                                    </div> <!-- end col -->
+                                    <div class="col-6 text-end">
+                                        <p class="text-muted mb-0 text-truncate">Rejeitados</p>
+                                        <h3 class="text-dark mt-1 mb-0">1,444</h3>
+                                    </div> <!-- end col -->
+                                </div> <!-- end row-->
+                            </div> <!-- end card body -->
+                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="text-danger"> <i class="bx bxs-down-arrow fs-12"></i> 0.9%</span>
+                                        <span class="text-muted ms-1 fs-12">Último Mês</span>
+                                    </div>
+                                    <a href="#!" class="text-reset fw-semibold fs-12">Ver Detalhes</a>
+                                </div>
+                            </div> <!-- end card body -->
+                        </div> <!-- end card -->
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+                <div class="row">
+                    <!-- Total Respondidos -->
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body overflow-hidden position-relative">
+                                <i class="bx bx-mail-send fs-36 text-info"></i>
+                                <h3 class="mb-0 fw-bold mt-3 mb-1">8,920</h3>
+                                <p class="text-muted">Total Respondidos</p>
+                                <span class="badge fs-12 badge-soft-success"><i class="ti ti-arrow-badge-up"></i>
+                                    4.8%</span>
+                                <i class='bx bx-doughnut-chart widget-icon'></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Em Andamento -->
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body overflow-hidden position-relative">
+                                <i class="bx bx-loader-circle fs-36 text-success"></i>
+                                <h3 class="mb-0 fw-bold mt-3 mb-1">1,067</h3>
+                                <p class="text-muted">Em Andamento</p>
+                                <span class="badge fs-12 badge-soft-warning"><i class="ti ti-arrow-badge-right"></i>
+                                    0.6%</span>
+                                <i class='bx bx-bar-chart-alt-2 widget-icon'></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aprovadas -->
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body overflow-hidden position-relative">
+                                <i class="bx bx-inbox fs-36 text-purple"></i>
+                                <i class='bx bx-receipt fs-36 text-purple'></i>
+                                <h3 class="mb-0 fw-bold mt-3 mb-1">524</h3>
+                                <p class="text-muted">Aprovadas</p>
+                                <span class="badge fs-12 badge-soft-info"><i class="ti ti-arrow-badge-up"></i>
+                                    Hoje</span>
+                                <i class='bx bx-building-house widget-icon'></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Respondidas Hoje -->
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body overflow-hidden position-relative">
+                                <i class="bx bx-send fs-36 text-orange"></i>
+                                <h3 class="mb-0 fw-bold mt-3 mb-1">318</h3>
+                                <p class="text-muted">Respondidas Hoje</p>
+                                <span class="badge fs-12 badge-soft-success"><i class="ti ti-arrow-badge-up"></i>
+                                    12.4%</span>
+                                <i class='bx bx-bowl-hot widget-icon'></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLA Médio -->
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body overflow-hidden position-relative">
+                                <i class="bx bx-time fs-36 text-warning"></i>
+                                <h3 class="mb-0 fw-bold mt-3 mb-1">2h 15m</h3>
+                                <p class="text-muted">SLA Médio de Resposta</p>
+                                <span class="badge fs-12 badge-soft-success"><i class="ti ti-arrow-badge-up"></i>
+                                    7.3%</span>
+                                <i class='bx bx-timer widget-icon'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- end row-->
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="pt-3 px-3">
+                                    <div class="float-end">
+                                        <a href="javascript:void(0);" class="text-primary">Export
+                                            <i class="bx bx-export ms-1"></i>
+                                        </a>
+                                    </div>
+                                    <h5 class="card-title mb-3">PEDIDOS RECEBIDOS HOJE</h5>
+                                </div>
+                                <div class="mb-3" data-simplebar style="max-height: 324px;">
+                                    <div class="table-responsive table-centered table-nowrap px-3">
+                                        <table class="table table-hover align-middle mb-0">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Logo</th>
+                                                    <th>Empresa</th>
+                                                    <th>Seguradora</th>
+                                                    <th>Cliente</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="avatar-group">
+                                                        <a href="javascript:void(0);" class="avatar-group-item">
+                                                            <img src="/assets/images/seguradoras/PalmtreesLogo-64.png"
+                                                                alt="emose"
+                                                                class="img-fluid avatar-l rounded-circle avatar-border" />
+                                                        </a>
+                                                    </td>
+
+                                                    <td>MUNICÍPIO DE MAPUTO</td>
+                                                    <td><span class="text-primary fw-semibold">Palma Seguros</span></td>
+                                                    <td><span class="badge bg-soft-success text-success">TECHSOLUTIONS,
+                                                            LDA</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="avatar-group-item">
+                                                            <img src="/assets/images/seguradoras/emose.png" alt="emose"
+                                                                class="img-fluid avatar-l rounded-circle avatar-border" />
+                                                        </a>
+                                                    </td>
+
+                                                    <td>CÂMARA MUNICIPAL DE MATOLA</td>
+                                                    <td><span class="text-primary fw-semibold">EMOSE</span></td>
+                                                    <td><span class="badge bg-soft-success text-success">SOFTLINK,
+                                                            SA</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="avatar-group-item">
+                                                            <img src="/assets/images/seguradoras/IndicoSeguro_IconPrincipal.png"
+                                                                alt="emose"
+                                                                class="img-fluid avatar-l rounded-circle avatar-border" />
+                                                        </a>
+                                                    </td>
+
+                                                    <td>EDM – ELETRICIDADE DE MOÇAMBIQUE</td>
+                                                    <td><span class="text-primary fw-semibold">Indico Seguros</span>
+                                                    </td>
+                                                    <td><span class="badge bg-soft-success text-success">MOZTECH,
+                                                            LDA</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="avatar-group-item">
+                                                            <img src="/assets/images/seguradoras/PalmtreesLogo-64.png"
+                                                                alt="emose"
+                                                                class="img-fluid avatar-l rounded-circle avatar-border" />
+                                                        </a>
+                                                    </td>
+
+                                                    <td>PORTOS E CAMINHOS DE FERRO DE MOÇAMBIQUE</td>
+                                                    <td><span class="text-primary fw-semibold">Palma Seguros</span></td>
+                                                    <td><span class="badge bg-soft-success text-success">INNOVARE,
+                                                            LDA</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="avatar-group-item">
+                                                            <img src="/assets/images/seguradoras/PalmtreesLogo-64.png"
+                                                                alt="emose"
+                                                                class="img-fluid avatar-l rounded-circle avatar-border" />
+                                                        </a>
+                                                    </td>
+
+                                                    <td>ÁGUA DE REGIÃO METROPOLITANA</td>
+                                                    <td><span class="text-primary fw-semibold">Palama, Seguros</span>
+                                                    </td>
+                                                    <td><span class="badge bg-soft-success text-success">DIGITAL HUB,
+                                                            SA</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="avatar-group-item">
+                                                            <img src="/assets/images/seguradoras/emose.png" alt="emose"
+                                                                class="img-fluid avatar-l rounded-circle avatar-border" />
+                                                        </a>
+                                                    </td>
+
+                                                    <td>AEROPORTOS DE MOÇAMBIQUE</td>
+                                                    <td><span class="text-primary fw-semibold">EMOSE</span></td>
+                                                    <td><span class="badge bg-soft-success text-success">NEXTGEN
+                                                            SYSTEMS</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                            </div> <!-- end card body -->
+                        </div> <!-- end card -->
+                    </div> <!-- end col -->
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-body ">
+                                <div class="dropdown float-end">
+                                    <a href="javascript:void(0);" class="dropdown-toggle arrow-none"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded fs-18 text-dark"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a href="javascript:void(0);" class="dropdown-item">
+                                            <i class="bx bx-list-ul me-2"></i>To Do
+                                        </a>
+                                        <a href="javascript:void(0);" class="dropdown-item">
+                                            <i class="bx bx-line-chart me-2"></i>In Progress
+                                        </a>
+                                        <a href="javascript:void(0);" class="dropdown-item">
+                                            <i class="bx bx-check-square me-2"></i>Completed
+                                        </a>
+                                    </div>
+                                </div>
+                                <h5 class="card-title mb-3">ULTIMAS NOTIFICAÇÕES</h5>
+                                <div class="row align-items-center">
+                                    <div class="col-3 col-sm-2">
+                                        <p>09:00</p>
+                                    </div>
+                                    <div class="col-9 col-sm-10">
+                                        <div class="alert alert-primary px-2" role="alert">
+                                            <p class="mb-0"><strong>RESPONDER AO FUNAE. <i><u><a
+                                                                href="#">#APL-MT202506894</a></u></i></strong></p>
+                                            <p class="mb-0">A resposta devia ter sido enviada no dia 05 de Setembro.
+                                                <i><u><strong>REJEITADO</strong></u></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row align-items-center">
+                                    <div class="col-3 col-sm-2">
+                                        <p>10:00</p>
+                                    </div>
+                                    <div class="col-9 col-sm-10">
+                                        <div class="alert alert-success px-2" role="alert">
+                                            <p class="mb-0"><strong>RESPONDER A PRESIDÊNCIA <i><u><a
+                                                                href="#">#APL-MT202506994</a></u></i></strong></p>
+                                            <p class="mb-0">A resposta devia ter sido enviada no dia 09 de Setembro.
+                                                <i><u><strong>APROVADO</strong></u></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row align-items-center">
+                                    <div class="col-3 col-sm-2">
+                                        <p>11:00</p>
+                                    </div>
+                                    <div class="col-9 col-sm-10">
+                                        <div class="alert alert-info px-2" role="alert">
+                                            <p class="mb-0"><strong>RESPONDER AO MINISTÉRIO DA SAÚDE <i><u><a
+                                                                href="#">#APL-MT202507111</a></u></i></strong></p>
+                                            <p class="mb-0">A resposta devia ter sido enviada no dia 10 de Setembro.
+                                                <i><u><strong>PENDENTE</strong></u></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row align-items-center">
+                                    <div class="col-3 col-sm-2">
+                                        <p class="mb-0">13:00</p>
+                                    </div>
+                                    <div class="col-9 col-sm-10">
+                                        <div class="alert alert-warning px-2 mb-0" role="alert">
+                                            <p class="mb-0"><strong>RESPONDER AO BANCO CENTRAL <i><u><a
+                                                                href="#">#APL-MT202507145</a></u></i></strong></p>
+                                            <p class="mb-0">A resposta devia ter sido enviada no dia 11 de Setembro.
+                                                <i><u><strong>EM ANÁLISE</strong></u></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> <!-- end card body -->
+                        </div> <!-- end card -->
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="row g-0">
+                                    <!-- ESQUERDA: Pedidos por Status -->
+                                    <div class="col-lg-4">
+                                        <div class="p-3">
+                                            <h5 class="card-title">PEDIDOS POR STATUS</h5>
+                                            <!-- mantém o mesmo id para o gráfico -->
+                                            <div id="conversions" class="apex-charts mb-2 mt-n2"></div>
+
+                                            <div class="row text-center">
+                                                <div class="col-6">
+                                                    <p class="text-muted mb-2">Esta Semana</p>
+                                                    <h3 class="text-dark mb-3">1,245</h3>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="text-muted mb-2">Semana Anterior</p>
+                                                    <h3 class="text-dark mb-3">1,112</h3>
+                                                </div>
+                                            </div>
+
+                                            <div class="text-center">
+                                                <button type="button" class="btn btn-light shadow-none w-100">
+                                                    Ver Detalhes
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- DIREITA: Performance de Respostas -->
+                                    <div class="col-lg-8 border-start border-5">
+                                        <div class="p-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h4 class="card-title mb-0">Performance de Respostas</h4>
+                                                <div class="btn-group" role="group" aria-label="Períodos">
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline-light">7D</button>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline-light">1M</button>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline-light">3M</button>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-outline-light active">1Y</button>
+                                                </div>
+                                            </div>
+
+                                            <!-- Alerta contextual (SLA/atrasos) -->
+                                            <div class="alert alert-info mt-3 text text-truncate mb-0" role="alert">
+                                                Atenção: existem respostas com <strong>SLA próximo do limite</strong>
+                                                nas últimas 24h.
+                                                Priorize pendentes críticos para evitar atrasos.
+                                            </div>
+
+                                            <div dir="ltr">
+                                                <!-- mantém o mesmo id para o gráfico -->
+                                                <div id="dash-performance-chart" class="apex-charts"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end right chart card -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- COL 1 -->
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h4 class="card-title">Minhas Tarefas</h4>
+                                <div>
+                                    <a href="#!" class="btn btn-sm btn-primary">
+                                        <i class="bx bx-plus me-1"></i>Criar Tarefa
+                                    </a>
+                                </div>
+                            </div> <!-- end card-header-->
+                            <div class="card-body p-0 pb-3">
+                                <div class="p-3" data-simplebar style="max-height: 386px;">
+                                    <div class="form-check form-todo ps-4">
+                                        <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-18"
+                                            id="todo1">
+                                        <label class="form-check-label" for="todo1">Revisar pendentes críticos (SLA &lt;
+                                            2h)</label>
+                                    </div>
+                                    <div class="form-check form-todo py-1 my-2 ps-4">
+                                        <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-18"
+                                            checked id="todo2">
+                                        <label class="form-check-label" for="todo2">Validar pedidos aprovados de
+                                            hoje</label>
+                                    </div>
+                                    <div class="form-check form-todo py-1 my-2 ps-4">
+                                        <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-18"
+                                            id="todo3">
+                                        <label class="form-check-label" for="todo3">Responder solicitações de “Alta
+                                            Prioridade”</label>
+                                    </div>
+                                    <div class="form-check form-todo py-1 my-2 ps-4">
+                                        <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-18"
+                                            id="todo4">
+                                        <label class="form-check-label" for="todo4">Confirmar rejeições com
+                                            justificativa</label>
+                                    </div>
+                                    <div class="form-check form-todo py-1 my-2 ps-4">
+                                        <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-18"
+                                            id="todo5">
+                                        <label class="form-check-label" for="todo5">Atualizar status dos em
+                                            andamento</label>
+                                    </div>
+                                    <div class="form-check form-todo py-1 my-2 ps-4">
+                                        <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-18"
+                                            id="todo6">
+                                        <label class="form-check-label" for="todo6">Gerar relatório diário
+                                            (respondidas)</label>
+                                    </div>
+                                    <div class="form-check form-todo py-1 my-2 ps-4">
+                                        <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-18"
+                                            id="todo7">
+                                        <label class="form-check-label" for="todo7">Notificar solicitantes sobre
+                                            prazos</label>
+                                    </div>
+                                    <div class="form-check form-todo py-1 my-2 ps-4">
+                                        <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-18"
+                                            id="todo8">
+                                        <label class="form-check-label" for="todo8">Verificar caixa de entrada e
+                                            responder</label>
+                                    </div>
+                                    <div class="form-check form-todo py-1 my-2 ps-4">
+                                        <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-18"
+                                            checked id="todo9">
+                                        <label class="form-check-label" for="todo9">Revisar agenda do dia</label>
+                                    </div>
+                                    <div class="form-check form-todo pt-1 mt-2 ps-4">
+                                        <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-18"
+                                            id="todo10">
+                                        <label class="form-check-label" for="todo10">Daily stand-up (equipa)</label>
+                                    </div>
+                                </div>
+                            </div> <!-- end card body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+
+                    <!-- COL 2 -->
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h4 class="card-title">Solicitações Atribuídas (10)</h4>
+                            </div> <!-- end card-header-->
+                            <div class="card-body p-0 pb-3">
+                                <div class="p-3" data-simplebar style="max-height: 400px;">
+
+                                    <!-- Item -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="flex-grow-1">
+                                            <h5 class="mb-1 fs-14"><a href="#!">FUNAE</a></h5>
+                                            <p class="mb-0">Pendente • SLA 1h • <span
+                                                    class="text-muted">#APL-MT202506894</span></p>
+                                        </div>
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0);" class="dropdown-toggle arrow-none text-dark"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bx bx-dots-vertical-rounded fs-18"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a href="#!" class="dropdown-item"><i
+                                                        class="bx bxs-user-detail me-1"></i>Ver detalhes</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bxl-telegram me-1"></i>Enviar mensagem</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bx-user-pin me-1"></i>Reatribuir</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bx-archive me-1"></i>Arquivar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item -->
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div class="flex-grow-1">
+                                            <h5 class="mb-1 fs-14"><a href="#!">Presidência</a></h5>
+                                            <p class="mb-0">Aprovado • Hoje • <span
+                                                    class="text-muted">#APL-MT202506994</span></p>
+                                        </div>
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0);" class="dropdown-toggle arrow-none text-dark"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bx bx-dots-vertical-rounded fs-18"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a href="#!" class="dropdown-item"><i
+                                                        class="bx bxs-user-detail me-1"></i>Ver detalhes</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bxl-telegram me-1"></i>Enviar mensagem</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bx-user-pin me-1"></i>Reatribuir</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bx-archive me-1"></i>Arquivar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item -->
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div class="flex-grow-1">
+                                            <h5 class="mb-1 fs-14"><a href="#!">Ministério da Saúde</a></h5>
+                                            <p class="mb-0">Pendente • SLA 3h • <span
+                                                    class="text-muted">#APL-MT202507111</span></p>
+                                        </div>
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0);" class="dropdown-toggle arrow-none text-dark"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bx bx-dots-vertical-rounded fs-18"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a href="#!" class="dropdown-item"><i
+                                                        class="bx bxs-user-detail me-1"></i>Ver detalhes</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bxl-telegram me-1"></i>Enviar mensagem</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bx-user-pin me-1"></i>Reatribuir</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bx-archive me-1"></i>Arquivar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="flex-grow-1">
+                                            <h5 class="mb-1 fs-14"><a href="#!">Banco Central</a></h5>
+                                            <p class="mb-0">Em análise • SLA 6h • <span
+                                                    class="text-muted">#APL-MT202507145</span></p>
+                                        </div>
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0);" class="dropdown-toggle arrow-none text-dark"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bx bx-dots-vertical-rounded fs-18"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a href="#!" class="dropdown-item"><i
+                                                        class="bx bxs-user-detail me-1"></i>Ver detalhes</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bxl-telegram me-1"></i>Enviar mensagem</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bx-user-pin me-1"></i>Reatribuir</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"><i
+                                                        class="bx bx-archive me-1"></i>Arquivar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- (Pode repetir mais itens mantendo o padrão) -->
+
+                                </div>
+                            </div> <!-- end card body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+
+                    <!-- COL 3 -->
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h4 class="card-title">Atualizações Recentes</h4>
+                                <div>
+                                    <a href="#!" class="btn btn-sm btn-primary">
+                                        <i class="bx bx-plus me-1"></i>Adicionar
+                                    </a>
+                                </div>
+                            </div> <!-- end card-header-->
+                            <div class="card-body p-0">
+                                <div class="px-3" data-simplebar style="max-height: 406px;">
+                                    <table class="table table-hover mb-0 table-centered">
+                                        <tbody>
+                                            <tr>
+                                                <td>10 Setembro, 2025</td>
+                                                <td>—</td>
+                                                <td><span class="badge bg-success">Aprovado</span></td>
+                                                <td>Presidência · Respondido</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10 Setembro, 2025</td>
+                                                <td>—</td>
+                                                <td><span class="badge bg-warning text-dark">Pendente</span></td>
+                                                <td>MISAU · Aguardando validação</td>
+                                            </tr>
+                                            <tr>
+                                                <td>09 Setembro, 2025</td>
+                                                <td>—</td>
+                                                <td><span class="badge bg-danger">Rejeitado</span></td>
+                                                <td>FUNAE · Requer revisão</td>
+                                            </tr>
+                                            <tr>
+                                                <td>09 Setembro, 2025</td>
+                                                <td>—</td>
+                                                <td><span class="badge bg-info">Enviado</span></td>
+                                                <td>Banco Central · Em análise</td>
+                                            </tr>
+                                            <tr>
+                                                <td>08 Setembro, 2025</td>
+                                                <td>—</td>
+                                                <td><span class="badge bg-success">Aprovado</span></td>
+                                                <td>EDM · Concluído</td>
+                                            </tr>
+                                            <tr>
+                                                <td>08 Setembro, 2025</td>
+                                                <td>—</td>
+                                                <td><span class="badge bg-secondary">Reaberto</span></td>
+                                                <td>CFM · Ajustes solicitados</td>
+                                            </tr>
+                                            <tr>
+                                                <td>07 Setembro, 2025</td>
+                                                <td>—</td>
+                                                <td><span class="badge bg-success">Aprovado</span></td>
+                                                <td>Aeroportos · Respondido</td>
+                                            </tr>
+                                            <tr>
+                                                <td>06 Setembro, 2025</td>
+                                                <td>—</td>
+                                                <td><span class="badge bg-warning text-dark">Pendente</span></td>
+                                                <td>Água Metropolitana · Em fila</td>
+                                            </tr>
+                                            <tr>
+                                                <td>05 Setembro, 2025</td>
+                                                <td>—</td>
+                                                <td><span class="badge bg-danger">Rejeitado</span></td>
+                                                <td>Município de Maputo · Ajustar documento</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> <!-- end card body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+                </div> <!-- end row-->
+
+            </div>
+            <!-- End Container Fluid -->
+
+            <!-- ========== Footer Start ========== -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <script>document.write(new Date().getFullYear())</script> &copy; ISSM. <a
+                                href="techsolutions.co.mz" target="_blank"> TECHSOLUTIONS, LDA</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- ========== Footer End ========== -->
+
+        </div>
+        <!-- ==================================================== -->
+        <!-- End Page Content -->
+        <!-- ==================================================== -->
+
+    </div>
+    <!-- END Wrapper -->
+
+    <!-- Vendor Javascript (Require in all Page) -->
+    <script src="/assets/js/vendor.js"></script>
+
+    <!-- App Javascript (Require in all Page) -->
+    <script src="/assets/js/app.js"></script>
+
+    <!-- Dashboard Js -->
+    <script src="/assets/js/pages/widgets.js"></script>
+
+</body>
+
+
+<!-- Mirrored from techzaa.in/larkon/admin/widgets.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Sep 2025 13:19:12 GMT -->
+
+</html>

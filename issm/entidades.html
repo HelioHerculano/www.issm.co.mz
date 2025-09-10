@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from techzaa.in/larkon/admin/tables-basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Sep 2025 13:19:43 GMT -->
+
+<head>
+    <!-- Title Meta -->
+    <meta charset="utf-8" />
+    <title>ISSM | Lista de Entidades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully responsive premium admin dashboard template" />
+    <meta name="author" content="Techzaa" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/Logo/LOGO-ISSM-2025.png">
+
+    <!-- Vendor css (Require in all Page) -->
+    <link href="/assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Icons css (Require in all Page) -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css (Require in all Page) -->
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme Config js (Require in all Page) -->
+    <script src="/assets/js/config.js"></script>
+
+    <style>
+        /* Altura “do box” do logo – ajuste como quiser */
+        .logo-box {
+            height: 56px;
+            /* mobile */
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* A imagem ocupa a altura do box sem distorcer */
+        .logo-box .logo {
+            max-height: 100%;
+            width: 92%;
+            /* mantém proporção */
+            object-fit: contain;
+            /* garante que caiba no box */
+            display: block;
+        }
+
+        /* Aumenta um pouco em telas maiores */
+        @media (min-width: 992px) {
+
+            /* lg */
+            .logo-box {
+                height: 64px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+
+            /* xxl */
+            .logo-box {
+                height: 72px;
+            }
+        }
+
+        /* (Opcional) se tiver tema claro/escuro, controle visibilidade */
+        .logo-light {
+            display: none;
+        }
+
+        [data-bs-theme="light"] .logo-light {
+            display: inline-flex;
+        }
+
+        [data-bs-theme="light"] .logo-dark {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- START Wrapper -->
+    <div class="wrapper">
+
+        <!-- ========== Topbar Start ========== -->
+        <header class="topbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="d-flex align-items-center">
+                        <!-- Menu Toggle Button -->
+                        <div class="topbar-item">
+                            <button type="button" class="button-toggle-menu me-2">
+                                <iconify-icon icon="solar:hamburger-menu-broken"
+                                    class="fs-24 align-middle"></iconify-icon>
+                            </button>
+                        </div>
+                        <!-- Menu Toggle Button -->
+                        <div class="topbar-item">
+                            <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">LISTA DE ENTIDADES</h4>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-1">
+
+                        <!-- Theme Color (Light/Dark) -->
+                        <div class="topbar-item">
+                            <button type="button" class="topbar-button" id="light-dark-mode">
+                                <iconify-icon icon="solar:moon-bold-duotone" class="fs-24 align-middle"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- Notification -->
+                        <div class="dropdown topbar-item">
+                            <button type="button" class="topbar-button position-relative"
+                                id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <iconify-icon icon="solar:bell-bing-bold-duotone"
+                                    class="fs-24 align-middle"></iconify-icon>
+                                <span
+                                    class="position-absolute topbar-badge fs-10 translate-middle badge bg-danger rounded-pill">3<span
+                                        class="visually-hidden">Mensagens não lidas</span></span>
+                            </button>
+                            <div class="dropdown-menu py-0 dropdown-lg dropdown-menu-end"
+                                aria-labelledby="page-header-notifications-dropdown">
+                                <div class="p-3 border-top-0 border-start-0 border-end-0 border-dashed border">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0 fs-16 fw-semibold"> Notificações</h6>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a href="javascript: void(0);" class="text-dark text-decoration-underline">
+                                                <small>Limpar tudo</small>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-simplebar style="max-height: 280px;">
+                                    <!-- Item -->
+                                    <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom text-wrap">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <img src="/assets/images/users/avatar-1.jpg"
+                                                    class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-1" />
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0">
+                                                    <span class="fw-medium">Joana Matola</span> comentou na solicitação
+                                                    <span class="text-muted">#APL-MT202506894</span> —
+                                                    <span>“Documento atualizado e pronto para revisão.”</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item -->
+                                    <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="avatar-sm me-2">
+                                                    <span
+                                                        class="avatar-title bg-soft-info text-info fs-20 rounded-circle">
+                                                        P
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0 fw-semibold">Paulo M.</p>
+                                                <p class="mb-0 text-wrap">
+                                                    Precisa de validação para envio ao FUNAE (<span
+                                                        class="text-muted">SLA 1h</span>).
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item -->
+                                    <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <img src="/assets/images/users/avatar-3.jpg"
+                                                    class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-3" />
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0 fw-semibold">Jacob G.</p>
+                                                <p class="mb-0 text-wrap">
+                                                    Respondeu ao teu comentário no relatório da Presidência — marcado
+                                                    como <b>Aprovado</b>.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item -->
+                                    <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="avatar-sm me-2">
+                                                    <span
+                                                        class="avatar-title bg-soft-warning text-warning fs-20 rounded-circle d-inline-flex align-items-center justify-content-center">
+                                                        <i class="bx bx-time-five"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0 fw-semibold text-wrap">
+                                                    Tens <b>20</b> novas mensagens nas solicitações em andamento
+                                                    (verificar pendentes).
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item -->
+                                    <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <img src="/assets/images/users/avatar-5.jpg"
+                                                    class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-5" />
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0 fw-semibold">Shawn Bunch</p>
+                                                <p class="mb-0 text-wrap">
+                                                    Comentou na resposta do MISAU — solicitou anexar parecer técnico.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="text-center py-3">
+                                    <a href="javascript:void(0);" class="btn btn-primary btn-sm">
+                                        Ver todas as notificações
+                                        <i class="bx bx-right-arrow-alt ms-1"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Theme Setting -->
+                        <div class="topbar-item d-none d-md-flex">
+                            <button type="button" class="topbar-button" id="theme-settings-btn"
+                                data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas"
+                                aria-controls="theme-settings-offcanvas">
+                                <iconify-icon icon="solar:settings-bold-duotone"
+                                    class="fs-24 align-middle"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- Activity -->
+                        <div class="topbar-item d-none d-md-flex">
+                            <button type="button" class="topbar-button" id="theme-settings-btn"
+                                data-bs-toggle="offcanvas" data-bs-target="#theme-activity-offcanvas"
+                                aria-controls="theme-settings-offcanvas">
+                                <iconify-icon icon="solar:clock-circle-bold-duotone"
+                                    class="fs-24 align-middle"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- User -->
+                        <div class="dropdown topbar-item">
+                            <a type="button" class="topbar-button" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="d-flex align-items-center">
+                                    <img class="rounded-circle" width="32" src="/assets/images/users/avatar-1.jpg"
+                                        alt="avatar-3">
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <h6 class="dropdown-header">Bem Vindo, <strong>Osvaldo</strong>!</h6>
+                                <a class="dropdown-item" href="pages-profile.html">
+                                    <i class="bx bx-user-circle text-muted fs-18 align-middle me-1"></i><span
+                                        class="align-middle">Perfil</span>
+                                </a>
+                                <a class="dropdown-item" href="apps-chat.html">
+                                    <i class="bx bx-message-dots text-muted fs-18 align-middle me-1"></i><span
+                                        class="align-middle">Mensagens</span>
+                                </a>
+                                <a class="dropdown-item" href="auth-lock-screen.html">
+                                    <i class="bx bx-lock text-muted fs-18 align-middle me-1"></i><span
+                                        class="align-middle">Bloquear a tela</span>
+                                </a>
+
+                                <div class="dropdown-divider my-1"></div>
+
+                                <a class="dropdown-item text-danger" href="auth-signin.html">
+                                    <i class="bx bx-log-out fs-18 align-middle me-1"></i><span
+                                        class="align-middle">Sair</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- App Search-->
+                        <form class="app-search d-none d-md-block ms-2">
+                            <div class="position-relative">
+                                <input type="search" class="form-control" placeholder="Pesquisar..." autocomplete="off"
+                                    value="">
+                                <iconify-icon icon="solar:magnifer-linear" class="search-widget-icon"></iconify-icon>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Activity Timeline -->
+        <div>
+            <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-activity-offcanvas"
+                style="max-width: 450px; width: 100%;">
+                <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
+                    <h5 class="text-white m-0 fw-semibold">Activity Stream</h5>
+                    <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body p-0">
+                    <div data-simplebar class="h-100 p-4">
+                        <div class="position-relative ms-2">
+                            <span class="position-absolute start-0  top-0 border border-dashed h-100"></span>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 avatar-sm translate-middle-x bg-danger d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><iconify-icon
+                                            icon="iconamoon:folder-check-duotone"></iconify-icon></span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-1 text-dark fw-semibold fs-15 lh-base">Report-Fix / Update </h5>
+                                        <p class="d-flex align-items-center">Add 3 files to <span
+                                                class=" d-flex align-items-center text-primary ms-1"><iconify-icon
+                                                    icon="iconamoon:file-light"></iconify-icon> Tasks</span></p>
+                                        <div class="bg-light bg-opacity-50 rounded-2 p-2">
+                                            <div class="row">
+                                                <div class="col-lg-6 border-end border-light">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <i class="bx bxl-figma fs-20 text-red"></i>
+                                                        <a href="#!" class="text-dark fw-medium">Concept.fig</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <i class="bx bxl-file-doc fs-20 text-success"></i>
+                                                        <a href="#!" class="text-dark fw-medium">larkon.docs</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h6 class="mt-2 text-muted">Monday , 4:24 PM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 avatar-sm translate-middle-x bg-success d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><iconify-icon
+                                            icon="iconamoon:check-circle-1-duotone"></iconify-icon></span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-1 text-dark fw-semibold fs-15 lh-base">Project Status
+                                        </h5>
+                                        <p class="d-flex align-items-center mb-0">Marked<span
+                                                class=" d-flex align-items-center text-primary mx-1"><iconify-icon
+                                                    icon="iconamoon:file-light"></iconify-icon> Design </span> as <span
+                                                class="badge bg-success-subtle text-success px-2 py-1 ms-1">
+                                                Completed</span></p>
+                                        <div
+                                            class="d-flex align-items-center gap-3 mt-1 bg-light bg-opacity-50 p-2 rounded-2">
+                                            <a href="#!" class="fw-medium text-dark">UI/UX Figma Design</a>
+                                            <div class="ms-auto">
+                                                <a href="#!" class="fw-medium text-primary fs-18"
+                                                    data-bs-toggle="tooltip" data-bs-title="Download"
+                                                    data-bs-placement="bottom"><iconify-icon
+                                                        icon="iconamoon:cloud-download-duotone"></iconify-icon></a>
+                                            </div>
+                                        </div>
+                                        <h6 class="mt-3 text-muted">Monday , 3:00 PM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 avatar-sm translate-middle-x bg-primary d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-16">UI</span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-1 text-dark fw-semibold fs-15">Larkon Application UI v2.0.0 <span
+                                                class="badge bg-primary-subtle text-primary px-2 py-1 ms-1">
+                                                Latest</span>
+                                        </h5>
+                                        <p>Get access to over 20+ pages including a dashboard layout, charts, kanban
+                                            board, calendar, and pre-order E-commerce & Marketing pages.</p>
+                                        <div class="mt-2">
+                                            <a href="#!" class="btn btn-light btn-sm">Download Zip</a>
+                                        </div>
+                                        <h6 class="mt-3 text-muted">Monday , 2:10 PM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 translate-middle-x bg-success bg-gradient d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><img
+                                            src="/assets/images/users/avatar-7.jpg" alt="avatar-5"
+                                            class="avatar-sm rounded-circle"></span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-0 text-dark fw-semibold fs-15 lh-base">Alex Smith Attached Photos
+                                        </h5>
+                                        <div class="row g-2 mt-2">
+                                            <div class="col-lg-4">
+                                                <a href="#!">
+                                                    <img src="/assets/images/small/img-6.jpg" alt=""
+                                                        class="img-fluid rounded">
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="#!">
+                                                    <img src="/assets/images/small/img-3.jpg" alt=""
+                                                        class="img-fluid rounded">
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="#!">
+                                                    <img src="/assets/images/small/img-4.jpg" alt=""
+                                                        class="img-fluid rounded">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <h6 class="mt-3 text-muted">Monday 1:00 PM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 translate-middle-x bg-success bg-gradient d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><img
+                                            src="/assets/images/users/avatar-6.jpg" alt="avatar-5"
+                                            class="avatar-sm rounded-circle"></span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-0 text-dark fw-semibold fs-15 lh-base">Rebecca J. added a new team
+                                            member
+                                        </h5>
+                                        <p class="d-flex align-items-center gap-1"><iconify-icon
+                                                icon="iconamoon:check-circle-1-duotone"
+                                                class="text-success"></iconify-icon> Added a new member to Front
+                                            Dashboard</p>
+                                        <h6 class="mt-3 text-muted">Monday 10:00 AM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative ps-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="position-absolute start-0 avatar-sm translate-middle-x bg-warning d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><iconify-icon
+                                            icon="iconamoon:certificate-badge-duotone"></iconify-icon></span>
+                                    <div class="ms-2">
+                                        <h5 class="mb-0 text-dark fw-semibold fs-15 lh-base">Achievements
+                                        </h5>
+                                        <p class="d-flex align-items-center gap-1 mt-1">Earned a <iconify-icon
+                                                icon="iconamoon:certificate-badge-duotone"
+                                                class="text-danger fs-20"></iconify-icon>" Best Product Award"</p>
+                                        <h6 class="mt-3 text-muted">Monday 9:30 AM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#!" class="btn btn-outline-dark w-100">View All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar (Theme Settings) -->
+        <div>
+            <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
+                <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
+                    <h5 class="text-white m-0">Theme Settings</h5>
+                    <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body p-0">
+                    <div data-simplebar class="h-100">
+                        <div class="p-3 settings-bar">
+
+                            <div>
+                                <h5 class="mb-3 font-16 fw-semibold">Color Scheme</h5>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-bs-theme"
+                                        id="layout-color-light" value="light">
+                                    <label class="form-check-label" for="layout-color-light">Light</label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-bs-theme"
+                                        id="layout-color-dark" value="dark">
+                                    <label class="form-check-label" for="layout-color-dark">Dark</label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5 class="my-3 font-16 fw-semibold">Topbar Color</h5>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-topbar-color"
+                                        id="topbar-color-light" value="light">
+                                    <label class="form-check-label" for="topbar-color-light">Light</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-topbar-color"
+                                        id="topbar-color-dark" value="dark">
+                                    <label class="form-check-label" for="topbar-color-dark">Dark</label>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <h5 class="my-3 font-16 fw-semibold">Menu Color</h5>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-color"
+                                        id="leftbar-color-light" value="light">
+                                    <label class="form-check-label" for="leftbar-color-light">
+                                        Light
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-color"
+                                        id="leftbar-color-dark" value="dark">
+                                    <label class="form-check-label" for="leftbar-color-dark">
+                                        Dark
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5 class="my-3 font-16 fw-semibold">Sidebar Size</h5>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-size"
+                                        id="leftbar-size-default" value="default">
+                                    <label class="form-check-label" for="leftbar-size-default">
+                                        Default
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-size"
+                                        id="leftbar-size-small" value="condensed">
+                                    <label class="form-check-label" for="leftbar-size-small">
+                                        Condensed
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-size"
+                                        id="leftbar-hidden" value="hidden">
+                                    <label class="form-check-label" for="leftbar-hidden">
+                                        Hidden
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-size"
+                                        id="leftbar-size-small-hover-active" value="sm-hover-active">
+                                    <label class="form-check-label" for="leftbar-size-small-hover-active">
+                                        Small Hover Active
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="data-menu-size"
+                                        id="leftbar-size-small-hover" value="sm-hover">
+                                    <label class="form-check-label" for="leftbar-size-small-hover">
+                                        Small Hover
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="offcanvas-footer border-top p-3 text-center">
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-danger w-100" id="reset-layout">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ========== Topbar End ========== -->
+
+        <div class="main-nav">
+            <!-- Sidebar Logo -->
+            <div class="logo-box ml-3">
+                <a href="index.html" class="logo-dark d-inline-flex align-items-center">
+                    <img src="/assets/images/Logo/LOGO-ISSM-2025.png" class="logo img-fluid" alt="Logo" />
+                </a>
+            </div>
+
+            <!-- Menu Toggle Button (sm-hover) -->
+            <button type="button" class="button-sm-hover" aria-label="Show Full Sidebar">
+                <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone"
+                    class="button-sm-hover-icon"></iconify-icon>
+            </button>
+            <div class="scrollbar" data-simplebar>
+                <ul class="navbar-nav" id="navbar-nav">
+
+                    <!-- Dashboard -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <span class="nav-icon"><i class="bx bx-grid-alt"></i></span>
+                            <span class="nav-text"> Dashboard </span>
+                        </a>
+                    </li>
+
+                    <!-- Pedidos -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarPedidos" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarPedidos">
+                            <span class="nav-icon"><i class="bx bx-notepad"></i></span>
+                            <span class="nav-text"> Pedidos </span>
+                        </a>
+                        <div class="collapse" id="sidebarPedidos">
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="pedidos-listar.html">
+                                        Listar
+                                        <span class="badge bg-secondary badge-pill ms-2">1,432</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Seguradoras -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarSeguradoras" data-bs-toggle="collapse"
+                            role="button" aria-expanded="false" aria-controls="sidebarSeguradoras">
+                            <span class="nav-icon"><i class="bx bx-shield"></i></span>
+                            <span class="nav-text"> Seguradoras </span>
+                        </a>
+                        <div class="collapse" id="sidebarSeguradoras">
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="criar-seguradora.html">Criar</a>
+                                </li>
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="seguradoras.html">
+                                        Listar
+                                        <span class="badge bg-secondary badge-pill ms-2">24</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Entidades -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarEntidades" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarEntidades">
+                            <span class="nav-icon"><i class="bx bx-buildings"></i></span>
+                            <span class="nav-text"> Entidades </span>
+                        </a>
+                        <div class="collapse" id="sidebarEntidades">
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="criar-entidade.html">Criar</a>
+                                </li>
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="entidades.html">
+                                        Listar
+                                        <span class="badge bg-secondary badge-pill ms-2">58</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Usuários -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarUsuarios" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarUsuarios">
+                            <span class="nav-icon"><i class="bx bx-user"></i></span>
+                            <span class="nav-text"> Usuários </span>
+                        </a>
+                        <div class="collapse" id="sidebarUsuarios">
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="usuarios-criar.html">Criar</a>
+                                </li>
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="usuarios-listar.html">
+                                        Listar
+                                        <span class="badge bg-secondary badge-pill ms-2">12</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Emails (badge no menu principal) -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/apps-email.html">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:mailbox-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text"> Emails </span>
+                            <span class="badge bg-info badge-pill ms-auto">9+</span>
+                        </a>
+                    </li>
+
+                    <!-- Perfil -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfil.html">
+                            <span class="nav-icon"><i class="bx bx-id-card"></i></span>
+                            <span class="nav-text"> Perfil </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+
+        <!-- ==================================================== -->
+        <!-- Start right Content here -->
+        <!-- ==================================================== -->
+        <div class="page-content">
+
+
+            <!-- Start Container Fluid -->
+
+            <div class="container">
+                <!-- ======= KPIs (refletindo Entidades) ======= -->
+                <div class="row">
+                    <!-- Total de Entidades -->
+                    <div class="col-md-3">
+                        <div class="card overflow-hidden">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="avatar-md bg-soft-primary rounded">
+                                            <i class="bx bx-buildings avatar-title fs-24 text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="text-muted mb-0 text-truncate">Total de Entidades</p>
+                                        <h3 class="text-dark mt-1 mb-0">28</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="text-success"><i class="bx bxs-up-arrow fs-12"></i> +2</span>
+                                        <span class="text-muted ms-1 fs-12">Últimos 30 dias</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pedidos Aprovados (todas as entidades) -->
+                    <div class="col-md-3">
+                        <div class="card overflow-hidden">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="avatar-md bg-soft-primary rounded">
+                                            <i class="bx bx-check-circle avatar-title fs-24 text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="text-muted mb-0 text-truncate">Pedidos Aprovados</p>
+                                        <h3 class="text-dark mt-1 mb-0">3,120</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="text-success"><i class="bx bxs-up-arrow fs-12"></i> 3.9%</span>
+                                        <span class="text-muted ms-1 fs-12">Último Mês</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pedidos Pendentes (todas as entidades) -->
+                    <div class="col-md-3">
+                        <div class="card overflow-hidden">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="avatar-md bg-soft-primary rounded">
+                                            <i class="bx bx-time-five avatar-title fs-24 text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="text-muted mb-0 text-truncate">Pedidos Pendentes</p>
+                                        <h3 class="text-dark mt-1 mb-0">980</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="text-danger"><i class="bx bxs-down-arrow fs-12"></i> 1.0%</span>
+                                        <span class="text-muted ms-1 fs-12">Último Mês</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pedidos Rejeitados (todas as entidades) -->
+                    <div class="col-md-3">
+                        <div class="card overflow-hidden">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="avatar-md bg-soft-primary rounded">
+                                            <i class="bx bx-x-circle avatar-title fs-24 text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="text-muted mb-0 text-truncate">Pedidos Rejeitados</p>
+                                        <h3 class="text-dark mt-1 mb-0">612</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="text-danger"><i class="bx bxs-down-arrow fs-12"></i> 0.5%</span>
+                                        <span class="text-muted ms-1 fs-12">Último Mês</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ======= /KPIs ======= -->
+
+                <!-- ======= LISTAGEM DE ENTIDADES ======= -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Cabeçalho + botão -->
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div>
+                                        <h5 class="card-title mb-1">Entidades</h5>
+                                        <p class="text-muted font-14 mb-0">Nome, cadastro e contagem de pedidos por
+                                            status.</p>
+                                    </div>
+                                    <div>
+                                        <a href="criar-entidade.html" class="btn btn-primary px-sm-4">
+                                            <i class="bx bx-plus me-1"></i> Cadastrar
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <!-- Filtros -->
+                                <div class="row g-2 align-items-end mb-3">
+                                    <div class="col-sm-6 col-md-3">
+                                        <label class="form-label mb-1">Nome da Entidade</label>
+                                        <input id="fNomeEnt" type="text" class="form-control"
+                                            placeholder="Ex.: Município de Maputo">
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <label class="form-label mb-1">Data de Cadastro (De)</label>
+                                        <input id="fDataDe" type="date" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <label class="form-label mb-1">Data de Cadastro (Até)</label>
+                                        <input id="fDataAte" type="date" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <label class="form-label mb-1">Mín. Pendentes</label>
+                                        <input id="fMinPendentes" type="number" class="form-control" min="0"
+                                            placeholder="Ex.: 10">
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <label class="form-label mb-1">Mín. Em Andamento</label>
+                                        <input id="fMinAndamento" type="number" class="form-control" min="0"
+                                            placeholder="Ex.: 5">
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <button id="btnLimparEnt" class="btn btn-light w-100">
+                                            <i class="bx bx-eraser me-1"></i> Limpar Filtros
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-borderless table-centered" id="entTable">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Data de Cadastro</th>
+                                                <th>Total de Pedidos</th>
+                                                <th>Aprovados</th>
+                                                <th>Pendentes</th>
+                                                <th>Rejeitados</th>
+                                                <th>Em Andamento</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="entTbody">
+                                            <!-- 10 itens de exemplo (ENTIDADES) -->
+                                            <tr data-nome="Município de Maputo" data-iso="2024-04-15" data-pend="38"
+                                                data-and="22">
+                                                <td class="fw-semibold">Município de Maputo</td>
+                                                <td>15/04/2024</td>
+                                                <td>1,050</td>
+                                                <td><span class="badge bg-success">710</span></td>
+                                                <td><span class="badge bg-warning text-dark">38</span></td>
+                                                <td><span class="badge bg-danger">18</span></td>
+                                                <td><span class="badge bg-info">22</span></td>
+                                                <td class="text-nowrap">
+                                                    <a href="detalhes-entidade.html" class="btn btn-soft-primary btn-sm"><i
+                                                            class="bx bx-show-alt"></i> Ver</a>
+                                                    <a href="#!" class="btn btn-primary btn-sm">Editar</a>
+                                                </td>
+                                            </tr>
+                                            <tr data-nome="Presidência" data-iso="2024-06-01" data-pend="21"
+                                                data-and="17">
+                                                <td class="fw-semibold">Presidência</td>
+                                                <td>01/06/2024</td>
+                                                <td>860</td>
+                                                <td><span class="badge bg-success">590</span></td>
+                                                <td><span class="badge bg-warning text-dark">21</span></td>
+                                                <td><span class="badge bg-danger">12</span></td>
+                                                <td><span class="badge bg-info">17</span></td>
+                                                <td class="text-nowrap">
+                                                    <a href="detalhes-entidade.html" class="btn btn-soft-primary btn-sm"><i
+                                                            class="bx bx-show-alt"></i> Ver</a>
+                                                    <a href="#!" class="btn btn-primary btn-sm">Editar</a>
+                                                </td>
+                                            </tr>
+                                            <tr data-nome="Ministério da Saúde" data-iso="2024-02-12" data-pend="30"
+                                                data-and="14">
+                                                <td class="fw-semibold">Ministério da Saúde</td>
+                                                <td>12/02/2024</td>
+                                                <td>730</td>
+                                                <td><span class="badge bg-success">465</span></td>
+                                                <td><span class="badge bg-warning text-dark">30</span></td>
+                                                <td><span class="badge bg-danger">25</span></td>
+                                                <td><span class="badge bg-info">14</span></td>
+                                                <td class="text-nowrap">
+                                                    <a href="detalhes-entidade.html" class="btn btn-soft-primary btn-sm"><i
+                                                            class="bx bx-show-alt"></i> Ver</a>
+                                                    <a href="#!" class="btn btn-primary btn-sm">Editar</a>
+                                                </td>
+                                            </tr>
+                                            <tr data-nome="Banco Central" data-iso="2024-08-03" data-pend="16"
+                                                data-and="9">
+                                                <td class="fw-semibold">Banco Central</td>
+                                                <td>03/08/2024</td>
+                                                <td>400</td>
+                                                <td><span class="badge bg-success">255</span></td>
+                                                <td><span class="badge bg-warning text-dark">16</span></td>
+                                                <td><span class="badge bg-danger">9</span></td>
+                                                <td><span class="badge bg-info">9</span></td>
+                                                <td class="text-nowrap">
+                                                    <a href="detalhes-entidade.html" class="btn btn-soft-primary btn-sm"><i
+                                                            class="bx bx-show-alt"></i> Ver</a>
+                                                    <a href="#!" class="btn btn-primary btn-sm">Editar</a>
+                                                </td>
+                                            </tr>
+                                            <tr data-nome="EDM" data-iso="2024-09-10" data-pend="14" data-and="7">
+                                                <td class="fw-semibold">EDM</td>
+                                                <td>10/09/2024</td>
+                                                <td>310</td>
+                                                <td><span class="badge bg-success">190</span></td>
+                                                <td><span class="badge bg-warning text-dark">14</span></td>
+                                                <td><span class="badge bg-danger">8</span></td>
+                                                <td><span class="badge bg-info">7</span></td>
+                                                <td class="text-nowrap">
+                                                    <a href="detalhes-entidade.html" class="btn btn-soft-primary btn-sm"><i
+                                                            class="bx bx-show-alt"></i> Ver</a>
+                                                    <a href="#!" class="btn btn-primary btn-sm">Editar</a>
+                                                </td>
+                                            </tr>
+                                            <tr data-nome="CFM" data-iso="2024-01-20" data-pend="20" data-and="10">
+                                                <td class="fw-semibold">CFM</td>
+                                                <td>20/01/2024</td>
+                                                <td>490</td>
+                                                <td><span class="badge bg-success">310</span></td>
+                                                <td><span class="badge bg-warning text-dark">20</span></td>
+                                                <td><span class="badge bg-danger">15</span></td>
+                                                <td><span class="badge bg-info">10</span></td>
+                                                <td class="text-nowrap">
+                                                    <a href="detalhes-entidade.html" class="btn btn-soft-primary btn-sm"><i
+                                                            class="bx bx-show-alt"></i> Ver</a>
+                                                    <a href="#!" class="btn btn-primary btn-sm">Editar</a>
+                                                </td>
+                                            </tr>
+                                            <tr data-nome="Águas da Área Metropolitana" data-iso="2024-03-05"
+                                                data-pend="28" data-and="13">
+                                                <td class="fw-semibold">Águas da Área Metropolitana</td>
+                                                <td>05/03/2024</td>
+                                                <td>660</td>
+                                                <td><span class="badge bg-success">410</span></td>
+                                                <td><span class="badge bg-warning text-dark">28</span></td>
+                                                <td><span class="badge bg-danger">19</span></td>
+                                                <td><span class="badge bg-info">13</span></td>
+                                                <td class="text-nowrap">
+                                                    <a href="detalhes-entidade.html" class="btn btn-soft-primary btn-sm"><i
+                                                            class="bx bx-show-alt"></i> Ver</a>
+                                                    <a href="#!" class="btn btn-primary btn-sm">Editar</a>
+                                                </td>
+                                            </tr>
+                                            <tr data-nome="Aeroportos de Moçambique" data-iso="2024-05-18"
+                                                data-pend="15" data-and="8">
+                                                <td class="fw-semibold">Aeroportos de Moçambique</td>
+                                                <td>18/05/2024</td>
+                                                <td>345</td>
+                                                <td><span class="badge bg-success">220</span></td>
+                                                <td><span class="badge bg-warning text-dark">15</span></td>
+                                                <td><span class="badge bg-danger">10</span></td>
+                                                <td><span class="badge bg-info">8</span></td>
+                                                <td class="text-nowrap">
+                                                    <a href="detalhes-entidade.html" class="btn btn-soft-primary btn-sm"><i
+                                                            class="bx bx-show-alt"></i> Ver</a>
+                                                    <a href="#!" class="btn btn-primary btn-sm">Editar</a>
+                                                </td>
+                                            </tr>
+                                            <tr data-nome="Município da Matola" data-iso="2024-07-22" data-pend="19"
+                                                data-and="9">
+                                                <td class="fw-semibold">Município da Matola</td>
+                                                <td>22/07/2024</td>
+                                                <td>405</td>
+                                                <td><span class="badge bg-success">265</span></td>
+                                                <td><span class="badge bg-warning text-dark">19</span></td>
+                                                <td><span class="badge bg-danger">11</span></td>
+                                                <td><span class="badge bg-info">9</span></td>
+                                                <td class="text-nowrap">
+                                                    <a href="detalhes-entidade.html" class="btn btn-soft-primary btn-sm"><i
+                                                            class="bx bx-show-alt"></i> Ver</a>
+                                                    <a href="#!" class="btn btn-primary btn-sm">Editar</a>
+                                                </td>
+                                            </tr>
+                                            <tr data-nome="FUNAE" data-iso="2024-10-02" data-pend="11" data-and="6">
+                                                <td class="fw-semibold">FUNAE</td>
+                                                <td>02/10/2024</td>
+                                                <td>255</td>
+                                                <td><span class="badge bg-success">165</span></td>
+                                                <td><span class="badge bg-warning text-dark">11</span></td>
+                                                <td><span class="badge bg-danger">7</span></td>
+                                                <td><span class="badge bg-info">6</span></td>
+                                                <td class="text-nowrap">
+                                                    <a href="detalhes-entidade.html" class="btn btn-soft-primary btn-sm"><i
+                                                            class="bx bx-show-alt"></i> Ver</a>
+                                                    <a href="#!" class="btn btn-primary btn-sm">Editar</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Paginação -->
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small class="text-muted" id="entPageInfo">Mostrando 1–5 de 10</small>
+                                    <nav>
+                                        <ul class="pagination pagination-sm mb-0" id="entPagination"></ul>
+                                    </nav>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- End Container Fluid -->
+            <!-- ==================================================== -->
+            <!-- End Page Content -->
+            <!-- ==================================================== -->
+            <!-- ========== Footer Start ========== -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <script>document.write(new Date().getFullYear())</script> &copy; ISSM. <a
+                                href="techsolutions.co.mz" target="_blank"> TECHSOLUTIONS, LDA</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- ========== Footer End ========== -->
+        </div>
+    </div>
+    <!-- END Wrapper -->
+
+    <!-- Vendor Javascript (Require in all Page) -->
+    <script src="/assets/js/vendor.js"></script>
+
+    <!-- App Javascript (Require in all Page) -->
+    <script src="/assets/js/app.js"></script>
+
+    <script>
+            (function () {
+                // ----- Util -----
+                const norm = v => (v || '').toString().trim().toLowerCase();
+                const parseISO = s => s ? new Date(s) : null;
+
+                // ----- Tabela Entidades -----
+                const tbody = document.getElementById('entTbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                const pagEl = document.getElementById('entPagination');
+                const pageInfo = document.getElementById('entPageInfo');
+
+                // Filtros
+                const fNome = document.getElementById('fNomeEnt');
+                const fDataDe = document.getElementById('fDataDe');
+                const fDataAte = document.getElementById('fDataAte');
+                const fMinPend = document.getElementById('fMinPendentes');
+                const fMinAnd = document.getElementById('fMinAndamento');
+
+                const btnLimpar = document.getElementById('btnLimparEnt');
+
+                const PAGE_SIZE = 5;
+                let currentPage = 1;
+
+                function matchRow(tr) {
+                    const nome = norm(tr.getAttribute('data-nome'));
+                    const iso = tr.getAttribute('data-iso');
+                    const dt = parseISO(iso);
+                    const pend = Number(tr.getAttribute('data-pend') || 0);
+                    const andam = Number(tr.getAttribute('data-and') || 0);
+
+                    const qNome = norm(fNome.value);
+                    const de = fDataDe.value ? new Date(fDataDe.value + 'T00:00:00') : null;
+                    const ate = fDataAte.value ? new Date(fDataAte.value + 'T23:59:59') : null;
+                    const minPend = fMinPend.value !== '' ? Number(fMinPend.value) : null;
+                    const minAnd = fMinAnd.value !== '' ? Number(fMinAnd.value) : null;
+
+                    const okNome = !qNome || nome.includes(qNome);
+                    const okData = (!de || (dt && dt >= de)) && (!ate || (dt && dt <= ate));
+                    const okPend = (minPend === null) || (pend >= minPend);
+                    const okAnd = (minAnd === null) || (andam >= minAnd);
+
+                    return okNome && okData && okPend && okAnd;
+                }
+
+                function getFilteredRows() { return rows.filter(matchRow); }
+
+                function render() {
+                    const filtered = getFilteredRows();
+                    const total = filtered.length;
+                    const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+                    if (currentPage > totalPages) currentPage = totalPages;
+
+                    rows.forEach(r => r.style.display = 'none');
+
+                    const start = (currentPage - 1) * PAGE_SIZE;
+                    const end = start + PAGE_SIZE;
+                    filtered.slice(start, end).forEach(r => r.style.display = '');
+
+                    const from = total === 0 ? 0 : start + 1;
+                    const to = Math.min(end, total);
+                    pageInfo.textContent = `Mostrando ${from}–${to} de ${total}`;
+
+                    // Paginação
+                    pagEl.innerHTML = '';
+                    const addBtn = (label, disabled, onClick, active = false) => {
+                        const li = document.createElement('li');
+                        li.className = `page-item ${disabled ? 'disabled' : ''} ${active ? 'active' : ''}`;
+                        li.innerHTML = `<a class="page-link" href="#">${label}</a>`;
+                        li.addEventListener('click', e => { e.preventDefault(); if (!disabled) onClick(); });
+                        pagEl.appendChild(li);
+                    };
+                    addBtn('«', currentPage === 1, () => { currentPage--; render(); });
+                    for (let i = 1; i <= totalPages; i++) addBtn(i, false, () => { currentPage = i; render(); }, i === currentPage);
+                    addBtn('»', currentPage === totalPages, () => { currentPage++; render(); });
+                }
+
+                // Eventos
+                [fNome, fMinPend, fMinAnd].forEach(inp => inp.addEventListener('input', () => { currentPage = 1; render(); }));
+                [fDataDe, fDataAte].forEach(inp => inp.addEventListener('change', () => { currentPage = 1; render(); }));
+
+                btnLimpar.addEventListener('click', () => {
+                    fNome.value = '';
+                    fDataDe.value = '';
+                    fDataAte.value = '';
+                    fMinPend.value = '';
+                    fMinAnd.value = '';
+                    currentPage = 1;
+                    render();
+                });
+
+                // Init
+                render();
+            })();
+    </script>
+</body>
+
+
+<!-- Mirrored from techzaa.in/larkon/admin/tables-basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Sep 2025 13:19:43 GMT -->
+
+</html>

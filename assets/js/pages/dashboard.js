@@ -89,7 +89,7 @@ var options = {
       data: [34, 65, 46, 68, 49, 61, 42, 44, 78, 52, 63, 67],
     },
     {
-      name: "Validadas",
+      name: "Aprovadas",
       type: "area",
       data: [8, 12, 7, 17, 21, 11, 5, 9, 7, 29, 12, 35],
     },
