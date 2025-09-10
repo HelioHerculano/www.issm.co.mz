@@ -1013,9 +1013,9 @@
                             class="text-muted mb-0"
                             style="white-space: normal; word-break: break-word"
                           >
-                            Valores Processados
+                            Expedientes Analisados
                           </p>
-                          <h3 class="text-dark mt-1 mb-0">1,240,000</h3>
+                          <h3 class="text-dark mt-1 mb-0">1344</h3>
                         </div>
                       </div>
                     </div>
@@ -1096,7 +1096,6 @@
                 >
                   <h4 class="card-title">Lista de Processos</h4>
                   <!-- Botão Filtrar -->
-                  <!-- Botão Filtrar -->
                   <button
                     class="btn btn-sm btn-primary d-flex align-items-center gap-1 rounded-pill shadow-sm"
                     data-bs-toggle="modal"
@@ -1117,6 +1116,7 @@
                         <th>Apólice</th>
                         <th>Cliente</th>
                         <th>Email</th>
+                        <th>Data</th>
                         <th>Status</th>
                         <th>Ações</th>
                       </tr>
@@ -1128,13 +1128,14 @@
                         <td>AP-12345</td>
                         <td>João Manuel</td>
                         <td>joao@email.com</td>
+                        <td>10/09/2025</td>
                         <td><span class="badge bg-warning">Pendente</span></td>
                         <td>
                           <a
                             href="detalhes-seguradora.html"
-                            class="btn btn-sm btn-info"
+                            class="btn btn-sm btn-info d-flex align-items-center gap-1"
                           >
-                            Ver Detalhes
+                            <i class="bi bi-eye"></i> Ver Detalhes
                           </a>
                         </td>
                       </tr>
@@ -1144,13 +1145,14 @@
                         <td>AP-54321</td>
                         <td>Maria Silva</td>
                         <td>maria@email.com</td>
+                        <td>11/09/2025</td>
                         <td><span class="badge bg-success">Aprovado</span></td>
                         <td>
                           <a
                             href="detalhes-seguradora.html"
-                            class="btn btn-sm btn-info"
+                            class="btn btn-sm btn-info d-flex align-items-center gap-1"
                           >
-                            Ver Detalhes
+                            <i class="bi bi-eye"></i> Ver Detalhes
                           </a>
                         </td>
                       </tr>
@@ -1160,13 +1162,14 @@
                         <td>AP-67890</td>
                         <td>Pedro Santos</td>
                         <td>pedro@email.com</td>
+                        <td>12/09/2025</td>
                         <td><span class="badge bg-danger">Reprovado</span></td>
                         <td>
                           <a
                             href="detalhes-seguradora.html"
-                            class="btn btn-sm btn-info"
+                            class="btn btn-sm btn-info d-flex align-items-center gap-1"
                           >
-                            Ver Detalhes
+                            <i class="bi bi-eye"></i> Ver Detalhes
                           </a>
                         </td>
                       </tr>
@@ -1176,13 +1179,14 @@
                         <td>AP-11223</td>
                         <td>Ana Costa</td>
                         <td>ana@email.com</td>
+                        <td>13/09/2025</td>
                         <td><span class="badge bg-warning">Pendente</span></td>
                         <td>
                           <a
                             href="detalhes-seguradora.html"
-                            class="btn btn-sm btn-info"
+                            class="btn btn-sm btn-info d-flex align-items-center gap-1"
                           >
-                            Ver Detalhes
+                            <i class="bi bi-eye"></i> Ver Detalhes
                           </a>
                         </td>
                       </tr>
@@ -1192,13 +1196,14 @@
                         <td>AP-44556</td>
                         <td>Carlos Pereira</td>
                         <td>carlos@email.com</td>
+                        <td>14/09/2025</td>
                         <td><span class="badge bg-success">Aprovado</span></td>
                         <td>
                           <a
                             href="detalhes-seguradora.html"
-                            class="btn btn-sm btn-info"
+                            class="btn btn-sm btn-info d-flex align-items-center gap-1"
                           >
-                            Ver Detalhes
+                            <i class="bi bi-eye"></i> Ver Detalhes
                           </a>
                         </td>
                       </tr>
@@ -1229,7 +1234,7 @@
                 <div class="modal-body">
                   <form>
                     <div class="row g-3">
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                         <label class="form-label">Nº Processo</label>
                         <input
                           type="text"
@@ -1237,7 +1242,15 @@
                           placeholder="Ex: PRC-001"
                         />
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-3">
+                        <label class="form-label">Nº Apólice</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Ex: AP-12345"
+                        />
+                      </div>
+                      <div class="col-md-3">
                         <label class="form-label">Cliente</label>
                         <input
                           type="text"
@@ -1245,7 +1258,7 @@
                           placeholder="Nome do Cliente"
                         />
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                         <label class="form-label">Status</label>
                         <select class="form-select">
                           <option value="">Todos</option>
@@ -1253,6 +1266,14 @@
                           <option value="aprovado">Aprovado</option>
                           <option value="reprovado">Reprovado</option>
                         </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Data Início</label>
+                        <input type="date" class="form-control" />
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Data Fim</label>
+                        <input type="date" class="form-control" />
                       </div>
                     </div>
                   </form>

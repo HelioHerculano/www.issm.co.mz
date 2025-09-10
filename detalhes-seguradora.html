@@ -1204,6 +1204,52 @@
       <!-- ==================================================== -->
       <!-- Start right Content here -->
       <!-- ==================================================== -->
+
+      <!-- Modais de Detalhes + Avaliar (com Aprovar/Reprovar) -->
+      <div
+        class="modal fade"
+        id="detailsModal1"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Detalhes do Processo PRC-001</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p><strong>Cliente:</strong> João Manuel</p>
+              <p><strong>Apólice:</strong> AP-12345</p>
+              <p><strong>Email:</strong> joao@email.com</p>
+              <p><strong>Status:</strong> Pendente</p>
+
+              <hr />
+              <h5>Avaliar Processo</h5>
+              <button class="btn btn-success">Aprovar</button>
+              <button
+                class="btn btn-danger"
+                data-bs-toggle="collapse"
+                data-bs-target="#motivoReprovacao1"
+              >
+                Reprovar
+              </button>
+              <div id="motivoReprovacao1" class="collapse mt-3">
+                <label class="form-label">Motivo da Reprovação</label>
+                <textarea class="form-control" rows="3"></textarea>
+                <button class="btn btn-danger mt-2">
+                  Confirmar Reprovação
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="page-content">
         <!-- Start Container Fluid -->
         <div class="container py-4">
@@ -1234,9 +1280,19 @@
                 </div>
               </div>
               <div class="floating-toolbar d-flex gap-2">
-                <a href="seguradoras-index.html" class="btn btn-light"
-                  ><i class="bx bx-left-arrow-alt me-1"></i> Voltar</a
+                <a href="pedidos.html" class="btn btn-light">
+                  <i class="bx bx-left-arrow-alt me-1"></i> Voltar
+                </a>
+
+                <!-- Botão Avaliar -->
+                <button
+                  class="btn btn-warning"
+                  data-bs-toggle="modal"
+                  data-bs-target="#detailsModal1"
                 >
+                  <i class="bx bx-check-circle me-1"></i> Avaliar
+                </button>
+
                 <button class="btn btn-outline-primary" id="btnImprimir">
                   <i class="bx bx-printer me-1"></i> Imprimir
                 </button>
