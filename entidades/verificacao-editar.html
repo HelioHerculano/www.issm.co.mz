@@ -4,98 +4,144 @@
     <meta charset="utf-8" />
     <title>Editar Verificação | ISSM - Portal das Entidades</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- App favicon -->
     <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+    <!-- Theme Config js (Require in all Page) -->
     <script src="../assets/js/config.js"></script>
-    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!-- Vendor css (Require in all Page) -->
+    <link href="../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Icons css (Require in all Page) -->
     <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css (Require in all Page) -->
+    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- ISSM Portal Custom CSS -->
     <link href="../assets/css/issm-portal.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <div class="wrapper">
-        <!-- Topbar -->
-        <div class="navbar-custom">
-            <div class="topbar container-fluid">
-                <div class="d-flex align-items-center gap-1">
-                    <div class="logo-topbar">
-                        <a href="index.html" class="logo-light">
-                            <span class="logo-lg"><img src="../assets/images/logo.png" alt="logo" height="22"></span>
-                        </a>
+        <!-- ========== Topbar Start ========== -->
+        <header class="topbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="d-flex align-items-center">
+                        <!-- Menu Toggle Button -->
+                        <div class="topbar-item">
+                            <button type="button" class="button-toggle-menu me-2">
+                                <iconify-icon icon="solar:hamburger-menu-broken" class="fs-24 align-middle"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- Portal Title -->
+                        <div class="topbar-item">
+                            <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Portal das Entidades</h4>
+                        </div>
                     </div>
-                    <button class="button-toggle-menu">
-                        <iconify-icon icon="solar:hamburger-menu-broken" class="fs-24 align-middle"></iconify-icon>
-                    </button>
-                    <div class="app-search d-none d-lg-block">
-                        <form>
-                            <div class="input-group">
-                                <input type="search" class="form-control" placeholder="Buscar verificações...">
-                                <span class="input-group-text"><iconify-icon icon="solar:magnifer-linear"></iconify-icon></span>
+
+                    <div class="d-flex align-items-center gap-1">
+                        <!-- Topbar Search Form -->
+                        <form class="app-search d-none d-md-block ms-2">
+                            <div class="position-relative">
+                                <input type="search" class="form-control" placeholder="Buscar verificações..." autocomplete="off">
+                                <iconify-icon icon="solar:magnifer-linear" class="search-widget-icon"></iconify-icon>
                             </div>
                         </form>
+
+                        <!-- Theme Color (Light/Dark) -->
+                        <div class="topbar-item">
+                            <button type="button" class="topbar-button" id="light-dark-mode">
+                                <iconify-icon icon="solar:moon-bold-duotone" class="fs-24 align-middle"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- User -->
+                        <div class="dropdown topbar-item">
+                            <a type="button" class="topbar-button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="d-flex align-items-center">
+                                    <img class="rounded-circle" width="32" src="../assets/images/users/avatar-1.jpg" alt="user-image">
+                                    <span class="d-lg-block d-none ms-2">
+                                        <h5 class="my-0 fw-normal">Entidade XYZ</h5>
+                                    </span>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
+                                <a href="perfil-entidade.html" class="dropdown-item">
+                                    <iconify-icon icon="solar:user-circle-bold-duotone" class="fs-18 align-middle me-1"></iconify-icon>
+                                    <span>Meu Perfil</span>
+                                </a>
+                                <a href="../auth-signin.html" class="dropdown-item">
+                                    <iconify-icon icon="solar:logout-3-bold-duotone" class="fs-18 align-middle me-1"></iconify-icon>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <ul class="topbar-menu d-flex align-items-center gap-3">
-                    <li class="dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none nav-user" data-bs-toggle="dropdown" href="#" role="button">
-                            <span class="account-user-avatar">
-                                <img src="../assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
-                            </span>
-                            <span class="d-lg-block d-none">
-                                <h5 class="my-0 fw-normal">Entidade XYZ</h5>
-                            </span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
-                            <a href="perfil-entidade.html" class="dropdown-item">
-                                <iconify-icon icon="solar:user-circle-bold-duotone" class="fs-18 align-middle me-1"></iconify-icon>
-                                <span>Meu Perfil</span>
-                            </a>
-                            <a href="auth-signin.html" class="dropdown-item">
-                                <iconify-icon icon="solar:logout-3-bold-duotone" class="fs-18 align-middle me-1"></iconify-icon>
-                                <span>Logout</span>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
             </div>
-        </div>
+        </header>
+        <!-- ========== Topbar End ========== -->
 
-        <!-- Sidebar -->
-        <div class="leftside-menu">
-            <a href="index.html" class="logo logo-light">
-                <span class="logo-lg"><img src="../assets/images/logo.png" alt="logo" height="22"></span>
-            </a>
-            <div class="h-100" id="leftside-menu-container" data-simplebar>
-                <ul class="side-nav">
-                    <li class="side-nav-title">Portal das Entidades</li>
-                    <li class="side-nav-item">
-                        <a href="index.html" class="side-nav-link">
-                            <iconify-icon icon="solar:widget-add-bold-duotone" class="menu-icon"></iconify-icon>
-                            <span class="menu-text"> Dashboard </span>
+        <!-- ========== App Menu Start ========== -->
+        <div class="main-nav">
+            <!-- Sidebar Logo -->
+            <div class="logo-box">
+                <a href="index.html" class="logo-dark">
+                    <img src="../assets/images/logo.png" class="logo-lg" alt="logo">
+                </a>
+                <a href="index.html" class="logo-light">
+                    <img src="../assets/images/logo.png" class="logo-lg" alt="logo">
+                </a>
+            </div>
+
+            <!-- Menu Toggle Button (sm-hover) -->
+            <button type="button" class="button-sm-hover" aria-label="Show Full Sidebar">
+                <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone" class="button-sm-hover-icon"></iconify-icon>
+            </button>
+
+            <div class="scrollbar" data-simplebar>
+                <ul class="navbar-nav" id="navbar-nav">
+                    <li class="menu-title">Portal das Entidades</li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:widget-add-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text"> Dashboard </span>
                         </a>
                     </li>
-                    <li class="side-nav-item">
-                        <a data-bs-toggle="collapse" href="#sidebarVerificacoes" class="side-nav-link">
-                            <iconify-icon icon="solar:document-medicine-bold-duotone" class="menu-icon"></iconify-icon>
-                            <span class="menu-text"> Verificações </span>
-                            <span class="menu-arrow"></span>
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarVerificacoes" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarVerificacoes">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:document-medicine-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text"> Verificações </span>
                         </a>
                         <div class="collapse show" id="sidebarVerificacoes">
-                            <ul class="side-nav-second-level">
-                                <li><a href="verificacoes-lista.html">Todas as Solicitações</a></li>
-                                <li><a href="verificacao-criar.html">Nova Solicitação</a></li>
-                                <li><a href="verificacoes-lista.html?status=pending">Pendentes</a></li>
-                                <li><a href="verificacoes-lista.html?status=approved">Aprovadas</a></li>
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item"><a href="verificacoes-lista.html" class="sub-nav-link">Todas as Solicitações</a></li>
+                                <li class="sub-nav-item"><a href="verificacao-criar.html" class="sub-nav-link">Nova Solicitação</a></li>
+                                <li class="sub-nav-item"><a href="verificacoes-lista.html?status=pending" class="sub-nav-link">Pendentes</a></li>
+                                <li class="sub-nav-item"><a href="verificacoes-lista.html?status=approved" class="sub-nav-link">Aprovadas</a></li>
                             </ul>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
+        <!-- ========== App Menu End ========== -->
 
-        <!-- Page Content -->
-        <div class="content-page">
-            <div class="content">
-                <div class="container-fluid">
+        <!-- ==================================================== -->
+        <!-- Start right Content here -->
+        <!-- ==================================================== -->
+        <div class="page-content">
+
+            <!-- Start Container Fluid -->
+            <div class="container-fluid">
                     <!-- Page Title -->
                     <div class="row">
                         <div class="col-12">
@@ -343,21 +389,26 @@
                         </div>
                     </form>
 
-                </div>
+            </div>
+            <!-- End Container Fluid -->
 
-                <!-- Footer -->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <script>document.write(new Date().getFullYear());</script>
-                                &copy; ISSM - Instituto de Supervisão de Seguros de Moçambique. Portal das Entidades.
-                            </div>
+            <!-- ========== Footer Start ========== -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <script>document.write(new Date().getFullYear());</script>
+                            &copy; ISSM - Instituto de Supervisão de Seguros de Moçambique. Portal das Entidades.
                         </div>
                     </div>
-                </footer>
-            </div>
+                </div>
+            </footer>
+            <!-- ========== Footer End ========== -->
+
         </div>
+        <!-- ==================================================== -->
+        <!-- End Page Content -->
+        <!-- ==================================================== -->
 
         <!-- Preview Modal -->
         <div class="modal fade" id="previewModal" tabindex="-1">
@@ -378,9 +429,13 @@
             </div>
         </div>
 
-        <!-- Scripts -->
+        <!-- Vendor Javascript (Require in all Page) -->
         <script src="../assets/js/vendor.js"></script>
+
+        <!-- App Javascript (Require in all Page) -->
         <script src="../assets/js/app.js"></script>
+
+        <!-- Page Specific Javascript -->
         <script src="../assets/js/pages/verification-edit.js"></script>
     </body>
 </html>
