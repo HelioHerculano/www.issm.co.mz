@@ -1115,21 +1115,26 @@
           <div class="row">
             <div class="col">
               <div class="card">
-                <div class="card-body">
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <h4 class="card-title">As Minhas Apólices</h4>
-
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <h4 class="card-title">Processos de Validação de Apólices</h4>
+                  <div>
+                    <button
+                      class="btn btn-sm btn-soft-secondary me-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#filtroModal"
+                    >
+                      <i class="bx bx-filter-alt me-1"></i>Filtrar
+                    </button>
                     <a href="#!" class="btn btn-sm btn-soft-primary">
                       <i class="bx bx-plus me-1"></i>Criar Novo Processo
                     </a>
                   </div>
                 </div>
-                <!-- end card body -->
 
                 <div class="table-responsive table-centered">
-                  <table class="table table-hover mb-0">
+                  <table class="table table-hover mb-0" id="tabelaProcessos">
                     <thead class="bg-light bg-opacity-50">
                       <tr>
                         <th class="ps-3">Nº do Processo</th>
@@ -1138,11 +1143,13 @@
                         <th>Cliente</th>
                         <th>Email</th>
                         <th>Status</th>
+                        <th>Detalhes</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <!-- Processo 1 -->
                       <tr>
-                        <td class="ps-3"><a href="#!">#PR5625</a></td>
+                        <td class="ps-3">#PR5625</td>
                         <td>29 Abril 2025</td>
                         <td>AP-10245</td>
                         <td>Anna M. Hines</td>
@@ -1151,9 +1158,20 @@
                           <i class="bx bxs-circle text-success me-1"></i
                           >Validado
                         </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-outline-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalPR5625"
+                          >
+                            Ver Detalhes
+                          </button>
+                        </td>
                       </tr>
+
+                      <!-- Processo 2 -->
                       <tr>
-                        <td class="ps-3"><a href="#!">#PR9652</a></td>
+                        <td class="ps-3">#PR9652</td>
                         <td>25 Abril 2025</td>
                         <td>AP-10278</td>
                         <td>Judith H. Fritsche</td>
@@ -1162,9 +1180,20 @@
                           <i class="bx bxs-circle text-danger me-1"></i
                           >Rejeitado
                         </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-outline-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalPR9652"
+                          >
+                            Ver Detalhes
+                          </button>
+                        </td>
                       </tr>
+
+                      <!-- Processo 3 -->
                       <tr>
-                        <td class="ps-3"><a href="#!">#PR5984</a></td>
+                        <td class="ps-3">#PR5984</td>
                         <td>20 Abril 2025</td>
                         <td>AP-10321</td>
                         <td>Peter T. Smith</td>
@@ -1173,9 +1202,20 @@
                           <i class="bx bxs-circle text-primary me-1"></i>Em
                           Processamento
                         </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-outline-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalPR5984"
+                          >
+                            Ver Detalhes
+                          </button>
+                        </td>
                       </tr>
+
+                      <!-- Processo 4 -->
                       <tr>
-                        <td class="ps-3"><a href="#!">#PR3625</a></td>
+                        <td class="ps-3">#PR3625</td>
                         <td>18 Abril 2025</td>
                         <td>AP-10405</td>
                         <td>Emmanuel J. Delcid</td>
@@ -1184,9 +1224,20 @@
                           <i class="bx bxs-circle text-primary me-1"></i>Em
                           Processamento
                         </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-outline-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalPR3625"
+                          >
+                            Ver Detalhes
+                          </button>
+                        </td>
                       </tr>
+
+                      <!-- Processo 5 -->
                       <tr>
-                        <td class="ps-3"><a href="#!">#PR8652</a></td>
+                        <td class="ps-3">#PR8652</td>
                         <td>15 Abril 2025</td>
                         <td>AP-10478</td>
                         <td>William J. Cook</td>
@@ -1195,51 +1246,149 @@
                           <i class="bx bxs-circle text-success me-1"></i
                           >Validado
                         </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-outline-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalPR8652"
+                          >
+                            Ver Detalhes
+                          </button>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <!-- table responsive -->
+              </div>
+            </div>
+          </div>
 
-                <div class="card-footer border-top">
-                  <div class="row g-3">
-                    <div class="col-sm">
-                      <div class="text-muted">
-                        Mostrando <span class="fw-semibold">5</span> de
-                        <span class="fw-semibold">90</span> processos
+          <!-- Modal Filtro -->
+          <div
+            class="modal fade"
+            id="filtroModal"
+            tabindex="-1"
+            aria-labelledby="filtroModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="filtroModalLabel">
+                    Filtrar Processos
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form id="formFiltros">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label class="form-label">Nº da Apólice</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="filtroApolice"
+                          placeholder="Ex: AP-10245"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Cliente</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="filtroCliente"
+                          placeholder="Nome do cliente"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" id="filtroStatus">
+                          <option value="">Todos</option>
+                          <option value="Validado">Validado</option>
+                          <option value="Rejeitado">Rejeitado</option>
+                          <option value="Em Processamento">
+                            Em Processamento
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Data Submissão</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="filtroData"
+                          placeholder="Ex: 25 Abril 2025"
+                        />
                       </div>
                     </div>
-
-                    <div class="col-sm-auto">
-                      <ul class="pagination m-0">
-                        <li class="page-item">
-                          <a href="#" class="page-link"
-                            ><i class="bx bx-left-arrow-alt"></i
-                          ></a>
-                        </li>
-                        <li class="page-item active">
-                          <a href="#" class="page-link">1</a>
-                        </li>
-                        <li class="page-item">
-                          <a href="#" class="page-link">2</a>
-                        </li>
-                        <li class="page-item">
-                          <a href="#" class="page-link">3</a>
-                        </li>
-                        <li class="page-item">
-                          <a href="#" class="page-link"
-                            ><i class="bx bx-right-arrow-alt"></i
-                          ></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    onclick="limparFiltros()"
+                  >
+                    Limpar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="aplicarFiltros()"
+                    data-bs-dismiss="modal"
+                  >
+                    Aplicar Filtros
+                  </button>
                 </div>
               </div>
-              <!-- end card -->
             </div>
-            <!-- end col -->
           </div>
+
+          <script>
+            function aplicarFiltros() {
+              const apolice = document
+                .getElementById("filtroApolice")
+                .value.toLowerCase();
+              const cliente = document
+                .getElementById("filtroCliente")
+                .value.toLowerCase();
+              const status = document.getElementById("filtroStatus").value;
+              const data = document
+                .getElementById("filtroData")
+                .value.toLowerCase();
+
+              const linhas = document.querySelectorAll(
+                "#tabelaProcessos tbody tr"
+              );
+
+              linhas.forEach((linha) => {
+                const tdApolice = linha.cells[2].textContent.toLowerCase();
+                const tdCliente = linha.cells[3].textContent.toLowerCase();
+                const tdStatus = linha.cells[5].textContent;
+                const tdData = linha.cells[1].textContent.toLowerCase();
+
+                let mostrar = true;
+                if (apolice && !tdApolice.includes(apolice)) mostrar = false;
+                if (cliente && !tdCliente.includes(cliente)) mostrar = false;
+                if (status && !tdStatus.includes(status)) mostrar = false;
+                if (data && !tdData.includes(data)) mostrar = false;
+
+                linha.style.display = mostrar ? "" : "none";
+              });
+            }
+
+            function limparFiltros() {
+              document.getElementById("formFiltros").reset();
+              const linhas = document.querySelectorAll(
+                "#tabelaProcessos tbody tr"
+              );
+              linhas.forEach((linha) => (linha.style.display = ""));
+            }
+          </script>
 
           <!-- end row -->
         </div>
