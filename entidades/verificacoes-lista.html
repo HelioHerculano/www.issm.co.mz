@@ -509,29 +509,176 @@ ease;
                 </div>
               </div>
               <div class="card-body p-0">
-                <div class="table-responsive">
-                  <table class="table table-hover table-nowrap table-centered m-0" id="verification-requests-table">
-                    <thead class="bg-light bg-opacity-50">
-                      <tr>
-                        <th class="ps-3">
-                          <input type="checkbox" class="form-check-input" id="select-all">
-                        </th>
-                        <th>ID da Solicitação</th>
-                        <th>Data da Solicitação</th>
-                        <th>Número da Apólice</th>
-                        <th>Seguradora</th>
-                        <th>Tipo de Verificação</th>
-                        <th>Status</th>
-                        <th>Data de Resposta</th>
-                        <th class="text-center">Ações</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <!-- Sample data rows will be populated by JavaScript -->
-                    </tbody>
-                  </table>
-                </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-nowrap table-centered m-0">
+      <thead class="bg-light bg-opacity-50">
+        <tr>
+          <th class="ps-3">
+            <input type="checkbox" class="form-check-input" />
+          </th>
+          <th>ID da Solicitação</th>
+          <th>Data da Solicitação</th>
+          <th>Número da Apólice</th>
+          <th>Seguradora</th>
+          <th>Tipo de Verificação</th>
+          <th>Status</th>
+          <th>Data de Resposta</th>
+          <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Linha 1 -->
+        <tr>
+          <td class="ps-3">
+            <input type="checkbox" class="form-check-input" />
+          </td>
+          <td>
+            <a href="verificacao-detalhes.html?id=REQ-2024-001" class="text-primary fw-semibold">#REQ-2024-001</a>
+          </td>
+          <td>05 Jan 2024</td>
+          <td>
+            <div class="d-flex align-items-center">
+              <iconify-icon icon="solar:document-text-bold-duotone" class="text-muted me-2"></iconify-icon>
+              POL-2024-789456
+            </div>
+          </td>
+          <td>Empresa Moçambicana de Seguros, SA</td>
+          <td><span class="badge bg-light text-dark">Garantia Provisória</span></td>
+          <td><span class="badge bg-warning">Pendente</span></td>
+          <td>-</td>
+          <td class="text-center">
+            <div class="dropdown">
+              <a href="#" class="dropdown-toggle card-drop" data-bs-toggle="dropdown">
+                <iconify-icon icon="solar:menu-dots-bold" class="text-muted"></iconify-icon>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item" href="verificacao-detalhes.html?id=REQ-2024-001">
+                  <iconify-icon icon="solar:eye-bold" class="me-1"></iconify-icon> Ver Detalhes
+                </a>
+                <a class="dropdown-item" href="verificacao-editar.html?id=REQ-2024-001">
+                  <iconify-icon icon="solar:pen-bold" class="me-1"></iconify-icon> Editar
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item text-danger" href="#">
+                  <iconify-icon icon="solar:trash-bin-minimalistic-bold" class="me-1"></iconify-icon> Cancelar
+                </a>
               </div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Linha 2 -->
+        <tr>
+          <td class="ps-3">
+            <input type="checkbox" class="form-check-input" />
+          </td>
+          <td>
+            <a href="verificacao-detalhes.html?id=REQ-2024-002" class="text-primary fw-semibold">#REQ-2024-002</a>
+          </td>
+          <td>03 Jan 2024</td>
+          <td>
+            <div class="d-flex align-items-center">
+              <iconify-icon icon="solar:document-text-bold-duotone" class="text-muted me-2"></iconify-icon>
+              POL-2024-123789
+            </div>
+          </td>
+          <td>Fidelidade Moçambique – Companhia de Seguros, SA</td>
+          <td><span class="badge bg-light text-dark">Automóvel (RC)</span></td>
+          <td><span class="badge bg-success">Válido</span></td>
+          <td>04 Jan 2024</td>
+          <td class="text-center">
+            <div class="dropdown">
+              <a href="#" class="dropdown-toggle card-drop" data-bs-toggle="dropdown">
+                <iconify-icon icon="solar:menu-dots-bold" class="text-muted"></iconify-icon>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item" href="verificacao-detalhes.html?id=REQ-2024-002">
+                  <iconify-icon icon="solar:eye-bold" class="me-1"></iconify-icon> Ver Detalhes
+                </a>
+                <a class="dropdown-item" href="#">
+                  <iconify-icon icon="solar:download-bold" class="me-1"></iconify-icon> Baixar Certificado
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Linha 3 -->
+        <tr>
+          <td class="ps-3">
+            <input type="checkbox" class="form-check-input" />
+          </td>
+          <td>
+            <a href="verificacao-detalhes.html?id=REQ-2024-003" class="text-primary fw-semibold">#REQ-2024-003</a>
+          </td>
+          <td>02 Jan 2024</td>
+          <td>
+            <div class="d-flex align-items-center">
+              <iconify-icon icon="solar:document-text-bold-duotone" class="text-muted me-2"></iconify-icon>
+              POL-2024-456123
+            </div>
+          </td>
+          <td>Hollard Vida Companhia de Seguros, SA</td>
+          <td><span class="badge bg-light text-dark">Vida</span></td>
+          <td><span class="badge bg-info">Em análise</span></td>
+          <td>-</td>
+          <td class="text-center">
+            <div class="dropdown">
+              <a href="#" class="dropdown-toggle card-drop" data-bs-toggle="dropdown">
+                <iconify-icon icon="solar:menu-dots-bold" class="text-muted"></iconify-icon>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item" href="verificacao-detalhes.html?id=REQ-2024-003">
+                  <iconify-icon icon="solar:eye-bold" class="me-1"></iconify-icon> Ver Detalhes
+                </a>
+                <a class="dropdown-item" href="#">
+                  <iconify-icon icon="solar:bell-bold" class="me-1"></iconify-icon> Acompanhar
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Linha 4 -->
+        <tr>
+          <td class="ps-3">
+            <input type="checkbox" class="form-check-input" />
+          </td>
+          <td>
+            <a href="verificacao-detalhes.html?id=REQ-2024-004" class="text-primary fw-semibold">#REQ-2024-004</a>
+          </td>
+          <td>01 Jan 2024</td>
+          <td>
+            <div class="d-flex align-items-center">
+              <iconify-icon icon="solar:document-text-bold-duotone" class="text-muted me-2"></iconify-icon>
+              POL-2024-987654
+            </div>
+          </td>
+          <td>Global Alliance Seguros, SA</td>
+          <td><span class="badge bg-light text-dark">Multirriscos</span></td>
+          <td><span class="badge bg-danger">Inválido</span></td>
+          <td>02 Jan 2024</td>
+          <td class="text-center">
+            <div class="dropdown">
+              <a href="#" class="dropdown-toggle card-drop" data-bs-toggle="dropdown">
+                <iconify-icon icon="solar:menu-dots-bold" class="text-muted"></iconify-icon>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item" href="verificacao-detalhes.html?id=REQ-2024-004">
+                  <iconify-icon icon="solar:eye-bold" class="me-1"></iconify-icon> Ver Detalhes
+                </a>
+                <a class="dropdown-item" href="verificacao-criar.html?retry=REQ-2024-004">
+                  <iconify-icon icon="solar:restart-bold" class="me-1"></iconify-icon> Nova Tentativa
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
               <div class="card-footer">
                 <div class="row align-items-center">
                   <div class="col-sm">

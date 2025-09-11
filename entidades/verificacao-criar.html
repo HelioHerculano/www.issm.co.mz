@@ -1,431 +1,744 @@
 <!DOCTYPE html>
 <html lang="pt">
-  <head>
-    <meta charset="utf-8" />
-    <title>Nova Solicitação | Portal de verificação de apólices - ISSM</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Criar Nova Solicitação de Verificação de Apólice - Portal de verificação de apólices ISSM" />
-    <meta name="author" content="ISSM" />
-    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
-    <link href="../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/issm-portal.css" rel="stylesheet" type="text/css" />
-    <script src="../assets/js/config.js"></script>
-  </head>
-  <style>
-    .logo-box { height: 56px; display: inline-flex; align-items: center; }
-    .logo-box .logo { max-height: 100%; width: 92%; object-fit: contain; display: block; }
-    @media (min-width: 992px) { .logo-box { height: 64px; } }
-    .form-section { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
-    .required-field::after { content: " *"; color: #dc3545; }
-    .drag-drop-zone { border: 2px dashed #dee2e6; border-radius: 8px; padding: 2rem; text-align: center; cursor: pointer; }
-    .drag-drop-zone:hover { border-color: #3b82f6; background-color: #f8faff; }
-    .step-indicator { display: flex; justify-content: center; margin-bottom: 2rem; }
-    .step { display: flex; align-items: center; padding: 0.5rem 1rem; border-radius: 20px; background: #e9ecef; margin: 0 0.5rem; }
-    .step.active { background: #3b82f6; color: white; }
-  </style>
-  <body>
-    <div class="wrapper">
-      <header class="topbar">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <div class="d-flex align-items-center">
-              <div class="topbar-item">
-                <button type="button" class="button-toggle-menu me-2">
-                  <iconify-icon icon="solar:hamburger-menu-broken" class="fs-24 align-middle"></iconify-icon>
-                </button>
-              </div>
-              <div class="topbar-item">
-                <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Portal de verificação de apólices - ISSM</h4>
-              </div>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Nova Solicitação | Portal de verificação de apólices - ISSM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Criar Nova Solicitação de Verificação de Apólice - Portal de verificação de apólices ISSM" />
+  <meta name="author" content="ISSM" />
+  <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+  <link href="../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/issm-portal.css" rel="stylesheet" type="text/css" />
+  <script src="../assets/js/config.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<style>
+  .logo-box {
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .logo-box .logo {
+    max-height: 100%;
+    width: 92%;
+    object-fit: contain;
+    display: block;
+  }
+
+  @media (min-width: 992px) {
+    .logo-box {
+      height: 64px;
+    }
+  }
+
+  .form-section {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .required-field::after {
+    content: " *";
+    color: #dc3545;
+  }
+
+  .drag-drop-zone {
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .drag-drop-zone:hover {
+    border-color: #3b82f6;
+    background-color: #f8faff;
+  }
+
+  .step-indicator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: #e9ecef;
+    margin: 0 0.5rem;
+  }
+
+  .step.active {
+    background: #3b82f6;
+    color: white;
+  }
+</style>
+
+<body>
+  <div class="wrapper">
+    <header class="topbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="d-flex align-items-center">
+            <div class="topbar-item">
+              <button type="button" class="button-toggle-menu me-2">
+                <iconify-icon icon="solar:hamburger-menu-broken" class="fs-24 align-middle"></iconify-icon>
+              </button>
             </div>
-            <div class="d-flex align-items-center gap-1">
-              <div class="dropdown topbar-item">
-                <a type="button" class="topbar-button" id="page-header-user-dropdown" data-bs-toggle="dropdown">
-                  <span class="d-flex align-items-center">
-                    <img class="rounded-circle" width="32" src="../assets/images/users/avatar-1.jpg" alt="avatar-1" />
-                  </span>
+            <div class="topbar-item">
+              <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Portal de verificação de apólices - ISSM
+              </h4>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-1">
+            <div class="dropdown topbar-item">
+              <a type="button" class="topbar-button" id="page-header-user-dropdown" data-bs-toggle="dropdown">
+                <span class="d-flex align-items-center">
+                  <img class="rounded-circle" width="32" src="../assets/images/users/avatar-1.jpg" alt="avatar-1" />
+                </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end">
+                <h6 class="dropdown-header">Bem-vindo, Entidade!</h6>
+                <a class="dropdown-item" href="perfil-entidade.html">
+                  <i class="bx bx-user-circle text-muted fs-18 align-middle me-1"></i>Perfil da Entidade
                 </a>
-                <div class="dropdown-menu dropdown-menu-end">
-                  <h6 class="dropdown-header">Bem-vindo, Entidade!</h6>
-                  <a class="dropdown-item" href="perfil-entidade.html">
-                    <i class="bx bx-user-circle text-muted fs-18 align-middle me-1"></i>Perfil da Entidade
-                  </a>
-                  <a class="dropdown-item" href="verificacoes-lista.html">
-                    <i class="bx bx-file-find text-muted fs-18 align-middle me-1"></i>Minhas Verificações
-                  </a>
-                  <div class="dropdown-divider my-1"></div>
-                  <a class="dropdown-item text-danger" href="auth-signin.html">
-                    <i class="bx bx-log-out fs-18 align-middle me-1"></i>Logout
-                  </a>
-                </div>
+                <a class="dropdown-item" href="verificacoes-lista.html">
+                  <i class="bx bx-file-find text-muted fs-18 align-middle me-1"></i>Minhas Verificações
+                </a>
+                <div class="dropdown-divider my-1"></div>
+                <a class="dropdown-item text-danger" href="auth-signin.html">
+                  <i class="bx bx-log-out fs-18 align-middle me-1"></i>Logout
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </header>
-
-      <div class="main-nav">
-        <div class="logo-box">
-          <a href="index.html" class="logo-light">
-            <img src="../assets/images/Logo/LOGO-ISSM-2025.png" alt="logo" class="logo" />
-          </a>
-          <a href="index.html" class="logo-dark">
-            <img src="../assets/images/Logo/LOGO-ISSM-2025.png" alt="logo" class="logo" />
-          </a>
-        </div>
-        <button type="button" class="button-sm-hover">
-          <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone" class="button-sm-hover-icon"></iconify-icon>
-        </button>
-        <div class="scrollbar" data-simplebar>
-          <ul class="navbar-nav" id="navbar-nav">
-            <li class="menu-title">Portal de verificação de apólices</li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                <span class="nav-icon">
-                  <iconify-icon
-                    icon="solar:widget-5-bold-duotone"
-                  ></iconify-icon>
-                </span>
-                <span class="nav-text"> Dashboard </span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a
-                class="nav-link menu-arrow"
-                href="#sidebarVerificacoes"
-                data-bs-toggle="collapse"
-                role="button"
-                aria-expanded="false"
-                aria-controls="sidebarVerificacoes"
-              >
-                <span class="nav-icon">
-                  <iconify-icon
-                    icon="solar:document-medicine-bold-duotone"
-                  ></iconify-icon>
-                </span>
-                <span class="nav-text"> Verificações </span>
-              </a>
-              <div class="collapse" id="sidebarVerificacoes">
-                <ul class="nav sub-navbar-nav">
-                  <li class="sub-nav-item">
-                    <a class="sub-nav-link" href="verificacoes-lista.html">Todas as Solicitações</a>
-                  </li>
-                  <li class="sub-nav-item">
-                    <a class="sub-nav-link" href="verificacao-criar.html">Nova Solicitação</a>
-                  </li>
-                  <li class="sub-nav-item">
-                    <a class="sub-nav-link" href="verificacoes-lista.html?status=draft">Rascunhos</a>
-                  </li>
-                  <li class="sub-nav-item">
-                    <a class="sub-nav-link" href="verificacoes-lista.html?status=pending">Pendentes</a>
-                  </li>
-                  <li class="sub-nav-item">
-                    <a class="sub-nav-link" href="verificacoes-lista.html?status=approved">Aprovadas</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="relatorios.html">
-                <span class="nav-icon">
-                  <iconify-icon
-                    icon="solar:chart-bold-duotone"
-                  ></iconify-icon>
-                </span>
-                <span class="nav-text"> Relatórios </span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="perfil-entidade.html">
-                <span class="nav-icon">
-                  <iconify-icon
-                    icon="solar:user-bold-duotone"
-                  ></iconify-icon>
-                </span>
-                <span class="nav-text"> Perfil da Entidade </span>
-              </a>
-            </li>
-
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="configuracoes.html">
-                <span class="nav-icon">
-                  <iconify-icon
-                    icon="solar:settings-bold-duotone"
-                  ></iconify-icon>
-                </span>
-                <span class="nav-text"> Configurações </span>
-              </a>
-            </li> -->
-
-            
-
-            <li class="nav-item">
-              <a class="nav-link" href="settings.html">
-                <i class="bx bx-log-out fs-18 align-middle me-1"></i
-                    >
-                <span class="nav-text"> Sair </span>
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
+    </header>
 
-      <div class="page-content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">
-              <div class="page-title-box">
-                <div class="page-title-right">
-                  <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="index.html">Portal de verificação de apólices</a></li>
-                    <li class="breadcrumb-item"><a href="verificacoes-lista.html">Verificações</a></li>
-                    <li class="breadcrumb-item active">Nova Solicitação</li>
-                  </ol>
-                </div>
-                <h4 class="page-title">Nova Solicitação de Verificação</h4>
-              </div>
-            </div>
-          </div>
+    <div class="main-nav">
+      <div class="logo-box">
+        <a href="index.html" class="logo-light">
+          <img src="../assets/images/Logo/LOGO-ISSM-2025.png" alt="logo" class="logo" />
+        </a>
+        <a href="index.html" class="logo-dark">
+          <img src="../assets/images/Logo/LOGO-ISSM-2025.png" alt="logo" class="logo" />
+        </a>
+      </div>
+      <button type="button" class="button-sm-hover">
+        <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone" class="button-sm-hover-icon"></iconify-icon>
+      </button>
+      <div class="scrollbar" data-simplebar>
+        <ul class="navbar-nav" id="navbar-nav">
+          <li class="menu-title">Portal de verificação de apólices</li>
 
-          <div class="row">
-            <div class="col-12">
-              <div class="step-indicator">
-                <div class="step active" id="step-1"><span>1. Informações da Apólice</span></div>
-                <div class="step" id="step-2"><span>2. Tipo de Verificação</span></div>
-                <div class="step" id="step-3"><span>3. Documentos</span></div>
-                <div class="step" id="step-4"><span>4. Revisão</span></div>
-              </div>
-            </div>
-          </div>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <span class="nav-icon">
+                <iconify-icon icon="solar:widget-5-bold-duotone"></iconify-icon>
+              </span>
+              <span class="nav-text"> Dashboard </span>
+            </a>
+          </li>
 
-          <form id="verification-form" class="needs-validation" novalidate>
-            <!-- Step 1: Policy Information -->
-            <div class="form-step" id="form-step-1">
-              <div class="row">
-                <div class="col-lg-12 mx-auto">
-                  <div class="card">
-                    <div class="card-header">
-                      <h5 class="card-title mb-0">Informações da Apólice de Seguro</h5>
-                    </div>
-                    <div class="card-body">
-                      <div class="row g-3">
-                        <div class="col-md-6">
-                          <label for="policy-number" class="form-label required-field">Número da Apólice</label>
-                          <input type="text" class="form-control" id="policy-number" name="policyNumber" required placeholder="Ex: POL-2024-123456" />
-                          <div class="invalid-feedback">Por favor, insira um número de apólice válido.</div>
-                        </div>
-                        <div class="col-md-6">
-                          <label for="insurance-company" class="form-label required-field">Seguradora</label>
-                          <select class="form-select" id="insurance-company" name="insuranceCompany" required>
-                            <option value="">Selecione a seguradora</option>
-                            <option value="empresa-seguradora-a">Empresa Seguradora A</option>
-                            <option value="seguradora-geral">Seguradora Geral</option>
-                            <option value="mocambique-vida">Moçambique Vida</option>
-                            <option value="emmanuel-seguradora">Emmanuel Seguradora</option>
-                          </select>
-                          <div class="invalid-feedback">Por favor, selecione uma seguradora.</div>
-                        </div>
-                        <div class="col-md-6">
-                          <label for="policy-holder-name" class="form-label required-field">Nome do Segurado</label>
-                          <input type="text" class="form-control" id="policy-holder-name" name="policyHolderName" required placeholder="Nome completo do segurado" />
-                          <div class="invalid-feedback">Por favor, insira o nome do segurado.</div>
-                        </div>
-                        <div class="col-md-6">
-                          <label for="policy-holder-id" class="form-label">BI/NUIT do Segurado</label>
-                          <input type="text" class="form-control" id="policy-holder-id" name="policyHolderID" placeholder="Ex: 123456789A ou 400123456" />
-                        </div>
-                        <div class="col-md-6">
-                          <label for="policy-start-date" class="form-label">Data de Início</label>
-                          <input type="date" class="form-control" id="policy-start-date" name="policyStartDate" />
-                        </div>
-                        <div class="col-md-6">
-                          <label for="policy-end-date" class="form-label">Data de Fim</label>
-                          <input type="date" class="form-control" id="policy-end-date" name="policyEndDate" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <li class="nav-item">
+            <a class="nav-link menu-arrow" href="#sidebarVerificacoes" data-bs-toggle="collapse" role="button"
+              aria-expanded="false" aria-controls="sidebarVerificacoes">
+              <span class="nav-icon">
+                <iconify-icon icon="solar:document-medicine-bold-duotone"></iconify-icon>
+              </span>
+              <span class="nav-text"> Verificações </span>
+            </a>
+            <div class="collapse" id="sidebarVerificacoes">
+              <ul class="nav sub-navbar-nav">
+                <li class="sub-nav-item">
+                  <a class="sub-nav-link" href="verificacoes-lista.html">Todas as Solicitações</a>
+                </li>
+                <li class="sub-nav-item">
+                  <a class="sub-nav-link" href="verificacao-criar.html">Nova Solicitação</a>
+                </li>
+                <li class="sub-nav-item">
+                  <a class="sub-nav-link" href="verificacoes-lista.html?status=draft">Rascunhos</a>
+                </li>
+                <li class="sub-nav-item">
+                  <a class="sub-nav-link" href="verificacoes-lista.html?status=pending">Pendentes</a>
+                </li>
+                <li class="sub-nav-item">
+                  <a class="sub-nav-link" href="verificacoes-lista.html?status=approved">Aprovadas</a>
+                </li>
+              </ul>
             </div>
+          </li>
 
-            <!-- Step 2: Verification Type -->
-            <div class="form-step d-none" id="form-step-2">
-              <div class="row">
-                <div class="col-lg-12 mx-auto">
-                  <div class="card">
-                    <div class="card-header">
-                      <h5 class="card-title mb-0">Tipo de Verificação</h5>
-                    </div>
-                    <div class="card-body">
-                      <div class="row g-3">
-                        <div class="col-12">
-                          <label class="form-label required-field">Selecione o tipo de verificação:</label>
-                          <div class="row g-3">
-                            <div class="col-md-4">
-                              <div class="card border">
-                                <div class="card-body text-center">
-                                  <input type="radio" class="form-check-input" id="verification-validity" name="verificationType" value="validity" required />
-                                  <label for="verification-validity" class="form-check-label w-100 cursor-pointer">
-                                    <iconify-icon icon="solar:shield-check-bold-duotone" class="fs-48 text-info d-block mb-2"></iconify-icon>
-                                    <h6>Verificação de Validade</h6>
-                                    <p class="text-muted small mb-0">Confirma se a apólice está válida.</p>
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-4">
-                              <div class="card border">
-                                <div class="card-body text-center">
-                                  <input type="radio" class="form-check-input" id="verification-coverage" name="verificationType" value="coverage" required />
-                                  <label for="verification-coverage" class="form-check-label w-100 cursor-pointer">
-                                    <iconify-icon icon="solar:umbrella-bold-duotone" class="fs-48 text-primary d-block mb-2"></iconify-icon>
-                                    <h6>Verificação de Cobertura</h6>
-                                    <p class="text-muted small mb-0">Detalha as coberturas incluídas.</p>
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-4">
-                              <div class="card border">
-                                <div class="card-body text-center">
-                                  <input type="radio" class="form-check-input" id="verification-claims" name="verificationType" value="claims_history" required />
-                                  <label for="verification-claims" class="form-check-label w-100 cursor-pointer">
-                                    <iconify-icon icon="solar:history-bold-duotone" class="fs-48 text-secondary d-block mb-2"></iconify-icon>
-                                    <h6>Histórico de Sinistros</h6>
-                                    <p class="text-muted small mb-0">Relatório dos sinistros registrados.</p>
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <label for="urgency-level" class="form-label required-field">Nível de Urgência</label>
-                          <select class="form-select" id="urgency-level" name="urgencyLevel" required>
-                            <option value="">Selecione a urgência</option>
-                            <option value="low">Baixa (5-7 dias)</option>
-                            <option value="normal" selected>Normal (3-5 dias)</option>
-                            <option value="high">Alta (1-2 dias)</option>
-                            <option value="urgent">Urgente (24 horas)</option>
-                          </select>
-                        </div>
-                        <div class="col-md-6">
-                          <label for="verification-date" class="form-label required-field">Data da Verificação</label>
-                          <input type="date" class="form-control" id="verification-date" name="verificationDate" required />
-                        </div>
-                        <div class="col-12">
-                          <label for="verification-purpose" class="form-label required-field">Finalidade</label>
-                          <textarea class="form-control" id="verification-purpose" name="verificationPurpose" rows="3" required placeholder="Explique a finalidade desta verificação..."></textarea>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="relatorios.html">
+              <span class="nav-icon">
+                <iconify-icon icon="solar:chart-bold-duotone"></iconify-icon>
+              </span>
+              <span class="nav-text"> Relatórios </span>
+            </a>
+          </li>
 
-            <!-- Step 3: Documents Upload -->
-            <div class="form-step d-none" id="form-step-3">
-              <div class="row">
-                <div class="col-lg-12 mx-auto">
-                  <div class="card">
-                    <div class="card-header">
-                      <h5 class="card-title mb-0">Documentos de Suporte</h5>
-                    </div>
-                    <div class="card-body">
-                      <div class="alert alert-info">
-                        <h6>Documentos Obrigatórios:</h6>
-                        <ul class="mb-0">
-                          <li>Cópia da apólice de seguro</li>
-                          <li>Documento de identificação</li>
-                          <li>Procuração (se aplicável)</li>
-                        </ul>
-                      </div>
-                      <div class="drag-drop-zone" id="drag-drop-zone">
-                        <iconify-icon icon="solar:cloud-upload-bold-duotone" class="fs-48 text-muted mb-3"></iconify-icon>
-                        <h5>Arraste e solte seus arquivos aqui</h5>
-                        <p class="text-muted mb-3">ou</p>
-                        <button type="button" class="btn btn-primary" onclick="document.getElementById('file-input').click()">
-                          Selecionar Arquivos
-                        </button>
-                        <input type="file" id="file-input" multiple accept=".pdf,.jpg,.jpeg,.png" class="d-none" />
-                        <p class="text-muted mt-2 small">Formatos: PDF, JPG, PNG (máx. 10MB)</p>
-                      </div>
-                      <div class="file-list mt-3" id="file-list"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="perfil-entidade.html">
+              <span class="nav-icon">
+                <iconify-icon icon="solar:user-bold-duotone"></iconify-icon>
+              </span>
+              <span class="nav-text"> Perfil da Entidade </span>
+            </a>
+          </li>
 
-            <!-- Step 4: Review and Submit -->
-            <div class="form-step d-none" id="form-step-4">
-              <div class="row">
-                <div class="col-lg-12 mx-auto">
-                  <div class="card">
-                    <div class="card-header">
-                      <h5 class="card-title mb-0">Revisão da Solicitação</h5>
-                    </div>
-                    <div class="card-body">
-                      <div id="review-content"></div>
-                      <div class="form-check mt-4">
-                        <input class="form-check-input" type="checkbox" id="terms-agreement" required>
-                        <label class="form-check-label" for="terms-agreement">
-                          Declaro que as informações fornecidas são verdadeiras e concordo com os termos de uso.
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Form Navigation -->
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="d-flex justify-content-between mt-4">
-                  <button type="button" class="btn btn-outline-secondary" id="prev-btn" onclick="previousStep()" disabled>
-                    <iconify-icon icon="solar:arrow-left-bold" class="me-1"></iconify-icon>Anterior
-                  </button>
-                  <div>
-                    <button type="button" class="btn btn-outline-primary me-2" id="save-draft-btn" onclick="saveDraft()">
-                      <iconify-icon icon="solar:diskette-bold" class="me-1"></iconify-icon>Salvar Rascunho
-                    </button>
-                    <button type="button" class="btn btn-primary" id="next-btn" onclick="nextStep()">
-                      Próximo<iconify-icon icon="solar:arrow-right-bold" class="ms-1"></iconify-icon>
-                    </button>
-                    <button type="submit" class="btn btn-success d-none" id="submit-btn">
-                      <iconify-icon icon="solar:send-square-bold" class="me-1"></iconify-icon>Submeter Solicitação
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <footer class="footer">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-12 text-center">
-                <script>document.write(new Date().getFullYear());</script>
-                &copy; ISSM - Instituto de Supervisão de Seguros de Moçambique. Portal de verificação de apólices.
-              </div>
-            </div>
-          </div>
-        </footer>
+          <li class="nav-item">
+            <a class="nav-link" href="settings.html">
+              <i class="bx bx-log-out fs-18 align-middle me-1"></i>
+              <span class="nav-text"> Sair </span>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 
-    <script src="../assets/js/vendor.js"></script>
-    <script src="../assets/js/app.js"></script>
-    <script src="../assets/js/pages/verification-form.js"></script>
-  </body>
+    <div class="page-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-title-box">
+              <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                  <li class="breadcrumb-item"><a href="index.html">Portal de verificação de apólices</a></li>
+                  <li class="breadcrumb-item"><a href="verificacoes-lista.html">Verificações</a></li>
+                  <li class="breadcrumb-item active">Nova Solicitação</li>
+                </ol>
+              </div>
+              <h4 class="page-title">Nova Solicitação de Verificação</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="step-indicator">
+              <div class="step active" id="step-1"><span>1. Informações da Apólice</span></div>
+              <div class="step" id="step-2"><span>2. Tipo de Verificação</span></div>
+              <div class="step" id="step-3"><span>3. Documentos</span></div>
+              <div class="step" id="step-4"><span>4. Revisão</span></div>
+            </div>
+          </div>
+        </div>
+
+        <form id="verification-form" class="needs-validation" novalidate>
+          <!-- Step 1: Policy Information -->
+          <div class="form-step" id="form-step-1">
+            <div class="row">
+              <div class="col-lg-12 mx-auto">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title mb-0">Informações da Apólice de Seguro</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="policy-number" class="form-label required-field">Número da Apólice</label>
+                        <input type="text" class="form-control" id="policy-number" name="policyNumber" required
+                          placeholder="Ex: POL-2025-123456" />
+                        <div class="invalid-feedback">Por favor, insira um número de apólice válido.</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="insurance-company" class="form-label required-field">Seguradora</label>
+                        <select class="form-select" id="insurance-company" name="insuranceCompany" required>
+                          <option value="">Selecione a seguradora</option>
+                          <option>Empresa Moçambicana de Seguros, SA</option>
+                          <option>Fidelidade Moçambique – Companhia de Seguros, SA</option>
+                          <option>Global Alliance Seguros, SA</option>
+                          <option>Hollard Moçambique Companhia de Seguros, SA</option>
+                          <option>Moçambique Companhia de Seguros, SA</option>
+                          <option>Hollard Vida Companhia de Seguros, SA</option>
+                          <option>BRITAM Companhia de Seguros de Moçambique, SA</option>
+                          <option>Companhia de Seguros Índico, SA</option>
+                          <option>Sanlam Moçambique Vida Companhia de Seguros, SA</option>
+                          <option>Diamond Companhia de Seguros, SA</option>
+                          <option>Phoenix Companhia de Seguros de Moçambique, SA</option>
+                          <option>Imperial Insurance Moçambique, SA</option>
+                          <option>Arko Companhia de Seguros, SA</option>
+                          <option>Mediplus Companhia de Seguros, SA</option>
+                          <option>Palma Companhia de Seguros, SA</option>
+                          <option>Companhia de Seguro Horizonte, SA</option>
+                          <option>Mais Vida Companhia de Seguros de Saúde, SA</option>
+                          <option>ENH Companhia de Seguros, SA</option>
+                          <option>Momentum Moçambique Companhia de Seguros de Saúde, SA</option>
+                          <option>Premium Insurance Company, SA</option>
+                          <option>Prime Companhia de Seguros, SA</option>
+                          <option>Máximo Companhia de Seguros, SA</option>
+                        </select>
+                        <div class="invalid-feedback">Por favor, selecione uma seguradora.</div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="insurance-branch" class="form-label required-field">Ramo de Seguro</label>
+                        <select class="form-select" id="insurance-branch" name="insuranceBranch" required>
+                          <option value="">Selecione o ramo</option>
+                          <option value="caucao">Seguros de Caução / Garantia</option>
+                          <option value="obrigatorios">Seguros Obrigatórios</option>
+                          <option value="pessoas">Seguros de Pessoas</option>
+                          <option value="patrimonio">Seguros de Património</option>
+                          <option value="agricolas">Seguros Agrícolas</option>
+                          <option value="financeiros">Seguros Financeiros e Especiais</option>
+                        </select>
+                        <div class="invalid-feedback">Por favor, selecione o ramo de seguro.</div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="insurance-product" class="form-label required-field">Produto / Cobertura</label>
+                        <select class="form-select" id="insurance-product" name="insuranceProduct" required>
+                          <option value="">Selecione o produto</option>
+                          <!-- Caução / Garantia -->
+                          <option data-group="caucao">Garantia Provisória (concursos públicos)</option>
+                          <option data-group="caucao">Garantia Definitiva (execução de contrato)</option>
+                          <option data-group="caucao">Adiantamento de Pagamento</option>
+                          <option data-group="caucao">Boa Execução</option>
+                          <option data-group="caucao">Retenção de Pagamento</option>
+                          <!-- Obrigatórios -->
+                          <option data-group="obrigatorios">Automóvel (Responsabilidade Civil – terceiros)</option>
+                          <option data-group="obrigatorios">Acidentes de Trabalho</option>
+                          <option data-group="obrigatorios">Responsabilidade Civil para Transportadores</option>
+                          <option data-group="obrigatorios">Construção e Montagem (em certas obras)</option>
+                          <!-- Pessoas -->
+                          <option data-group="pessoas">Vida (morte, invalidez)</option>
+                          <option data-group="pessoas">Saúde (planos médicos)</option>
+                          <option data-group="pessoas">Acidentes Pessoais</option>
+                          <option data-group="pessoas">Educação (poupança com proteção)</option>
+                          <option data-group="pessoas">Funerário</option>
+                          <!-- Património -->
+                          <option data-group="patrimonio">Multirriscos (residencial ou empresarial)</option>
+                          <option data-group="patrimonio">Incêndio, Queda de Raio e Explosão</option>
+                          <option data-group="patrimonio">Inundações, Tempestades, Ciclones</option>
+                          <option data-group="patrimonio">Riscos Industriais</option>
+                          <option data-group="patrimonio">Equipamentos Eletrónicos</option>
+                          <option data-group="patrimonio">Transporte de Mercadorias (marítimo, aéreo, rodoviário)
+                          </option>
+                          <option data-group="patrimonio">Quebra de Máquinas e Equipamentos</option>
+                          <!-- Agrícolas -->
+                          <option data-group="agricolas">Colheitas (seca, pragas, ciclones)</option>
+                          <option data-group="agricolas">Pecuária (morte/doença do gado)</option>
+                          <!-- Financeiros e Especiais -->
+                          <option data-group="financeiros">Crédito (incumprimento de clientes)</option>
+                          <option data-group="financeiros">Riscos Políticos (investimentos internacionais)</option>
+                          <option data-group="financeiros">Responsabilidade Civil Profissional (advogados, médicos,
+                            engenheiros)</option>
+                          <option data-group="financeiros">Viagem (nacional ou internacional)</option>
+                        </select>
+                        <div class="invalid-feedback">Por favor, selecione o produto/cobertura.</div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="policy-holder-name" class="form-label required-field">Nome do Segurado </label>
+                        <input type="text" class="form-control" id="policy-holder-name" name="policyHolderName" required
+                          placeholder="Nome completo" />
+                        <div class="invalid-feedback">Por favor, insira o nome do segurado.</div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="policy-taker-name" class="form-label required-field">Nome do Tomador</label>
+                        <input type="text" class="form-control" id="policy-taker-name" name="policyTakerName" required
+                          placeholder="Nome completo" />
+                        <div class="invalid-feedback">Por favor, insira o nome do tomador.</div>
+                      </div>
+
+                      <!-- Campo BI/NUIT (opcional). Descomente se quiser exibir:
+                      <div class="col-md-6">
+                        <label for="policy-holder-id" class="form-label">BI/NUIT</label>
+                        <input type="text" class="form-control" id="policy-holder-id" name="policyHolderID"
+                          placeholder="Ex.: 001234567/08 ou 123456789" />
+                      </div> -->
+
+                      <fieldset style="border: 1px dashed #ccc; padding: 20px; border-radius: 15px;">
+                        <legend>Período de Vigência da Apólice </legend>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label for="policy-start-date" class="form-label">Data de Início</label>
+                            <input type="date" class="form-control" id="policy-start-date" name="policyStartDate" />
+                          </div>
+                          <div class="col-md-6">
+                            <label for="policy-end-date" class="form-label">Data de Fim</label>
+                            <input type="date" class="form-control" id="policy-end-date" name="policyEndDate" />
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Verification Type -->
+          <div class="form-step d-none" id="form-step-2">
+            <div class="row">
+              <div class="col-lg-12 mx-auto">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title mb-0">Tipo de Verificação</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <label class="form-label required-field">Selecione o tipo de verificação:</label>
+                        <div class="row g-3 align-items-center">
+                          <div class="col-md-6 align-items-center">
+                            <div class="card border h-100">
+                              <div class="card-body text-center">
+                                <input type="radio" checked class="form-check-input" id="verification-validity"
+                                  name="verificationType" value="validity" required />
+                                <label for="verification-validity" class="form-check-label w-100 cursor-pointer">
+                                  <iconify-icon icon="solar:shield-check-bold-duotone"
+                                    class="fs-48 text-info d-block mb-2"></iconify-icon>
+                                  <h6>Validade da Apólice</h6>
+                                  <p class="text-muted small mb-0">Confirma se a apólice está ativa no período indicado.
+                                  </p>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- (outros tipos podem ser reativados quando necessário) -->
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="urgency-level" class="form-label required-field">Nível de Urgência</label>
+                        <select class="form-select" id="urgency-level" name="urgencyLevel" required>
+                          <option value="">Selecione a urgência</option>
+                          <option value="low">Baixa (5-7 dias)</option>
+                          <option value="normal" selected>Normal (3-5 dias)</option>
+                          <option value="high">Alta (1-2 dias)</option>
+                          <option value="urgent">Urgente (24 horas)</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="verification-date" class="form-label required-field">Data da Verificação</label>
+                        <input type="date" class="form-control" id="verification-date" name="verificationDate"
+                          required />
+                      </div>
+                      <div class="col-12">
+                        <label for="verification-purpose" class="form-label required-field">Finalidade</label>
+                        <textarea class="form-control" id="verification-purpose" name="verificationPurpose" rows="3"
+                          required
+                          placeholder="Explique a finalidade desta verificação (ex.: concurso público, auditoria, fiscalização, renovação, etc.)..."></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Documents Upload -->
+          <div class="form-step d-none" id="form-step-3">
+            <div class="row">
+              <div class="col-lg-12 mx-auto">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title mb-0">Documentos de Suporte</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="alert alert-info">
+                      <h6>Documentos Obrigatórios:</h6>
+                      <ul class="mb-0">
+                        <li>Cópia da apólice de seguro (ou certificado)</li>
+                        <li>Documento de identificação do segurado/tomador</li>
+                        <li>Procuração/mandato (se aplicável)</li>
+                      </ul>
+                      <small class="text-muted d-block mt-2">Para seguros obrigatórios (ex.: RC Auto, Acidentes de
+                        Trabalho), anexe também o comprovativo de pagamento do prémio vigente.</small>
+                    </div>
+                    <div class="drag-drop-zone" id="drag-drop-zone">
+                      <iconify-icon icon="solar:cloud-upload-bold-duotone" class="fs-48 text-muted mb-3"></iconify-icon>
+                      <h5>Arraste e solte os seus ficheiros aqui</h5>
+                      <p class="text-muted mb-3">ou</p>
+                      <button type="button" class="btn btn-primary"
+                        onclick="document.getElementById('file-input').click()">Selecionar Ficheiros</button>
+                      <input type="file" id="file-input" multiple accept=".pdf,.jpg,.jpeg,.png" class="d-none" />
+                      <p class="text-muted mt-2 small">Formatos: PDF, JPG, PNG (máx. 10MB)</p>
+                    </div>
+                    <div class="file-list mt-3" id="file-list"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Review and Submit -->
+          <div class="form-step d-none" id="form-step-4">
+            <div class="row">
+              <div class="col-lg-12 mx-auto">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title mb-0">Revisão da Solicitação</h5>
+                </div>
+                  <div class="card-body">
+                    <div id="review-content"></div>
+                    <div class="form-check mt-4">
+                      <input class="form-check-input" type="checkbox" id="terms-agreement" required />
+                      <label class="form-check-label" for="terms-agreement">Declaro que as informações fornecidas são
+                        verdadeiras e concordo com os termos de uso.</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Navigation -->
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-outline-secondary" id="prev-btn" onclick="previousStep()" disabled>
+                  <iconify-icon icon="solar:arrow-left-bold" class="me-1"></iconify-icon>Anterior
+                </button>
+                <div>
+                  <button type="button" class="btn btn-outline-primary me-2" id="save-draft-btn" onclick="saveDraft()">
+                    <iconify-icon icon="solar:diskette-bold" class="me-1"></iconify-icon>Salvar Rascunho
+                  </button>
+                  <button type="button" class="btn btn-primary" id="next-btn" onclick="nextStep()">
+                    Próximo<iconify-icon icon="solar:arrow-right-bold" class="ms-1"></iconify-icon>
+                  </button>
+                  <!-- O onclick chama o método com SweetAlert e redirecionamento -->
+                  <button type="button" class="btn btn-success d-none" id="submit-btn" onclick="onSubmitRequest()">
+                    <iconify-icon icon="solar:send-square-bold" class="me-1"></iconify-icon>Submeter Solicitação
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 text-center">
+              <script>document.write(new Date().getFullYear());</script>
+              &copy; ISSM - Instituto de Supervisão de Seguros de Moçambique. Portal de verificação de apólices.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="../assets/js/vendor.js"></script>
+  <script src="../assets/js/app.js"></script>
+
+  <!-- Ajustes específicos do formulário -->
+  <script>
+    // Passos
+    let currentStep = 1;
+    const totalSteps = 4;
+    const form = document.getElementById('verification-form');
+
+    function showStep(step) {
+      for (let i = 1; i <= totalSteps; i++) {
+        document.getElementById('form-step-' + i).classList.toggle('d-none', i !== step);
+        document.getElementById('step-' + i).classList.toggle('active', i === step);
+      }
+      document.getElementById('prev-btn').disabled = step === 1;
+      document.getElementById('next-btn').classList.toggle('d-none', step === totalSteps);
+      document.getElementById('submit-btn').classList.toggle('d-none', step !== totalSteps);
+    }
+    function nextStep() {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        showStep(currentStep);
+        if (currentStep === totalSteps) buildReview();
+      }
+    }
+    function previousStep() {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    }
+    function saveDraft() {
+      // Simples mock de gravação de rascunho
+      alert('Rascunho guardado localmente.');
+    }
+
+    // Filtra produtos conforme ramo
+    const branchSelect = document.getElementById('insurance-branch');
+    const productSelect = document.getElementById('insurance-product');
+    const allProductOptions = Array.from(productSelect.querySelectorAll('option[data-group]'));
+    function filterProducts() {
+      const value = branchSelect.value;
+      productSelect.value = '';
+      allProductOptions.forEach(opt => {
+        const show = !value || opt.getAttribute('data-group') === value;
+        opt.hidden = !show;
+      });
+    }
+    branchSelect.addEventListener('change', filterProducts);
+    filterProducts();
+
+    // Drag & Drop simples
+    const dz = document.getElementById('drag-drop-zone');
+    const input = document.getElementById('file-input');
+    const list = document.getElementById('file-list');
+    dz.addEventListener('dragover', (e) => { e.preventDefault(); dz.classList.add('border-primary'); });
+    dz.addEventListener('dragleave', () => dz.classList.remove('border-primary'));
+    dz.addEventListener('drop', (e) => { e.preventDefault(); dz.classList.remove('border-primary'); handleFiles(e.dataTransfer.files); });
+    input.addEventListener('change', () => handleFiles(input.files));
+    function handleFiles(files) {
+      list.innerHTML = '';
+      Array.from(files).forEach(f => {
+        const item = document.createElement('div');
+        item.className = 'd-flex align-items-center justify-content-between border rounded p-2 mb-2';
+        item.innerHTML = `<span class="text-truncate" style="max-width:75%">${f.name}</span>
+                          <span class="badge bg-light text-dark">${(f.size / 1024 / 1024).toFixed(2)} MB</span>`;
+        list.appendChild(item);
+      });
+    }
+
+    // Revisão final (melhorada)
+    function buildReview() {
+      const review = document.getElementById('review-content');
+      const data = new FormData(form);
+      const entries = Object.fromEntries(data.entries());
+
+      const branchText = branchSelect.selectedOptions[0]?.text?.trim() || '-';
+      const productText = productSelect.selectedOptions[0]?.text?.trim() || '-';
+
+      const verificationTypeMap = {
+        validity: 'Validade da Apólice',
+        coverage: 'Detalhe de Coberturas',
+        claims_history: 'Histórico de Sinistros',
+        mandatory_proof: 'Comprovativo de Seguro Obrigatório'
+      };
+      const urgencyMap = {
+        low: 'Baixa (5–7 dias)',
+        normal: 'Normal (3–5 dias)',
+        high: 'Alta (1–2 dias)',
+        urgent: 'Urgente (24 horas)'
+      };
+
+      const verificationTypeText = verificationTypeMap[entries.verificationType] || '-';
+      const urgencyText = urgencyMap[entries.urgencyLevel] || '-';
+
+      const fmtDate = (v) => v ? new Date(v + 'T00:00:00').toLocaleDateString('pt-PT') : '-';
+      const startDate = fmtDate(entries.policyStartDate);
+      const endDate = fmtDate(entries.policyEndDate);
+      const verificationDate = fmtDate(entries.verificationDate);
+
+      let filesHtml = '<em>Sem documentos anexados.</em>';
+      if (input?.files && input.files.length) {
+        const items = Array.from(input.files).map(f => {
+          const mb = (f.size / 1024 / 1024).toFixed(2);
+          return `<li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="text-truncate" style="max-width:75%">${f.name}</span>
+                    <span class="badge bg-light text-dark">${mb} MB</span>
+                  </li>`;
+        }).join('');
+        filesHtml = `<ul class="list-group">${items}</ul>`;
+      }
+
+      const safe = (v) => (v && String(v).trim()) ? v : '-';
+
+      review.innerHTML = `
+        <div class="row g-3">
+          <div class="col-12">
+            <div class="alert alert-secondary mb-0">
+              <strong>Verifique os dados antes de submeter.</strong>
+            </div>
+          </div>
+
+          <div class="col-md-6"><strong>Nº da Apólice:</strong> ${safe(entries.policyNumber)}</div>
+          <div class="col-md-6"><strong>Seguradora:</strong> ${safe(entries.insuranceCompany)}</div>
+
+          <div class="col-md-6"><strong>Ramo:</strong> ${branchText}</div>
+          <div class="col-md-6"><strong>Produto / Cobertura:</strong> ${productText}</div>
+
+          <div class="col-md-6"><strong>Nome do Segurado:</strong> ${safe(entries.policyHolderName)}</div>
+          <div class="col-md-6"><strong>Nome do Tomador:</strong> ${safe(entries.policyTakerName)}</div>
+
+          <div class="col-md-3"><strong>Início:</strong> ${startDate}</div>
+          <div class="col-md-3"><strong>Fim:</strong> ${endDate}</div>
+
+          <div class="col-md-6">
+            <strong>Tipo de Verificação:</strong>
+            <span class="badge bg-info-subtle text-info ms-1">${verificationTypeText}</span>
+          </div>
+          <div class="col-md-6">
+            <strong>Nível de Urgência:</strong>
+            <span class="badge bg-primary-subtle text-white ms-1">${urgencyText}</span>
+          </div>
+
+          <div class="col-md-6"><strong>Data da Verificação:</strong> ${verificationDate}</div>
+
+          <div class="col-12">
+            <strong>Finalidade:</strong><br/>
+            ${safe(entries.verificationPurpose)}
+          </div>
+
+          <div class="col-12">
+            <strong>Documentos de Suporte:</strong><br/>
+            ${filesHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    // Submissão via onclick com SweetAlert e redirecionamento
+    function onSubmitRequest() {
+      // força validação visual
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        // leva para a etapa de revisão para facilitar correções
+        currentStep = totalSteps;
+        showStep(currentStep);
+        buildReview();
+        Swal.fire({
+          title: 'Campos pendentes',
+          text: 'Por favor, complete os campos obrigatórios antes de submeter.',
+          icon: 'warning',
+          confirmButtonText: 'OK'
+        });
+        return;
+      }
+
+      // tudo válido: mostra sucesso e redireciona
+      Swal.fire({
+        title: 'Solicitação submetida!',
+        text: 'A sua solicitação foi enviada com sucesso.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        timer: 2000,
+        timerProgressBar: true
+      }).then(() => {
+        window.location.href = 'verificacoes-lista.html';
+      });
+    }
+
+    // Inicializa validação Bootstrap (sem interceptar submit, pois usamos onclick)
+    (function () {
+      'use strict';
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.from(forms).forEach(function (f) {
+        f.addEventListener('submit', function (event) {
+          // Previna eventual submit por Enter
+          event.preventDefault();
+          event.stopPropagation();
+        }, false);
+      });
+    })();
+
+    // Inicializa
+    showStep(currentStep);
+  </script>
+</body>
+
 </html>
