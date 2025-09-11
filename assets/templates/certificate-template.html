@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado de Validação de Apólice - ISSM</title>
+    
+    <!-- ISSM Certificate CSS -->
+    <link href="../css/certificate-pdf.css" rel="stylesheet" type="text/css">
+    
+    <!-- Print optimization -->
+    <style>
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body class="certificate-body">
+    <div class="certificate-container" id="certificate-content">
+        
+        <!-- Certificate Header -->
+        <header class="certificate-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="../images/LOGO-ISSM-2025.png" alt="Instituto de Supervisão de Seguros de Moçambique" class="issm-logo" height="56">
+                </div>
+                <div class="title-section">
+                    <h1 class="certificate-title">Certificado de Validação de Apólice</h1>
+                    <h2 class="certificate-subtitle">Certificate of Insurance Policy Validation</h2>
+                </div>
+                <div class="certificate-meta">
+                    <div class="certificate-number">
+                        <strong>Certificado Nº:</strong> <span id="certificate-id">{CERTIFICATE_ID}</span>
+                    </div>
+                    <div class="issue-date">
+                        <strong>Data de Emissão:</strong> <span id="issue-date">{ISSUE_DATE}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-gradient"></div>
+        </header>
+
+        <!-- Main Certificate Content -->
+        <main class="certificate-content">
+            
+            <!-- Certificate Introduction -->
+            <section class="certificate-intro">
+                <p class="intro-text">
+                    O <strong>Instituto de Supervisão de Seguros de Moçambique (ISSM)</strong> certifica que foi realizada 
+                    a verificação da apólice de seguros abaixo identificada, conforme solicitado através do Portal das Entidades.
+                </p>
+            </section>
+
+            <!-- Policy Details Section -->
+            <section class="policy-details">
+                <h3 class="section-title">
+                    <iconify-icon icon="solar:document-bold-duotone" class="section-icon"></iconify-icon>
+                    Detalhes da Apólice
+                </h3>
+                
+                <div class="details-grid">
+                    <div class="detail-row">
+                        <div class="detail-label">Número da Apólice:</div>
+                        <div class="detail-value" id="policy-number">{POLICY_NUMBER}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Seguradora:</div>
+                        <div class="detail-value" id="insurance-company">{INSURANCE_COMPANY}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Nome do Segurado:</div>
+                        <div class="detail-value" id="insured-name">{INSURED_NAME}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Tipo de Verificação:</div>
+                        <div class="detail-value" id="verification-type">{VERIFICATION_TYPE}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Solicitante:</div>
+                        <div class="detail-value" id="requester-name">{REQUESTER_NAME}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Data da Verificação:</div>
+                        <div class="detail-value" id="verification-date">{VERIFICATION_DATE}</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Validation Status Section -->
+            <section class="validation-status">
+                <h3 class="section-title">
+                    <iconify-icon icon="solar:shield-check-bold-duotone" class="section-icon"></iconify-icon>
+                    Resultado da Verificação
+                </h3>
+                
+                <div class="status-container">
+                    <div class="status-badge-wrapper">
+                        <div class="status-badge" id="status-badge">
+                            <div class="status-icon" id="status-icon">
+                                <iconify-icon icon="solar:check-circle-bold" class="status-icon-svg"></iconify-icon>
+                            </div>
+                            <div class="status-text">
+                                <div class="status-title" id="status-title">{VALIDATION_STATUS}</div>
+                                <div class="status-subtitle" id="status-subtitle">Apólice verificada com sucesso</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="validity-info">
+                        <div class="validity-item">
+                            <strong>Válido até:</strong> <span id="expiry-date">{EXPIRY_DATE}</span>
+                        </div>
+                        <div class="validity-item">
+                            <strong>Verificação ID:</strong> <span id="verification-id">{VERIFICATION_ID}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QR Code Validation Section -->
+            <section class="qr-validation">
+                <h3 class="section-title">
+                    <iconify-icon icon="solar:qr-code-bold-duotone" class="section-icon"></iconify-icon>
+                    Validação Digital
+                </h3>
+                
+                <div class="qr-container">
+                    <div class="qr-code-wrapper">
+                        <div class="qr-code" id="qr-code-container">
+                            <img src="" alt="QR Code de Validação" id="qr-code-image" width="120" height="120">
+                        </div>
+                        <div class="qr-instructions">
+                            <p><strong>Escaneie o código QR</strong></p>
+                            <p class="small">Para verificar a autenticidade deste certificado</p>
+                        </div>
+                    </div>
+                    
+                    <div class="validation-info">
+                        <div class="validation-url">
+                            <strong>URL de Validação:</strong><br>
+                            <a href="#" id="validation-url" class="validation-link">{VALIDATION_URL}</a>
+                        </div>
+                        <div class="security-hash">
+                            <strong>Hash de Segurança:</strong><br>
+                            <code id="security-hash" class="hash-code">{SECURITY_HASH}</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Certificate Footer -->
+        <footer class="certificate-footer">
+            <div class="footer-content">
+                <div class="digital-signature">
+                    <div class="signature-icon">
+                        <iconify-icon icon="solar:shield-keyhole-bold-duotone" class="signature-icon-svg"></iconify-icon>
+                    </div>
+                    <div class="signature-text">
+                        <p class="signature-title">Documento Assinado Digitalmente</p>
+                        <p class="signature-subtitle">Instituto de Supervisão de Seguros de Moçambique</p>
+                        <p class="signature-timestamp">Assinado em: <span id="signature-timestamp">{SIGNATURE_TIMESTAMP}</span></p>
+                    </div>
+                </div>
+                
+                <div class="footer-separator"></div>
+                
+                <div class="disclaimer">
+                    <h4 class="disclaimer-title">Importante:</h4>
+                    <ul class="disclaimer-list">
+                        <li>Este certificado é válido apenas para verificação da validade da apólice de seguros especificada.</li>
+                        <li>A verificação foi realizada com base nas informações disponíveis na data indicada.</li>
+                        <li>Para verificar a autenticidade deste documento, acesse o URL de validação ou escaneie o código QR.</li>
+                        <li>Em caso de dúvidas, entre em contacto com o ISSM através dos canais oficiais.</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-separator"></div>
+                
+                <div class="contact-info">
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <iconify-icon icon="solar:map-point-bold-duotone" class="contact-icon"></iconify-icon>
+                            <div>
+                                <strong>Endereço:</strong><br>
+                                Av. 25 de Setembro, 1018<br>
+                                Maputo, Moçambique
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <iconify-icon icon="solar:phone-bold-duotone" class="contact-icon"></iconify-icon>
+                            <div>
+                                <strong>Telefone:</strong><br>
+                                +258 21 354 400
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <iconify-icon icon="solar:letter-bold-duotone" class="contact-icon"></iconify-icon>
+                            <div>
+                                <strong>Email:</strong><br>
+                                info@issm.co.mz
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <iconify-icon icon="solar:global-bold-duotone" class="contact-icon"></iconify-icon>
+                            <div>
+                                <strong>Website:</strong><br>
+                                www.issm.co.mz
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Include Iconify for icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+</html>

@@ -820,6 +820,17 @@
                                 Imprimir</button>
                             <button id="btnExportar" class="btn btn-primary"><i class='bx bx-download me-1'></i>
                                 Exportar</button>
+                            <!-- Certificate Actions (only show for approved verifications) -->
+                            <div class="certificate-actions d-none" id="certificate-actions">
+                                <button type="button" class="btn btn-success" id="view-certificate-btn" title="Ver Certificado de Validação">
+                                    <iconify-icon icon="solar:diploma-bold-duotone" class="me-1"></iconify-icon>
+                                    Certificado
+                                </button>
+                                <button type="button" class="btn btn-outline-success" id="download-certificate-btn" title="Baixar Certificado PDF">
+                                    <iconify-icon icon="solar:download-bold" class="me-1"></iconify-icon>
+                                    PDF
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div class="divider"></div>
@@ -1014,6 +1025,13 @@
 
     <!-- App Javascript (Require in all Page) -->
     <script src="/assets/js/app.js"></script>
+    
+    <!-- Certificate Services -->
+    <script src="../assets/js/services/qr-code-service.js"></script>
+    <script src="../assets/js/services/pdf-generation-service.js"></script>
+    
+    <!-- Page-specific JavaScript -->
+    <script src="../assets/js/pages/verification-details.js"></script>
 
 </body>
 

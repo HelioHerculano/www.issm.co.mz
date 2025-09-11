@@ -7,7 +7,7 @@
 const verificationData = {
     id: 'REQ-2024-001',
     submissionDate: '2024-01-05T14:30:00',
-    status: 'pending',
+    status: 'approved', // Changed to approved to show certificate buttons
     policy: {
         number: 'POL-2024-789456',
         company: 'Empresa Seguradora A',
@@ -196,6 +196,192 @@ function initializeEventHandlers() {
     if (commentForm) {
         commentForm.addEventListener('submit', handleCommentSubmit);
     }
+    
+    // Certificate action handlers
+    initializeCertificateHandlers();
+    
+    // Show certificate actions if verification is approved
+    showCertificateActionsIfApproved();
+}
+
+// Initialize certificate-related event handlers
+function initializeCertificateHandlers() {
+    const viewCertificateBtn = document.getElementById('view-certificate-btn');
+    const downloadCertificateBtn = document.getElementById('download-certificate-btn');
+    
+    if (viewCertificateBtn) {
+        viewCertificateBtn.addEventListener('click', handleViewCertificate);
+    }
+    
+    if (downloadCertificateBtn) {
+        downloadCertificateBtn.addEventListener('click', handleDownloadCertificate);
+    }
+}
+
+// Show certificate actions if verification is approved
+function showCertificateActionsIfApproved() {
+    if (verificationData.status === 'approved') {
+        const certificateActions = document.getElementById('certificate-actions');
+        if (certificateActions) {
+            certificateActions.classList.remove('d-none');
+        }
+    }
+}
+
+// Handle view certificate action
+async function handleViewCertificate() {
+    try {
+        // Show loading state
+        const btn = document.getElementById('view-certificate-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<div class="spinner-border spinner-border-sm me-1"></div>Gerando...';
+        btn.disabled = true;
+        
+        // Initialize PDF service if not already done
+        if (!window.pdfCertificateService) {
+            window.pdfCertificateService = new PDFCertificateService();
+        }
+        
+        // Generate or get existing certificate
+        const certificateResult = await window.pdfCertificateService.generateCertificateForVerification(verificationData.id);
+        
+        if (certificateResult.success) {
+            // Redirect to certificate page
+            const certificateUrl = `certificado-validacao.html?cert=${certificateResult.data.certificateId}&verification=${verificationData.id}`;
+            window.open(certificateUrl, '_blank');
+            
+            showAlert('Certificado gerado com sucesso!', 'success');
+        } else {
+            throw new Error(certificateResult.error || 'Erro ao gerar certificado');
+        }
+        
+    } catch (error) {
+        console.error('Failed to view certificate:', error);
+        showAlert('Erro ao gerar o certificado. Tente novamente.', 'danger');
+    } finally {
+        // Restore button
+        const btn = document.getElementById('view-certificate-btn');
+        btn.innerHTML = '<iconify-icon icon="solar:diploma-bold-duotone" class="me-1"></iconify-icon>Certificado';
+        btn.disabled = false;
+    }
+}
+
+// Handle download certificate action
+async function handleDownloadCertificate() {
+    try {
+        // Show loading state
+        const btn = document.getElementById('download-certificate-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<div class="spinner-border spinner-border-sm me-1"></div>Baixando...';
+        btn.disabled = true;
+        
+        // Initialize PDF service if not already done
+        if (!window.pdfCertificateService) {
+            window.pdfCertificateService = new PDFCertificateService();
+        }
+        
+        // Generate or get existing certificate
+        const certificateResult = await window.pdfCertificateService.generateCertificateForVerification(verificationData.id);
+        
+        if (certificateResult.success) {
+            // Trigger download
+            const certificateData = {
+                ...verificationData,
+                certificateId: certificateResult.data.certificateId,
+                issueDate: new Date().toISOString(),
+                expiryDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString()
+            };
+            
+            const certificateHTML = await generateCertificateHTML(certificateData);
+            
+            // Create and trigger download
+            const blob = new Blob([certificateHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `certificado_${certificateResult.data.certificateId}.html`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showAlert('Certificado baixado com sucesso!', 'success');
+        } else {
+            throw new Error(certificateResult.error || 'Erro ao gerar certificado');
+        }
+        
+    } catch (error) {
+        console.error('Failed to download certificate:', error);
+        showAlert('Erro ao baixar o certificado. Tente novamente.', 'danger');
+    } finally {
+        // Restore button
+        const btn = document.getElementById('download-certificate-btn');
+        btn.innerHTML = '<iconify-icon icon="solar:download-bold" class="me-1"></iconify-icon>PDF';
+        btn.disabled = false;
+    }
+}
+
+// Generate certificate HTML for download
+async function generateCertificateHTML(certificateData) {
+    // This is a simplified version - in production, load the actual template
+    return `
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Certificado de Validação - ${certificateData.certificateId}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .certificate { max-width: 800px; margin: 0 auto; border: 2px solid #d78b29; padding: 40px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .title { color: #d78b29; font-size: 24px; font-weight: bold; }
+        .details { margin: 20px 0; }
+        .detail-row { margin: 10px 0; display: flex; }
+        .label { font-weight: bold; width: 200px; }
+        .value { flex: 1; }
+        .footer { margin-top: 40px; text-align: center; font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div class="header">
+            <h1 class="title">Certificado de Validação de Apólice</h1>
+            <p>Instituto de Supervisão de Seguros de Moçambique</p>
+            <p>Certificado Nº: ${certificateData.certificateId || 'CERT-2024-001'}</p>
+        </div>
+        <div class="details">
+            <div class="detail-row">
+                <div class="label">Número da Apólice:</div>
+                <div class="value">${certificateData.policy.number}</div>
+            </div>
+            <div class="detail-row">
+                <div class="label">Seguradora:</div>
+                <div class="value">${certificateData.policy.company}</div>
+            </div>
+            <div class="detail-row">
+                <div class="label">Nome do Segurado:</div>
+                <div class="value">${certificateData.policy.insuredName}</div>
+            </div>
+            <div class="detail-row">
+                <div class="label">Tipo de Verificação:</div>
+                <div class="value">${certificateData.policy.verificationType}</div>
+            </div>
+            <div class="detail-row">
+                <div class="label">Data da Verificação:</div>
+                <div class="value">${formatDate(certificateData.submissionDate)}</div>
+            </div>
+            <div class="detail-row">
+                <div class="label">Status:</div>
+                <div class="value">VÁLIDA</div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Este documento foi gerado automaticamente pelo sistema ISSM.</p>
+            <p>Data de geração: ${formatDateTime(new Date())}</p>
+        </div>
+    </div>
+</body>
+</html>`;
 }
 
 // Handle comment form submission

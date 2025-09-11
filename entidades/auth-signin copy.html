@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt" class="h-100">
+
+
+<!-- ISSM Entity Portal - Login Page -->
+
+<head>
+     <!-- Title Meta -->
+     <meta charset="utf-8" />
+     <title>Entrar | ISSM - Instituto de Supervisão de Seguros de Moçambique</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="Portal de verificação de apólices - Sistema de autenticação para entidades" />
+     <meta name="author" content="ISSM" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+     <!-- App favicon -->
+     <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+     <!-- Vendor css (Require in all Page) -->
+     <link href="../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+     <!-- Icons css (Require in all Page) -->
+     <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+     <!-- App css (Require in all Page) -->
+     <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+     <!-- ISSM Portal css -->
+     <link href="../assets/css/issm-portal.css" rel="stylesheet" type="text/css" />
+
+     <!-- Theme Config js (Require in all Page) -->
+     <script src="../assets/js/config.js"></script>
+</head>
+
+<body class="h-100 auth-page-body">
+     <div class="d-flex flex-column h-100 p-3">
+          <div class="d-flex flex-column flex-grow-1">
+               <div class="row h-100">
+                    <div class="col-xxl-7">
+                         <div class="row justify-content-center h-100">
+                              <div class="col-lg-6 py-lg-5">
+                                   <div class="d-flex flex-column h-100 justify-content-center">
+                                        <div class="auth-container">
+                                             <div class="auth-header">
+                                                  <div class="auth-logo mb-4 issm-logo-container">
+                                                       <a href="index.html" class="logo-dark">
+                                                            <img src="../assets/images/Logo/LOGO-ISSM-2025.png"
+                                                                 height="56" alt="ISSM Logo" class="issm-logo">
+                                                       </a>
+
+                                                       <a href="index.html" class="logo-light">
+                                                            <img src="../assets/images/Logo/LOGO-ISSM-2025.png"
+                                                                 height="56" alt="ISSM Logo" class="issm-logo">
+                                                       </a>
+                                                  </div>
+
+                                                  <h2 class="fw-bold fs-24">Entrar</h2>
+                                                  <p class="text-muted mt-1 mb-4">Insira o seu email e palavra-passe
+                                                       para aceder ao portal de entidades.</p>
+                                             </div>
+
+                                             <div class="mb-5">
+                                                  <form action="index.html" class="authentication-form issm-auth-form"
+                                                       role="form" aria-label="Formulário de autenticação ISSM">
+                                                       <div class="mb-3">
+                                                            <label class="form-label" for="example-email"
+                                                                 id="email-label">
+                                                                 Email <span class="text-danger"
+                                                                      aria-label="obrigatório">*</span>
+                                                            </label>
+                                                            <input type="email" id="example-email" name="example-email"
+                                                                 class="form-control issm-input"
+                                                                 placeholder="Insira o seu email"
+                                                                 aria-describedby="email-help email-error"
+                                                                 aria-required="true" required>
+                                                            <div id="email-error" class="invalid-feedback" role="alert">
+                                                            </div>
+                                                       </div>
+                                                       <div class="mb-3">
+                                                            <div
+                                                                 class="d-flex justify-content-between align-items-center mb-2">
+                                                                 <label class="form-label" for="example-password"
+                                                                      id="password-label">
+                                                                      Palavra-passe <span class="text-danger"
+                                                                           aria-label="obrigatório">*</span>
+                                                                 </label>
+                                                                 <a href="auth-password.html"
+                                                                      class="text-muted text-decoration-none"
+                                                                      aria-label="Recuperar palavra-passe esquecida">
+                                                                      Esqueceu a palavra-passe?
+                                                                 </a>
+                                                            </div>
+                                                            <input type="password" id="example-password"
+                                                                 name="example-password" class="form-control issm-input"
+                                                                 placeholder="Insira a sua palavra-passe"
+                                                                 aria-describedby="password-help password-error"
+                                                                 aria-required="true" required>
+                                                            <div id="password-error" class="invalid-feedback"
+                                                                 role="alert"></div>
+                                                       </div>
+                                                       <div class="mb-3">
+                                                            <div class="form-check">
+                                                                 <input type="checkbox" class="form-check-input"
+                                                                      id="checkbox-signin" name="remember-me"
+                                                                      aria-describedby="remember-help">
+                                                                 <label class="form-check-label" for="checkbox-signin">
+                                                                      Lembrar-me
+                                                                 </label>
+                                                                 <div id="remember-help" class="visually-hidden">
+                                                                      Manter sessão ativa por mais tempo
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="mb-1 text-center d-grid auth-form-group">
+                                                            <button class="btn btn-issm-primary" type="submit"
+                                                                 aria-describedby="submit-help">
+                                                                 Entrar
+                                                            </button>
+                                                            <div id="submit-help" class="visually-hidden">
+                                                                 Submeter formulário de autenticação
+                                                            </div>
+                                                       </div>
+                                                  </form>
+                                             </div>
+
+                                             <p class="text-center mt-4">
+                                                  <span class="text-muted">Não tem conta?</span>
+                                                  <a href="auth-signup.html" class="auth-link"
+                                                       aria-label="Ir para página de registo">
+                                                       Registar
+                                                  </a>
+                                             </p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="col-xxl-5 d-none d-xxl-flex">
+                              <div class="card h-100 mb-0 overflow-hidden">
+                                   <div class="d-flex flex-column h-100">
+                                        <img src="assets/images/small/img-10.jpg" alt="" class="w-100 h-100">
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <!-- Vendor Javascript (Require in all Page) -->
+          <script src="../assets/js/vendor.js"></script>
+
+          <!-- App Javascript (Require in all Page) -->
+          <script src="../assets/js/app.js"></script>
+
+          <!-- ISSM Authentication Validation -->
+          <script>
+               // ISSM Authentication Validator
+               const IssmAuthValidator = {
+                    emailPattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+
+                    validateEmail(email) {
+                         if (!email.trim()) {
+                              return { valid: false, message: 'O email é obrigatório' };
+                         }
+                         if (!this.emailPattern.test(email)) {
+                              return { valid: false, message: 'Por favor, insira um email válido' };
+                         }
+                         return { valid: true };
+                    },
+
+                    validatePassword(password) {
+                         if (!password.trim()) {
+                              return { valid: false, message: 'A palavra-passe é obrigatória' };
+                         }
+                         if (password.length < 6) {
+                              return { valid: false, message: 'A palavra-passe deve ter pelo menos 6 caracteres' };
+                         }
+                         return { valid: true };
+                    },
+
+                    showError(elementId, message) {
+                         const errorElement = document.getElementById(elementId);
+                         const inputElement = elementId === 'email-error' ?
+                              document.getElementById('example-email') :
+                              document.getElementById('example-password');
+
+                         if (errorElement && inputElement) {
+                              errorElement.textContent = message;
+                              errorElement.style.display = 'block';
+                              inputElement.classList.add('is-invalid');
+                              inputElement.setAttribute('aria-invalid', 'true');
+                         }
+                    },
+
+                    clearError(elementId) {
+                         const errorElement = document.getElementById(elementId);
+                         const inputElement = elementId === 'email-error' ?
+                              document.getElementById('example-email') :
+                              document.getElementById('example-password');
+
+                         if (errorElement && inputElement) {
+                              errorElement.textContent = '';
+                              errorElement.style.display = 'none';
+                              inputElement.classList.remove('is-invalid');
+                              inputElement.setAttribute('aria-invalid', 'false');
+                         }
+                    }
+               };
+
+               // Form validation on submit
+               document.addEventListener('DOMContentLoaded', function () {
+                    const form = document.querySelector('.issm-auth-form');
+                    const emailInput = document.getElementById('example-email');
+                    const passwordInput = document.getElementById('example-password');
+
+                    if (form) {
+                         // Real-time validation
+                         emailInput.addEventListener('blur', function () {
+                              const validation = IssmAuthValidator.validateEmail(this.value);
+                              if (!validation.valid) {
+                                   IssmAuthValidator.showError('email-error', validation.message);
+                              } else {
+                                   IssmAuthValidator.clearError('email-error');
+                              }
+                         });
+
+                         passwordInput.addEventListener('blur', function () {
+                              const validation = IssmAuthValidator.validatePassword(this.value);
+                              if (!validation.valid) {
+                                   IssmAuthValidator.showError('password-error', validation.message);
+                              } else {
+                                   IssmAuthValidator.clearError('password-error');
+                              }
+                         });
+
+                         // Form submission validation
+                         form.addEventListener('submit', function (e) {
+                              e.preventDefault();
+
+                              const email = emailInput.value;
+                              const password = passwordInput.value;
+
+                              const emailValidation = IssmAuthValidator.validateEmail(email);
+                              const passwordValidation = IssmAuthValidator.validatePassword(password);
+
+                              // Clear previous errors
+                              IssmAuthValidator.clearError('email-error');
+                              IssmAuthValidator.clearError('password-error');
+
+                              let isValid = true;
+
+                              if (!emailValidation.valid) {
+                                   IssmAuthValidator.showError('email-error', emailValidation.message);
+                                   isValid = false;
+                              }
+
+                              if (!passwordValidation.valid) {
+                                   IssmAuthValidator.showError('password-error', passwordValidation.message);
+                                   isValid = false;
+                              }
+
+                              if (isValid) {
+                                   // Here you would normally submit to the server
+                                   // For now, we'll just redirect to the dashboard
+                                   console.log('Form validated successfully');
+                                   window.location.href = 'index.html';
+                              } else {
+                                   // Focus on first invalid field
+                                   if (!emailValidation.valid) {
+                                        emailInput.focus();
+                                   } else if (!passwordValidation.valid) {
+                                        passwordInput.focus();
+                                   }
+                              }
+                         });
+                    }
+               });
+          </script>
+
+</body>
+
+
+<!-- ISSM Entity Portal - End of Login Page -->
+
+</html>
