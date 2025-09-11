@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Validação de Certificado - ISSM Portal das Entidades">
+    <meta name="author" content="ISSM - Instituto de Supervisão de Seguros de Moçambique">
+    <title>Validação de Certificado | ISSM</title>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Theme Config Js -->
+    <script src="assets/js/config.js"></script>
+
+    <!-- App css -->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/issm-portal.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        .validation-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .validation-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .validation-header {
+            background: linear-gradient(135deg, #d78b29 0%, #b8771f 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .validation-body {
+            padding: 40px;
+        }
+        
+        .validation-result {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .status-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .status-valid {
+            color: #10b981;
+        }
+        
+        .status-invalid {
+            color: #ef4444;
+        }
+        
+        .status-expired {
+            color: #f59e0b;
+        }
+        
+        .certificate-details {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #6b7280;
+        }
+        
+        .detail-value {
+            color: #1f2937;
+            text-align: right;
+        }
+        
+        .loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+        }
+        
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .success-message {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .validation-actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn-issm {
+            background: linear-gradient(135deg, #d78b29 0%, #b8771f 100%);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-issm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(215, 139, 41, 0.3);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="validation-page">
+        <div class="validation-card">
+            <div class="validation-header">
+                <img src="assets/images/LOGO-ISSM-2025.png" alt="ISSM Logo" height="56" class="mb-3" style="filter: brightness(0) invert(1);">
+                <h2 class="mb-2">Validação de Certificado</h2>
+                <p class="mb-0 opacity-90">Instituto de Supervisão de Seguros de Moçambique</p>
+            </div>
+            
+            <div class="validation-body">
+                <!-- Loading State -->
+                <div id="loading-state" class="loading-spinner">
+                    <div class="text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Validando...</span>
+                        </div>
+                        <p class="mt-3 text-muted">Validando certificado...</p>
+                    </div>
+                </div>
+                
+                <!-- Validation Result -->
+                <div id="validation-result" class="validation-result d-none">
+                    <div id="status-icon" class="status-icon">
+                        <iconify-icon icon="solar:shield-check-bold-duotone"></iconify-icon>
+                    </div>
+                    <h3 id="status-title" class="mb-3">Certificado Válido</h3>
+                    <p id="status-message" class="text-muted mb-0">Este certificado é autêntico e está válido.</p>
+                    
+                    <!-- Certificate Details -->
+                    <div id="certificate-details" class="certificate-details d-none">
+                        <h5 class="mb-3">Detalhes do Certificado</h5>
+                        <div class="detail-row">
+                            <div class="detail-label">ID do Certificado:</div>
+                            <div class="detail-value" id="cert-id">-</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Verificação Associada:</div>
+                            <div class="detail-value" id="verification-id">-</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Data de Emissão:</div>
+                            <div class="detail-value" id="issue-date">-</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Válido até:</div>
+                            <div class="detail-value" id="expiry-date">-</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Status:</div>
+                            <div class="detail-value" id="cert-status">-</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Actions -->
+                    <div class="validation-actions">
+                        <a href="#" id="view-certificate-link" class="btn-issm me-2 d-none">
+                            <iconify-icon icon="solar:eye-bold" class="me-1"></iconify-icon>
+                            Ver Certificado Completo
+                        </a>
+                        <a href="entidades/index.html" class="btn btn-outline-secondary">
+                            <iconify-icon icon="solar:home-bold" class="me-1"></iconify-icon>
+                            Ir para Portal
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Error State -->
+                <div id="error-state" class="d-none">
+                    <div class="validation-result">
+                        <div class="status-icon status-invalid">
+                            <iconify-icon icon="solar:shield-cross-bold-duotone"></iconify-icon>
+                        </div>
+                        <h3 class="mb-3">Erro na Validação</h3>
+                        <p class="text-muted mb-0">Não foi possível validar este certificado.</p>
+                    </div>
+                    
+                    <div class="error-message">
+                        <strong>Detalhes do Erro:</strong>
+                        <div id="error-details">Certificado não encontrado ou parâmetros inválidos.</div>
+                    </div>
+                    
+                    <div class="validation-actions">
+                        <a href="entidades/verificacoes-lista.html" class="btn-issm me-2">
+                            <iconify-icon icon="solar:list-bold" class="me-1"></iconify-icon>
+                            Ver Verificações
+                        </a>
+                        <a href="entidades/index.html" class="btn btn-outline-secondary">
+                            <iconify-icon icon="solar:home-bold" class="me-1"></iconify-icon>
+                            Ir para Portal
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Manual Validation Form -->
+                <div id="manual-validation" class="d-none">
+                    <h5 class="mb-3">Validação Manual</h5>
+                    <p class="text-muted mb-4">Insira o ID do certificado e o hash de segurança para validação manual.</p>
+                    
+                    <form id="manual-validation-form">
+                        <div class="mb-3">
+                            <label for="manual-cert-id" class="form-label">ID do Certificado</label>
+                            <input type="text" class="form-control" id="manual-cert-id" placeholder="CERT-2024-001" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="manual-hash" class="form-label">Hash de Segurança</label>
+                            <input type="text" class="form-control" id="manual-hash" placeholder="sha256:..." required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <iconify-icon icon="solar:shield-check-bold" class="me-1"></iconify-icon>
+                            Validar Certificado
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Show Manual Validation Option -->
+                <div class="text-center mt-4">
+                    <button type="button" class="btn btn-link" id="show-manual-validation">
+                        <iconify-icon icon="solar:keyboard-bold" class="me-1"></iconify-icon>
+                        Validação Manual
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Iconify for icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    
+    <!-- Bundle -->
+    <script src="assets/js/vendor.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+    
+    <!-- Services -->
+    <script src="assets/js/services/qr-code-service.js"></script>
+    <script src="assets/js/services/pdf-generation-service.js"></script>
+    
+    <!-- Validation Page Script -->
+    <script>
+        class CertificateValidationPage {
+            constructor() {
+                this.certificateId = null;
+                this.hash = null;
+                this.pdfService = null;
+                this.qrService = null;
+                
+                this.initializeServices();
+            }
+            
+            async initializeServices() {
+                try {
+                    this.pdfService = new PDFCertificateService();
+                    this.qrService = new QRCodeGeneratorService();
+                    await this.qrService.initialize();
+                } catch (error) {
+                    console.error('Failed to initialize services:', error);
+                }
+            }
+            
+            async initialize() {
+                // Parse URL parameters
+                this.parseUrlParameters();
+                
+                // Setup event handlers
+                this.setupEventHandlers();
+                
+                // Start validation if parameters are present
+                if (this.certificateId) {
+                    await this.validateCertificate();
+                } else {
+                    this.showManualValidation();
+                }
+            }
+            
+            parseUrlParameters() {
+                const urlParams = new URLSearchParams(window.location.search);
+                this.certificateId = urlParams.get('cert');
+                this.hash = urlParams.get('hash');
+            }
+            
+            setupEventHandlers() {
+                // Manual validation form
+                document.getElementById('manual-validation-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleManualValidation();
+                });
+                
+                // Show manual validation
+                document.getElementById('show-manual-validation').addEventListener('click', () => {
+                    this.showManualValidation();
+                });
+            }
+            
+            async validateCertificate(certId = null, hash = null) {
+                try {
+                    const certificateId = certId || this.certificateId;
+                    const securityHash = hash || this.hash;
+                    
+                    if (!certificateId) {
+                        throw new Error('ID do certificado não fornecido');
+                    }
+                    
+                    // Show loading
+                    this.showLoading();
+                    
+                    // Validate certificate
+                    const result = await this.pdfService.validateCertificate(certificateId, securityHash);
+                    
+                    if (result.success) {
+                        this.showValidResult(result.data);
+                    } else {
+                        this.showInvalidResult(result.error);
+                    }
+                    
+                } catch (error) {
+                    console.error('Validation failed:', error);
+                    this.showError(error.message);
+                }
+            }
+            
+            async handleManualValidation() {
+                const certId = document.getElementById('manual-cert-id').value.trim();
+                const hash = document.getElementById('manual-hash').value.trim();
+                
+                if (!certId || !hash) {
+                    this.showError('Por favor, preencha todos os campos.');
+                    return;
+                }
+                
+                await this.validateCertificate(certId, hash);
+            }
+            
+            showLoading() {
+                document.getElementById('loading-state').classList.remove('d-none');
+                document.getElementById('validation-result').classList.add('d-none');
+                document.getElementById('error-state').classList.add('d-none');
+                document.getElementById('manual-validation').classList.add('d-none');
+            }
+            
+            showValidResult(data) {
+                document.getElementById('loading-state').classList.add('d-none');
+                document.getElementById('error-state').classList.add('d-none');
+                document.getElementById('manual-validation').classList.add('d-none');
+                
+                const resultDiv = document.getElementById('validation-result');
+                const statusIcon = document.getElementById('status-icon');
+                const statusTitle = document.getElementById('status-title');
+                const statusMessage = document.getElementById('status-message');
+                
+                // Update status
+                statusIcon.className = 'status-icon status-valid';
+                statusIcon.innerHTML = '<iconify-icon icon="solar:shield-check-bold-duotone"></iconify-icon>';
+                statusTitle.textContent = 'Certificado Válido';
+                statusMessage.textContent = 'Este certificado é autêntico e está válido.';
+                
+                // Show certificate details
+                if (data.certificate) {
+                    this.showCertificateDetails(data.certificate);
+                }
+                
+                // Show view certificate link
+                const viewLink = document.getElementById('view-certificate-link');
+                if (data.certificate && data.certificate.certificateId) {
+                    viewLink.href = `entidades/certificado-validacao.html?cert=${data.certificate.certificateId}`;
+                    viewLink.classList.remove('d-none');
+                }
+                
+                resultDiv.classList.remove('d-none');
+            }
+            
+            showInvalidResult(error) {
+                document.getElementById('loading-state').classList.add('d-none');
+                document.getElementById('validation-result').classList.add('d-none');
+                document.getElementById('manual-validation').classList.add('d-none');
+                
+                const errorDiv = document.getElementById('error-state');
+                const errorDetails = document.getElementById('error-details');
+                
+                errorDetails.textContent = error || 'Certificado não encontrado ou inválido.';
+                errorDiv.classList.remove('d-none');
+            }
+            
+            showError(message) {
+                this.showInvalidResult(message);
+            }
+            
+            showCertificateDetails(certificate) {
+                const detailsDiv = document.getElementById('certificate-details');
+                
+                document.getElementById('cert-id').textContent = certificate.certificateId || '-';
+                document.getElementById('verification-id').textContent = certificate.verificationId || '-';
+                document.getElementById('issue-date').textContent = this.formatDate(certificate.issueDate) || '-';
+                document.getElementById('expiry-date').textContent = this.formatDate(certificate.expiryDate) || '-';
+                document.getElementById('cert-status').textContent = 'Válido';
+                
+                detailsDiv.classList.remove('d-none');
+            }
+            
+            showManualValidation() {
+                document.getElementById('loading-state').classList.add('d-none');
+                document.getElementById('validation-result').classList.add('d-none');
+                document.getElementById('error-state').classList.add('d-none');
+                document.getElementById('manual-validation').classList.remove('d-none');
+            }
+            
+            formatDate(dateString) {
+                if (!dateString) return '-';
+                const date = new Date(dateString);
+                return new Intl.DateTimeFormat('pt-PT', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                }).format(date);
+            }
+        }
+        
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', async function() {
+            const validator = new CertificateValidationPage();
+            await validator.initialize();
+        });
+    </script>
+</body>
+
+</html>
