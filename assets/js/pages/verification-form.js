@@ -1,6 +1,7 @@
 /**
  * Verification Form - ISSM Portal das Entidades
  * Multi-step form with validation, file upload, and draft saving
+ * Enhanced with insurance type and company selectors
  */
 
 // Form state management
@@ -9,24 +10,117 @@ let totalSteps = 4;
 let uploadedFiles = [];
 let formData = {};
 
+// Insurance components
+let insuranceTypeSelector = null;
+let companySelector = null;
+
 // Initialize form when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeForm();
+    initializeInsuranceComponents();
     setupEventHandlers();
     loadDraftIfExists();
 });
 
-// Initialize form
-function initializeForm() {
-    // Set today as default verification date
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('verification-date').value = today;
+// Initialize insurance components
+async function initializeInsuranceComponents() {
+    try {
+        // Initialize Company Selector
+        const companyContainer = document.getElementById('company-selector-container');
+        if (companyContainer) {
+            companySelector = new CompanySelector(companyContainer, {
+                allowMultiple: false,
+                showOnlyActive: true,
+                enableSearch: true,
+                showMarketShare: false,
+                showRating: true,
+                sortBy: 'market_share',
+                placeholder: 'Selecione a seguradora...',
+                required: true
+            });
+            
+            // Listen for company selection changes
+            companyContainer.addEventListener('companySelector:change', function(e) {
+                const selectedCompanies = e.detail.selectedCompanies;
+                if (selectedCompanies.length > 0) {
+                    // Update insurance type selector to show types available for selected company
+                    updateInsuranceTypesByCompany(selectedCompanies[0]);
+                }
+                
+                // Update form data
+                formData.insuranceCompany = selectedCompanies.length > 0 ? selectedCompanies[0].id : '';
+                
+                // Clear validation state
+                companyContainer.classList.remove('is-invalid');
+            });
+        }
+        
+        // Initialize Insurance Type Selector
+        const typeContainer = document.getElementById('insurance-type-selector-container');
+        if (typeContainer) {
+            insuranceTypeSelector = new InsuranceTypeSelector(typeContainer, {
+                allowMultiple: false,
+                showDescriptions: true,
+                enableSearch: true,
+                groupByCategory: true,
+                showCoverageInfo: true,
+                placeholder: 'Selecione o tipo de seguro...',
+                required: true
+            });
+            
+            // Listen for type selection changes
+            typeContainer.addEventListener('typeSelector:change', function(e) {
+                const selectedTypes = e.detail.selectedTypes;
+                
+                // Update form data
+                formData.insuranceType = selectedTypes.length > 0 ? selectedTypes[0].id : '';
+                formData.insuranceTypeDetails = selectedTypes.length > 0 ? selectedTypes[0] : null;
+                
+                // Clear validation state
+                typeContainer.classList.remove('is-invalid');
+                
+                // Update verification options based on selected type
+                updateVerificationOptions(selectedTypes[0]);
+            });
+        }
+        
+    } catch (error) {
+        console.error('Error initializing insurance components:', error);
+        showAlert('Erro ao inicializar componentes de seguro. Alguns recursos podem não funcionar corretamente.', 'warning');
+    }
+}
+
+// Update insurance types based on selected company
+function updateInsuranceTypesByCompany(company) {
+    if (!insuranceTypeSelector || !company) return;
     
-    // Set tomorrow as minimum verification date
-    document.getElementById('verification-date').min = today;
+    // Filter types based on company's insurance types
+    // This would typically be done server-side, but for demo purposes
+    // we'll show all types since the company data includes type categories
+    console.log('Filtering insurance types for company:', company.name);
+}
+
+// Update verification options based on selected insurance type
+function updateVerificationOptions(selectedType) {
+    if (!selectedType) return;
     
-    updateStepIndicator();
-    updateNavigationButtons();
+    // Some insurance types might not support all verification types
+    const verificationTypes = document.querySelectorAll('input[name="verificationType"]');
+    
+    // For example, agricultural insurance might not have claims history
+    if (selectedType.category.id === 'agricultural') {
+        const claimsOption = document.getElementById('verification-claims');
+        if (claimsOption) {
+            claimsOption.closest('.col-md-4').style.display = 'none';
+        }
+    } else {
+        // Show all options
+        verificationTypes.forEach(option => {
+            option.closest('.col-md-4').style.display = 'block';
+        });
+    }
+    
+    console.log('Updated verification options for type:', selectedType.type.name);
 }
 
 // Setup event handlers
@@ -123,16 +217,49 @@ function validateCurrentStep() {
     const requiredFields = currentStepElement.querySelectorAll('[required]');
     let isValid = true;
     
+    // Standard field validation
     requiredFields.forEach(field => {
         if (!validateField({ target: field })) {
             isValid = false;
         }
     });
     
-    // Special validation for step 3 (files)
-    if (currentStep === 3 && uploadedFiles.length === 0) {
-        showAlert('Por favor, faça upload de pelo menos um documento.', 'warning');
-        isValid = false;
+    // Step-specific validations
+    switch (currentStep) {
+        case 1:
+            // Validate company selector
+            if (companySelector && !companySelector.isValid()) {
+                const container = document.getElementById('company-selector-container');
+                container.classList.add('is-invalid');
+                companySelector.setError('Por favor, selecione uma seguradora.');
+                isValid = false;
+            }
+            break;
+            
+        case 2:
+            // Validate insurance type selector
+            if (insuranceTypeSelector && !insuranceTypeSelector.isValid()) {
+                const container = document.getElementById('insurance-type-selector-container');
+                container.classList.add('is-invalid');
+                insuranceTypeSelector.setError('Por favor, selecione um tipo de seguro.');
+                isValid = false;
+            }
+            
+            // Validate verification type
+            const verificationType = document.querySelector('input[name="verificationType"]:checked');
+            if (!verificationType) {
+                showAlert('Por favor, selecione o tipo de verificação.', 'warning');
+                isValid = false;
+            }
+            break;
+            
+        case 3:
+            // Validate file uploads
+            if (uploadedFiles.length === 0) {
+                showAlert('Por favor, faça upload de pelo menos um documento.', 'warning');
+                isValid = false;
+            }
+            break;
     }
     
     return isValid;
@@ -300,6 +427,20 @@ function saveFormData() {
         formData[key] = value;
     }
     
+    // Add insurance component data
+    if (companySelector) {
+        const selectedCompanies = companySelector.getSelectedCompanies();
+        formData.insuranceCompany = selectedCompanies.length > 0 ? selectedCompanies[0].id : '';
+        formData.insuranceCompanyName = selectedCompanies.length > 0 ? selectedCompanies[0].name : '';
+    }
+    
+    if (insuranceTypeSelector) {
+        const selectedTypes = insuranceTypeSelector.getSelectedTypes();
+        formData.insuranceType = selectedTypes.length > 0 ? selectedTypes[0].id : '';
+        formData.insuranceTypeName = selectedTypes.length > 0 ? selectedTypes[0].type.name : '';
+        formData.insuranceCategory = selectedTypes.length > 0 ? selectedTypes[0].category.name : '';
+    }
+    
     // Add files data
     formData.files = uploadedFiles.map(f => ({
         id: f.id,
@@ -330,13 +471,25 @@ function loadDraftIfExists() {
         if (confirm('Foi encontrado um rascunho salvo. Deseja continuar de onde parou?')) {
             // Restore form data
             Object.keys(draft).forEach(key => {
-                if (key !== 'currentStep' && key !== 'timestamp' && key !== 'files') {
+                if (key !== 'currentStep' && key !== 'timestamp' && key !== 'files' && 
+                    key !== 'insuranceCompany' && key !== 'insuranceType') {
                     const element = document.querySelector(`[name="${key}"]`);
                     if (element) {
                         element.value = draft[key];
                     }
                 }
             });
+            
+            // Restore insurance selections
+            setTimeout(() => {
+                if (draft.insuranceCompany && companySelector) {
+                    companySelector.setSelectedCompanies([draft.insuranceCompany]);
+                }
+                
+                if (draft.insuranceType && insuranceTypeSelector) {
+                    insuranceTypeSelector.setSelectedTypes([draft.insuranceType]);
+                }
+            }, 1000); // Wait for components to initialize
             
             // Restore files (metadata only)
             if (draft.files) {
@@ -386,11 +539,15 @@ function generateReviewContent() {
                     <dt class="col-sm-5">Número:</dt>
                     <dd class="col-sm-7">${formData.policyNumber || '-'}</dd>
                     <dt class="col-sm-5">Seguradora:</dt>
-                    <dd class="col-sm-7">${getCompanyName(formData.insuranceCompany)}</dd>
+                    <dd class="col-sm-7">${formData.insuranceCompanyName || '-'}</dd>
                     <dt class="col-sm-5">Segurado:</dt>
                     <dd class="col-sm-7">${formData.policyHolderName || '-'}</dd>
                     <dt class="col-sm-5">BI/NUIT:</dt>
                     <dd class="col-sm-7">${formData.policyHolderID || '-'}</dd>
+                    <dt class="col-sm-5">Tipo de Seguro:</dt>
+                    <dd class="col-sm-7">${formData.insuranceTypeName || '-'}</dd>
+                    <dt class="col-sm-5">Categoria:</dt>
+                    <dd class="col-sm-7">${formData.insuranceCategory || '-'}</dd>
                 </dl>
             </div>
             <div class="col-md-6">
