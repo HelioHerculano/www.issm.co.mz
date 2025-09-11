@@ -602,7 +602,7 @@
                     class="button-sm-hover-icon"></iconify-icon>
             </button>
 
-                        <div class="scrollbar" data-simplebar>
+            <div class="scrollbar" data-simplebar>
                 <ul class="navbar-nav" id="navbar-nav">
 
                     <!-- Dashboard -->
@@ -623,7 +623,7 @@
                         <div class="collapse" id="sidebarPedidos">
                             <ul class="nav sub-navbar-nav">
                                 <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="pedidos-listar.html">
+                                    <a class="sub-nav-link" href="pedidos.html">
                                         Listar
                                         <span class="badge bg-secondary badge-pill ms-2">1,432</span>
                                     </a>
@@ -719,7 +719,8 @@
                     </li>
 
                 </ul>
-            </div>            <div class="scrollbar" data-simplebar>
+            </div>
+            <div class="scrollbar" data-simplebar>
                 <ul class="navbar-nav" id="navbar-nav">
 
                     <!-- Dashboard -->
@@ -853,447 +854,393 @@
                 <div class="container-xxl">
 
                     <div class="row g-1 mb-3">
-                         <div class="col-xxl-2">
-                              <div class="offcanvas-xxl offcanvas-start h-100" tabindex="-1" id="EmailSidebaroffcanvas"
-                                   aria-labelledby="EmailSidebaroffcanvasLabel">
-                                   <div class="card h-100 mb-0" data-simplebar="">
-                                        <div class="card-body">
-                                             <div class="d-grid">
-                                                  <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                       data-bs-target="#compose-modal">Compose</button>
-                                             </div>
-
-                                             <div class="nav flex-column mt-3" id="email-tab" role="tablist"
-                                                  aria-orientation="vertical">
-                                                  <a class="nav-link px-0 py-1 active show" id="email-inbox-tab"
-                                                       data-bs-toggle="pill" href="#email-inbox" role="tab"
-                                                       aria-controls="email-inbox" aria-selected="true">
-                                                       <span class="text-danger fw-bold">
-                                                            <i class="bx bxs-inbox fs-16 me-2 align-middle"></i> Inbox
-                                                            <span
-                                                                 class="badge badge-soft-danger float-end ms-2">7</span>
-                                                       </span>
-                                                  </a>
-
-                                                  <a class="nav-link px-0 py-1" id="email-starred-tab"
-                                                       data-bs-toggle="pill" href="#email-starred" role="tab"
-                                                       aria-controls="email-starred" aria-selected="false">
-                                                       <i class="bx bx-star fs-16 align-middle me-2"></i>Starred
-                                                  </a>
-
-                                                  <a class="nav-link px-0 py-1" id="email-draft-tab"
-                                                       data-bs-toggle="pill" href="#email-draft" role="tab"
-                                                       aria-controls="email-draft" aria-selected="false">
-                                                       <i class="bx bxs-file-doc fs-16 align-middle me-2"></i>Draft<span
-                                                            class="badge badge-soft-info float-end ms-2">32</span>
-                                                  </a>
-
-                                                  <a class="nav-link px-0 py-1" id="email-sent-tab"
-                                                       data-bs-toggle="pill" href="#email-sent" role="tab"
-                                                       aria-controls="email-sent" aria-selected="false">
-                                                       <i class="bx bx-send fs-16 align-middle me-2"></i>Sent Mail
-                                                  </a>
-
-                                                  <a class="nav-link px-0 py-1" id="email-trash-tab"
-                                                       data-bs-toggle="pill" href="#email-trash" role="tab"
-                                                       aria-controls="email-trash" aria-selected="false">
-                                                       <i class="bx bx-trash fs-16 align-middle me-2"></i>Trash Mail
-                                                  </a>
-
-                                                  <a class="nav-link px-0 py-1" id="email-important-tab"
-                                                       data-bs-toggle="pill" href="#email-important" role="tab"
-                                                       aria-controls="email-important" aria-selected="false">
-                                                       <i class="bx bx-tag fs-16 align-middle me-2"></i>Important
-                                                  </a>
-
-                                                  <h6 class="text-uppercase mt-4">Labels</h6>
-
-                                                  <a class="nav-link px-0 py-1" id="email-updates-tab"
-                                                       data-bs-toggle="pill" href="#email-updates" role="tab"
-                                                       aria-controls="email-updates" aria-selected="false">
-                                                       <i class="bx bxs-circle font-13 text-info me-2"></i>Updates
-                                                  </a>
-
-                                                  <a class="nav-link px-0 py-1" id="email-social-tab"
-                                                       data-bs-toggle="pill" href="#email-social" role="tab"
-                                                       aria-controls="email-social" aria-selected="false">
-                                                       <i class="bx bxs-circle font-13 text-primary me-2"></i>Social
-                                                  </a>
-
-                                                  <a class="nav-link px-0 py-1" id="email-promotion-tab"
-                                                       data-bs-toggle="pill" href="#email-promotion" role="tab"
-                                                       aria-controls="email-promotion" aria-selected="false">
-                                                       <i
-                                                            class="bx bxs-circle font-13 text-secondary me-2"></i>Promotions
-                                                  </a>
-
-                                                  <a class="nav-link px-0 py-1" id="email-forums-tab"
-                                                       data-bs-toggle="pill" href="#email-forums" role="tab"
-                                                       aria-controls="email-forums" aria-selected="false">
-                                                       <i class="bx bxs-circle font-13 text-success me-2"></i>Forums</a>
-                                                  </a>
-                                             </div>
-
-
-                                             <div class="mt-5">
-                                                  <h4><span
-                                                            class="badge rounded-pill p-1 px-2 badge-soft-secondary">FREE</span>
-                                                  </h4>
-                                                  <h6 class="text-uppercase mt-3">Storage</h6>
-                                                  <div class="progress my-2 progress-sm">
-                                                       <div class="progress-bar progress-lg bg-success"
-                                                            role="progressbar" style="width: 46%" aria-valuenow="46"
-                                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                                  </div>
-                                                  <p class="text-muted font-13 mb-0">7.02 GB (46%) of 15 GB used</p>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-
-                         <div class="col-xxl-10">
-    <div class="card position-relative overflow-hidden h-100">
-        <div class="p-3">
-            <div class="d-flex flex-wrap gap-2">
-                <button class="btn btn-light d-xxl-none d-flex align-items-center px-2 me-2" type="button" 
-                        data-bs-toggle="offcanvas" data-bs-target="#EmailSidebaroffcanvas" 
-                        aria-controls="EmailSidebaroffcanvas">
-                    <i class="bx bx-menu fs-18"></i>
-                </button>
-
-                <!-- arquivar, spam e excluir -->
-                <div class="btn-group">
-                    <button type="button" class="btn btn-light" data-bs-toggle="tooltip"
-                            data-bs-placement="top" title="Arquivar">
-                        <i class="bx bx-archive fs-18"></i>
-                    </button>
-                    <button type="button" class="btn btn-light" data-bs-toggle="tooltip"
-                            data-bs-placement="top" title="Marcar como spam">
-                        <i class="bx bx-info-square fs-18"></i>
-                    </button>
-                    <button type="button" class="btn btn-light" data-bs-toggle="tooltip"
-                            data-bs-placement="top" title="Excluir">
-                        <i class="bx bx-trash fs-18"></i>
-                    </button>
-                </div>
-
-                <!-- mover para -->
-                <div class="btn-group" data-bs-toggle="tooltip" data-bs-placement="top"
-                     title="Pasta">
-                    <button type="button" class="btn btn-light dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bx bx-folder fs-18"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                        <span class="dropdown-header">Mover para</span>
-                        <a class="dropdown-item" href="javascript: void(0);">Sinistros</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Renovações</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Cotações</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Faturamento</a>
-                    </div>
-                </div>
-
-                <!-- etiquetas -->
-                <div class="btn-group" data-bs-toggle="tooltip" data-bs-placement="top"
-                     title="Etiquetas">
-                    <button type="button" class="btn btn-light dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bx bx-bookmarks fs-18"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                        <span class="dropdown-header">Marcar como:</span>
-                        <a class="dropdown-item" href="javascript: void(0);">Urgente</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Cliente</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Seguradora</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Corretor</a>
-                    </div>
-                </div>
-
-                <!-- mais opções -->
-                <div class="btn-group" data-bs-toggle="tooltip" data-bs-placement="top"
-                     title="Mais Ações">
-                    <button type="button" class="btn btn-light dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">Mais</button>
-                    <div class="dropdown-menu">
-                        <span class="dropdown-header">Mais Opções:</span>
-                        <a class="dropdown-item" href="javascript: void(0);">Marcar como Não Lido</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Adicionar às Tarefas</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Adicionar Estrela</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Silenciar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="tab-content pt-0" id="email-tabContent">
-            <div class="tab-pane fade active show" id="email-inbox" role="tabpanel"
-                 aria-labelledby="email-inbox-tab">
-                <div>
-                    <ul class="nav nav-tabs nav-justified">
-                        <li class="nav-item">
-                            <a href="#primaryMail" data-bs-toggle="tab" aria-expanded="true"
-                               class="nav-link d-flex align-items-center active">
-                                <span class="me-2"><i class="bx bxs-inbox fs-18"></i></span>
-                                <span class="d-none d-md-block">Principal</span>
-                            </a>
-                        </li> <!-- end nav item -->
-                        <li class="nav-item">
-                            <a href="#socialMail" data-bs-toggle="tab" aria-expanded="false"
-                               class="nav-link d-flex align-items-center">
-                                <span class="me-2"><i class="bx bxs-group fs-18"></i></span>
-                                <span class="d-none d-md-block">Clientes</span>
-                            </a>
-                        </li> <!-- end nav item -->
-                        <li class="nav-item">
-                            <a href="#PromotionsMail" data-bs-toggle="tab" aria-expanded="false"
-                               class="nav-link d-flex align-items-center">
-                                <span class="me-2"><i class="bx bxs-purchase-tag fs-18"></i></span>
-                                <span class="d-none d-md-block">Cotações</span>
-                            </a>
-                        </li> <!-- end nav item -->
-                        <li class="nav-item">
-                            <a href="#updatesMail" data-bs-toggle="tab" aria-expanded="false"
-                               class="nav-link d-flex align-items-center">
-                                <span class="me-2"><i class="bx bxs-info-circle fs-18"></i></span>
-                                <span class="d-none d-md-block">Sinistros</span>
-                            </a>
-                        </li> <!-- end nav item -->
-                        <li class="nav-item">
-                            <a href="#forumsMail" data-bs-toggle="tab" aria-expanded="false"
-                               class="nav-link d-flex align-items-center">
-                                <span class="me-2"><i class="bx bxs-chat fs-18"></i></span>
-                                <span class="d-none d-md-block">Seguradoras</span>
-                            </a>
-                        </li> <!-- end nav item -->
-                    </ul> <!-- end nav tabs -->
-
-                    <div class="tab-content text-muted pt-0">
-                        <div class="tab-pane show active" id="primaryMail">
-                            <ul class="message-list mb-0">
-                                <li class="unread">
-                                    <div class="col-mail col-mail-1">
-                                        <div class="checkbox-wrapper-mail">
-                                            <input type="checkbox" id="InboxChk1">
-                                            <label for="InboxChk1" class="toggle"></label>
-                                        </div>
-                                        <span class="star-toggle bx bx-star"></span>
-                                        <span class="bx bxs-tag-alt important-toggle text-warning"></span>
-                                        <a data-bs-toggle="offcanvas" href="#email-read" class="title">MUNICIPIO DE MAPUTO</a>
-                                    </div>
-                                    <div class="col-mail col-mail-2">
-                                        <a data-bs-toggle="offcanvas" href="#email-read" class="subject">
-                                            Garrantia Provisoria &nbsp;&ndash;&nbsp;
-                                            <span>
-                                                Cliente: TECHSOLUTIONS - Valor: MZN 1.250,00 - Vencimento: 15/08/2023
-                                            </span>
-                                        </a>
-                                        <div class="date">11:49</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="col-mail col-mail-1">
-                                        <div class="checkbox-wrapper-mail">
-                                            <input type="checkbox" id="InboxChk2">
-                                            <label for="InboxChk2" class="toggle"></label>
-                                        </div>
-                                        <span class="star-toggle bx bxs-star text-warning"></span>
-                                        <span class="bx bxs-tag-alt important-toggle text-warning"></span>
-                                        <a data-bs-toggle="offcanvas" href="#email-read" class="title">SulAmérica</a>
-                                    </div>
-                                    <div class="col-mail col-mail-2">
-                                        <a data-bs-toggle="offcanvas" href="#email-read" class="subject">
-                                            Documentos para análise
-                                            <span class="badge bg-light border text-dark fw-semibold ms-1"><i
-                                                  class="bx bx-images text-primary me-2"></i>DOC_CNH</span>
-                                            <span class="badge bg-light border text-dark fw-semibold ms-1"><i
-                                                  class="bx bx-images text-primary me-2"></i>DOC_CRLV</span>
-                                            <span class="badge bg-light border text-dark fw-semibold ms-1"><i
-                                                  class="bx bx-images text-primary me-2"></i>DOC_COMP</span>
-                                            <span class="badge bg-light border text-dark fw-semibold rounded-circle">+2</span>
-                                        </a>
-                                        <div class="date">21 Fev</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="col-mail col-mail-1">
-                                        <div class="checkbox-wrapper-mail">
-                                            <input type="checkbox" id="InboxChk3">
-                                            <label for="InboxChk3" class="toggle"></label>
-                                        </div>
-                                        <span class="star-toggle bx bx-star"></span>
-                                        <span class="bx bx-tag-alt important-toggle"></span>
-                                        <a data-bs-toggle="offcanvas" href="#email-read" class="title">Maria Santos (11)</a>
-                                    </div>
-                                    <div class="col-mail col-mail-2">
-                                        <a data-bs-toggle="offcanvas" href="#email-read" class="subject">
-                                            Dúvida sobre cobertura &nbsp;&ndash;&nbsp;
-                                            <span>
-                                                Olá, gostaria de saber se meu seguro cobre danos por enchente.
-                                            </span>
-                                        </a>
-                                        <div class="date">19 Fev</div>
-                                    </div>
-                                </li>
-                                <li class="unread">
-                                    <div class="col-mail col-mail-1">
-                                        <div class="checkbox-wrapper-mail">
-                                            <input type="checkbox" id="InboxChk4">
-                                            <label for="InboxChk4" class="toggle"></label>
-                                        </div>
-                                        <span class="star-toggle bx bx-star"></span>
-                                        <span class="bx bx-tag-alt important-toggle"></span>
-                                        <a data-bs-toggle="offcanvas" href="#email-read" class="title">Tokio Marine</a>
-                                    </div>
-                                    <div class="col-mail col-mail-2">
-                                        <a data-bs-toggle="offcanvas" href="#email-read" class="subject">
-                                            Atualização de apólice &nbsp;&ndash;&nbsp;
-                                            <span>
-                                                Sua apólice foi atualizada com as novas coberturas contratadas.
-                                            </span>
-                                        </a>
-                                        <div class="date">28 Fev</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="col-mail col-mail-1">
-                                        <div class="checkbox-wrapper-mail">
-                                            <input type="checkbox" id="InboxChk5">
-                                            <label for="InboxChk5" class="toggle"></label>
-                                        </div>
-                                        <span class="star-toggle bx bxs-star text-warning"></span>
-                                        <span class="bx bx-tag-alt important-toggle"></span>
-                                        <a data-bs-toggle="offcanvas" href="#email-read" class="title">Bradesco Seguros</a>
-                                    </div>
-                                    <div class="col-mail col-mail-2">
-                                        <a data-bs-toggle="offcanvas" href="#email-read" class="subject">
-                                            (sem assunto)
-                                            <span class="badge bg-light border text-dark fw-semibold ms-1"><i
-                                                  class="bx bxs-file-pdf text-danger me-2"></i>proposta.pdf</span>
-                                            <span class="badge bg-light border text-dark fw-semibold ms-1"><i
-                                                  class="bx bxs-file-pdf text-danger me-2"></i>condicoes.pdf</span>
-                                        </a>
-                                        <div class="date">28 Fev</div>
-                                    </div>
-                                </li>
-                            </ul> <!-- end message list -->
-                        </div> <!-- end pimary mail tab pane -->
-                        
-                        <!-- Outras abas (Clientes, Cotações, Sinistros, Seguradoras) com conteúdo similar adaptado -->
-                        
-                    </div> <!-- end tab content -->
-                </div>
-            </div>
-
-            <!-- Outras seções (Favoritos, Rascunhos, Enviados, Lixeira, Importantes) com conteúdo similar adaptado -->
-            
-        </div> <!-- end tab-content-->
-
-        <div class="px-3 py-2 mt-auto">
-            <div class="d-flex align-items-center justify-content-between">
-                <div> Exibindo 1 - 20 de 289 </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-light btn-sm">
-                        <i class="bx bx-chevron-left"></i>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm">
-                        <i class="bx bx-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="offcanvas offcanvas-end mail-read position-absolute shadow"
-             data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="email-read"
-             aria-labelledby="email-readLabel">
-            <div class="offcanvas-header">
-                <div class="d-flex gap-2 align-items-center w-50">
-                    <a href="#" role="button" data-bs-dismiss="offcanvas" aria-label="Fechar">
-                        <i class="bx bx-arrow-back fs-18 align-middle"></i>
-                    </a>
-                    <h5 class="offcanvas-title text-truncate w-50" id="email-readLabel">Palma Seguro</h5>
-                </div>
-
-                <div class="ms-auto">
-                    <!-- arquivar, spam e excluir -->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-light" data-bs-toggle="tooltip" 
-                                data-bs-placement="top" aria-label="Arquivar">
-                            <i class="bx bx-archive fs-18"></i>
-                        </button>
-                        <button type="button" class="btn btn-light" data-bs-toggle="tooltip" 
-                                data-bs-placement="top" aria-label="Marcar como spam">
-                            <i class="bx bx-info-square fs-18"></i>
-                        </button>
-                        <button type="button" class="btn btn-light" data-bs-toggle="tooltip" 
-                                data-bs-placement="top" aria-label="Excluir">
-                            <i class="bx bx-trash fs-18"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="offcanvas-body p-0 h-100" data-simplebar>
-                <div class="px-3">
-                    <div class="mt-2">
-                        <h5>Nova proposta de seguro auto</h5>
-
-                        <hr />
-
-                        <div class="d-flex mb-4 mt-1">
-                            <img class="me-2 rounded-circle avatar-sm" src="/assets/images/seguradoras/PalmtreesLogo-64.png"
-                                 alt="Imagem de perfil">
-                            <div class="flex-grow-1">
-                                <span class="float-end">07:23</span>
-                                <h6 class="m-0">Palma Seguros</h6>
-                                <small class="text-muted">De: portoseguro@portoseguro.com</small>
+                        <div class="col-xxl-2">
+                            <div class="offcanvas-xxl offcanvas-start h-100" tabindex="-1" id="EmailSidebaroffcanvas"
+                                aria-labelledby="EmailSidebaroffcanvasLabel">
+                                <div class="card h-100 mb-0" data-simplebar="">
+                                    
+                                </div>
                             </div>
                         </div>
 
-                        <p><b>Prezado Municipio de Maputo,</b></p>
-                        <div class="text-muted">
-                            <p>Temos uma nova resposta de seguro  para análise:</p>
-                            <h5>APROVADO E VALIDADO</h5>
-                            <p><strong>Cliente:</strong> TECHSOLUTIONS, LDA</p>
-                            <p><strong>Veículo:</strong> Honda Civic 2022</p>
-                            <p><strong>Valor:</strong> MZN 1.250,00/ano</p>
-                            <p><strong>Vencimento:</strong> 15/08/2023</p>
-                            <p>Por favor, entre em contato com o cliente para finalizar a proposta.</p>
-                        </div>
+                        <div class="col-xxl-10">
+                            <div class="card position-relative overflow-hidden h-100">
+                                <div class="p-3">
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <button class="btn btn-light d-xxl-none d-flex align-items-center px-2 me-2"
+                                            type="button" data-bs-toggle="offcanvas"
+                                            data-bs-target="#EmailSidebaroffcanvas"
+                                            aria-controls="EmailSidebaroffcanvas">
+                                            <i class="bx bx-menu fs-18"></i>
+                                        </button>
 
-                        <hr />
+                                        <!-- arquivar, spam e excluir -->
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-light" data-bs-toggle="tooltip"
+                                                data-bs-placement="top" title="Arquivar">
+                                                <i class="bx bx-archive fs-18"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-light" data-bs-toggle="tooltip"
+                                                data-bs-placement="top" title="Marcar como spam">
+                                                <i class="bx bx-info-square fs-18"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-light" data-bs-toggle="tooltip"
+                                                data-bs-placement="top" title="Excluir">
+                                                <i class="bx bx-trash fs-18"></i>
+                                            </button>
+                                        </div>
 
-                        <h6> <i class="fa fa-paperclip mb-2"></i> Anexos <span>(3)</span></h6>
+                                        <!-- mover para -->
+                                        <div class="btn-group" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Pasta">
+                                            <button type="button" class="btn btn-light dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bx bx-folder fs-18"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <span class="dropdown-header">Mover para</span>
+                                                <a class="dropdown-item" href="javascript: void(0);">Sinistros</a>
+                                                <a class="dropdown-item" href="javascript: void(0);">Renovações</a>
+                                                <a class="dropdown-item" href="javascript: void(0);">Cotações</a>
+                                                <a class="dropdown-item" href="javascript: void(0);">Faturamento</a>
+                                            </div>
+                                        </div>
 
-                        <div>
-                            <a href="javascript:void(0);">
-                                <img src="/assets/images/seguradoras/PDF_file_icon.svg.png" alt="anexo" 
-                                     style="height: 84px;" class="img-thumbnail me-1">
-                            </a>
-                            <a href="javascript:void(0);">
-                                <img src="/assets/images/seguradoras/PDF_file_icon.svg.png" alt="anexo" 
-                                     style="height: 84px;" class="img-thumbnail me-1">
-                            </a>
-                            <a href="javascript:void(0);">
-                                <img src="/assets/images/seguradoras/PDF_file_icon.svg.png" alt="anexo" 
-                                     style="height: 84px;" class="img-thumbnail me-1">
-                            </a>
-                        </div>
-                    </div> <!-- card-box -->
-                </div>
-            </div>
-            <div class="p-3">
+                                        <!-- etiquetas -->
+                                        <div class="btn-group" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Etiquetas">
+                                            <button type="button" class="btn btn-light dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bx bx-bookmarks fs-18"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <span class="dropdown-header">Marcar como:</span>
+                                                <a class="dropdown-item" href="javascript: void(0);">Urgente</a>
+                                                <a class="dropdown-item" href="javascript: void(0);">Cliente</a>
+                                                <a class="dropdown-item" href="javascript: void(0);">Seguradora</a>
+                                                <a class="dropdown-item" href="javascript: void(0);">Corretor</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- mais opções -->
+                                        <div class="btn-group" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Mais Ações">
+                                            <button type="button" class="btn btn-light dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">Mais</button>
+                                            <div class="dropdown-menu">
+                                                <span class="dropdown-header">Mais Opções:</span>
+                                                <a class="dropdown-item" href="javascript: void(0);">Marcar como Não
+                                                    Lido</a>
+                                                <a class="dropdown-item" href="javascript: void(0);">Adicionar às
+                                                    Tarefas</a>
+                                                <a class="dropdown-item" href="javascript: void(0);">Adicionar
+                                                    Estrela</a>
+                                                <a class="dropdown-item" href="javascript: void(0);">Silenciar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-content pt-0" id="email-tabContent">
+                                    <div class="tab-pane fade active show" id="email-inbox" role="tabpanel"
+                                        aria-labelledby="email-inbox-tab">
+                                        <div>
+                                            <ul class="nav nav-tabs nav-justified">
+                                                <li class="nav-item">
+                                                    <a href="#primaryMail" data-bs-toggle="tab" aria-expanded="true"
+                                                        class="nav-link d-flex align-items-center active">
+                                                        <span class="me-2"><i class="bx bxs-inbox fs-18"></i></span>
+                                                        <span class="d-none d-md-block">Principal</span>
+                                                    </a>
+                                                </li> <!-- end nav item -->
+                                                <li class="nav-item">
+                                                    <a href="#socialMail" data-bs-toggle="tab" aria-expanded="false"
+                                                        class="nav-link d-flex align-items-center">
+                                                        <span class="me-2"><i class="bx bxs-group fs-18"></i></span>
+                                                        <span class="d-none d-md-block">Clientes</span>
+                                                    </a>
+                                                </li> <!-- end nav item -->
+                                                <li class="nav-item">
+                                                    <a href="#PromotionsMail" data-bs-toggle="tab" aria-expanded="false"
+                                                        class="nav-link d-flex align-items-center">
+                                                        <span class="me-2"><i
+                                                                class="bx bxs-purchase-tag fs-18"></i></span>
+                                                        <span class="d-none d-md-block">Cotações</span>
+                                                    </a>
+                                                </li> <!-- end nav item -->
+                                                <li class="nav-item">
+                                                    <a href="#updatesMail" data-bs-toggle="tab" aria-expanded="false"
+                                                        class="nav-link d-flex align-items-center">
+                                                        <span class="me-2"><i
+                                                                class="bx bxs-info-circle fs-18"></i></span>
+                                                        <span class="d-none d-md-block">Sinistros</span>
+                                                    </a>
+                                                </li> <!-- end nav item -->
+                                                <li class="nav-item">
+                                                    <a href="#forumsMail" data-bs-toggle="tab" aria-expanded="false"
+                                                        class="nav-link d-flex align-items-center">
+                                                        <span class="me-2"><i class="bx bxs-chat fs-18"></i></span>
+                                                        <span class="d-none d-md-block">Seguradoras</span>
+                                                    </a>
+                                                </li> <!-- end nav item -->
+                                            </ul> <!-- end nav tabs -->
+
+                                            <div class="tab-content text-muted pt-0">
+                                                <div class="tab-pane show active" id="primaryMail">
+                                                    <ul class="message-list mb-0">
+                                                        <li class="unread">
+                                                            <div class="col-mail col-mail-1">
+                                                                <div class="checkbox-wrapper-mail">
+                                                                    <input type="checkbox" id="InboxChk1">
+                                                                    <label for="InboxChk1" class="toggle"></label>
+                                                                </div>
+                                                                <span class="star-toggle bx bx-star"></span>
+                                                                <span
+                                                                    class="bx bxs-tag-alt important-toggle text-warning"></span>
+                                                                <a data-bs-toggle="offcanvas" href="#email-read"
+                                                                    class="title">MUNICIPIO DE MAPUTO</a>
+                                                            </div>
+                                                            <div class="col-mail col-mail-2">
+                                                                <a data-bs-toggle="offcanvas" href="#email-read"
+                                                                    class="subject">
+                                                                    Garrantia Provisoria &nbsp;&ndash;&nbsp;
+                                                                    <span>
+                                                                        Cliente: TECHSOLUTIONS - Valor: MZN 1.250,00 -
+                                                                        Vencimento: 15/08/2023
+                                                                    </span>
+                                                                </a>
+                                                                <div class="date">11:49</div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="col-mail col-mail-1">
+                                                                <div class="checkbox-wrapper-mail">
+                                                                    <input type="checkbox" id="InboxChk2">
+                                                                    <label for="InboxChk2" class="toggle"></label>
+                                                                </div>
+                                                                <span
+                                                                    class="star-toggle bx bxs-star text-warning"></span>
+                                                                <span
+                                                                    class="bx bxs-tag-alt important-toggle text-warning"></span>
+                                                                <a data-bs-toggle="offcanvas" href="#email-read"
+                                                                    class="title">SulAmérica</a>
+                                                            </div>
+                                                            <div class="col-mail col-mail-2">
+                                                                <a data-bs-toggle="offcanvas" href="#email-read"
+                                                                    class="subject">
+                                                                    Documentos para análise
+                                                                    <span
+                                                                        class="badge bg-light border text-dark fw-semibold ms-1"><i
+                                                                            class="bx bx-images text-primary me-2"></i>DOC_CNH</span>
+                                                                    <span
+                                                                        class="badge bg-light border text-dark fw-semibold ms-1"><i
+                                                                            class="bx bx-images text-primary me-2"></i>DOC_CRLV</span>
+                                                                    <span
+                                                                        class="badge bg-light border text-dark fw-semibold ms-1"><i
+                                                                            class="bx bx-images text-primary me-2"></i>DOC_COMP</span>
+                                                                    <span
+                                                                        class="badge bg-light border text-dark fw-semibold rounded-circle">+2</span>
+                                                                </a>
+                                                                <div class="date">21 Fev</div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="col-mail col-mail-1">
+                                                                <div class="checkbox-wrapper-mail">
+                                                                    <input type="checkbox" id="InboxChk3">
+                                                                    <label for="InboxChk3" class="toggle"></label>
+                                                                </div>
+                                                                <span class="star-toggle bx bx-star"></span>
+                                                                <span class="bx bx-tag-alt important-toggle"></span>
+                                                                <a data-bs-toggle="offcanvas" href="#email-read"
+                                                                    class="title">Maria Santos (11)</a>
+                                                            </div>
+                                                            <div class="col-mail col-mail-2">
+                                                                <a data-bs-toggle="offcanvas" href="#email-read"
+                                                                    class="subject">
+                                                                    Dúvida sobre cobertura &nbsp;&ndash;&nbsp;
+                                                                    <span>
+                                                                        Olá, gostaria de saber se meu seguro cobre danos
+                                                                        por enchente.
+                                                                    </span>
+                                                                </a>
+                                                                <div class="date">19 Fev</div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="unread">
+                                                            <div class="col-mail col-mail-1">
+                                                                <div class="checkbox-wrapper-mail">
+                                                                    <input type="checkbox" id="InboxChk4">
+                                                                    <label for="InboxChk4" class="toggle"></label>
+                                                                </div>
+                                                                <span class="star-toggle bx bx-star"></span>
+                                                                <span class="bx bx-tag-alt important-toggle"></span>
+                                                                <a data-bs-toggle="offcanvas" href="#email-read"
+                                                                    class="title">Tokio Marine</a>
+                                                            </div>
+                                                            <div class="col-mail col-mail-2">
+                                                                <a data-bs-toggle="offcanvas" href="#email-read"
+                                                                    class="subject">
+                                                                    Atualização de apólice &nbsp;&ndash;&nbsp;
+                                                                    <span>
+                                                                        Sua apólice foi atualizada com as novas
+                                                                        coberturas contratadas.
+                                                                    </span>
+                                                                </a>
+                                                                <div class="date">28 Fev</div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="col-mail col-mail-1">
+                                                                <div class="checkbox-wrapper-mail">
+                                                                    <input type="checkbox" id="InboxChk5">
+                                                                    <label for="InboxChk5" class="toggle"></label>
+                                                                </div>
+                                                                <span
+                                                                    class="star-toggle bx bxs-star text-warning"></span>
+                                                                <span class="bx bx-tag-alt important-toggle"></span>
+                                                                <a data-bs-toggle="offcanvas" href="#email-read"
+                                                                    class="title">Bradesco Seguros</a>
+                                                            </div>
+                                                            <div class="col-mail col-mail-2">
+                                                                <a data-bs-toggle="offcanvas" href="#email-read"
+                                                                    class="subject">
+                                                                    (sem assunto)
+                                                                    <span
+                                                                        class="badge bg-light border text-dark fw-semibold ms-1"><i
+                                                                            class="bx bxs-file-pdf text-danger me-2"></i>proposta.pdf</span>
+                                                                    <span
+                                                                        class="badge bg-light border text-dark fw-semibold ms-1"><i
+                                                                            class="bx bxs-file-pdf text-danger me-2"></i>condicoes.pdf</span>
+                                                                </a>
+                                                                <div class="date">28 Fev</div>
+                                                            </div>
+                                                        </li>
+                                                    </ul> <!-- end message list -->
+                                                </div> <!-- end pimary mail tab pane -->
+
+                                                <!-- Outras abas (Clientes, Cotações, Sinistros, Seguradoras) com conteúdo similar adaptado -->
+
+                                            </div> <!-- end tab content -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Outras seções (Favoritos, Rascunhos, Enviados, Lixeira, Importantes) com conteúdo similar adaptado -->
+
+                                </div> <!-- end tab-content-->
+
+                                <div class="px-3 py-2 mt-auto">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div> Exibindo 1 - 20 de 289 </div>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-light btn-sm">
+                                                <i class="bx bx-chevron-left"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-primary btn-sm">
+                                                <i class="bx bx-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="offcanvas offcanvas-end mail-read position-absolute shadow"
+                                    data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="email-read"
+                                    aria-labelledby="email-readLabel">
+                                    <div class="offcanvas-header">
+                                        <div class="d-flex gap-2 align-items-center w-50">
+                                            <a href="#" role="button" data-bs-dismiss="offcanvas" aria-label="Fechar">
+                                                <i class="bx bx-arrow-back fs-18 align-middle"></i>
+                                            </a>
+                                            <h5 class="offcanvas-title text-truncate w-50" id="email-readLabel">Palma
+                                                Seguro</h5>
+                                        </div>
+
+                                        <div class="ms-auto">
+                                            <!-- arquivar, spam e excluir -->
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-light" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" aria-label="Arquivar">
+                                                    <i class="bx bx-archive fs-18"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-light" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" aria-label="Marcar como spam">
+                                                    <i class="bx bx-info-square fs-18"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-light" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" aria-label="Excluir">
+                                                    <i class="bx bx-trash fs-18"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="offcanvas-body p-0 h-100" data-simplebar>
+                                        <div class="px-3">
+                                            <div class="mt-2">
+                                                <h5>Nova proposta de seguro auto</h5>
+
+                                                <hr />
+
+                                                <div class="d-flex mb-4 mt-1">
+                                                    <img class="me-2 rounded-circle avatar-sm"
+                                                        src="/assets/images/seguradoras/PalmtreesLogo-64.png"
+                                                        alt="Imagem de perfil">
+                                                    <div class="flex-grow-1">
+                                                        <span class="float-end">07:23</span>
+                                                        <h6 class="m-0">Palma Seguros</h6>
+                                                        <small class="text-muted">De:
+                                                            portoseguro@portoseguro.com</small>
+                                                    </div>
+                                                </div>
+
+                                                <p><b>Prezado Municipio de Maputo,</b></p>
+                                                <div class="text-muted">
+                                                    <p>Temos uma nova resposta de seguro para análise:</p>
+                                                    <h5>APROVADO E VALIDADO</h5>
+                                                    <p><strong>Cliente:</strong> TECHSOLUTIONS, LDA</p>
+                                                    <p><strong>Veículo:</strong> Honda Civic 2022</p>
+                                                    <p><strong>Valor:</strong> MZN 1.250,00/ano</p>
+                                                    <p><strong>Vencimento:</strong> 15/08/2023</p>
+                                                    <p>Por favor, entre em contato com o cliente para finalizar a
+                                                        proposta.</p>
+                                                </div>
+
+                                                <hr />
+
+                                                <h6> <i class="fa fa-paperclip mb-2"></i> Anexos <span>(3)</span></h6>
+
+                                                <div>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="/assets/images/seguradoras/PDF_file_icon.svg.png"
+                                                            alt="anexo" style="height: 84px;"
+                                                            class="img-thumbnail me-1">
+                                                    </a>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="/assets/images/seguradoras/PDF_file_icon.svg.png"
+                                                            alt="anexo" style="height: 84px;"
+                                                            class="img-thumbnail me-1">
+                                                    </a>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="/assets/images/seguradoras/PDF_file_icon.svg.png"
+                                                            alt="anexo" style="height: 84px;"
+                                                            class="img-thumbnail me-1">
+                                                    </a>
+                                                </div>
+                                            </div> <!-- card-box -->
+                                        </div>
+                                    </div>
+                                    <div class="p-3">
 
 
-                <div class="text-end">
-                    <button type="button" class="btn btn-primary width-sm"
-                            data-bs-dismiss="offcanvas" aria-label="Fechar">Enviar</button>
-                </div>
-            </div>
-        </div>
-    </div> <!-- end card -->
-</div> <!-- end col -->
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-primary width-sm"
+                                                data-bs-dismiss="offcanvas" aria-label="Fechar">Enviar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end card -->
+                        </div> <!-- end col -->
                     </div> <!-- end row -->
-               </div>
+                </div>
             </div>
             <!-- End Container Fluid -->
             <!-- ==================================================== -->
