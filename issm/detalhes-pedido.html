@@ -853,8 +853,9 @@
                         <div class="floating-toolbar d-flex gap-2">
                             <a href="pedidos.html" class="btn btn-light"><i class='bx bx-left-arrow-alt me-1'></i>
                                 Voltar</a>
-                            <button class="btn btn-outline-primary" id="btnImprimir"><i class='bx bx-printer me-1'></i>
-                                Imprimir</button>
+                            <button class="btn btn-outline-primary" id="btnImprimir">
+  <i class="bx bx-printer me-1"></i> Encaminhar
+</button>
                             <button id="btnExportar" class="btn btn-primary"><i class='bx bx-download me-1'></i>
                                 Exportar</button>
                         </div>
@@ -1026,6 +1027,27 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Modal -->
+<div class="modal fade" id="modalEncaminhar" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmação</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Está prestes a encaminhar um processo de pedido de verificação de uma garantia para a seguradora <b>PALMA SEGUROS</b>.<br><br>
+        Deseja realmente encaminhar este processo?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnConfirmarEncaminhar">Sim, Encaminhar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
             <!-- End Container Fluid -->
             <!-- ==================================================== -->
             <!-- End Page Content -->
@@ -1045,7 +1067,32 @@
         </div>
     </div>
     <!-- END Wrapper -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+  // abrir modal ao clicar no botão
+  document.getElementById("btnImprimir").addEventListener("click", function () {
+    var modal = new bootstrap.Modal(document.getElementById("modalEncaminhar"));
+    modal.show();
+  });
+
+  // confirmar encaminhamento
+  document.getElementById("btnConfirmarEncaminhar").addEventListener("click", function () {
+    // fecha o modal
+    var modalEl = document.getElementById("modalEncaminhar");
+    var modal = bootstrap.Modal.getInstance(modalEl);
+    modal.hide();
+
+    // simula envio de email
+    Swal.fire({
+      icon: "success",
+      title: "Encaminhado!",
+      text: "Email enviado para PALMA SEGUROS.",
+      timer: 3000,
+      showConfirmButton: false
+    });
+  });
+</script>
     <!-- Vendor Javascript (Require in all Page) -->
     <script src="/assets/js/vendor.js"></script>
 
