@@ -26,6 +26,9 @@
     <!-- App css (Require in all Page) -->
     <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
+        <!-- Adicione o CSS do SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
     <!-- Theme Config js (Require in all Page) -->
     <script src="/assets/js/config.js"></script>
     <style>
@@ -1230,21 +1233,21 @@
 
               <hr />
               <h5>Avaliar Processo</h5>
-              <button class="btn btn-success">Aprovar</button>
-              <button
-                class="btn btn-danger"
-                data-bs-toggle="collapse"
-                data-bs-target="#motivoReprovacao1"
-              >
-                Reprovar
+            <button class="btn btn-success" onclick="validarProcesso()">Validar</button>
+            <button
+              class="btn btn-danger"
+              data-bs-toggle="collapse"
+              data-bs-target="#motivoReprovacao1"
+            >
+              Invalidar
+            </button>
+            <div id="motivoReprovacao1" class="collapse mt-3">
+              <label class="form-label">Motivo da Reprovação</label>
+              <textarea class="form-control" id="motivoReprovacaoText" rows="3"></textarea>
+              <button class="btn btn-danger mt-2" onclick="confirmarReprovacao()">
+                Confirmar Reprovação
               </button>
-              <div id="motivoReprovacao1" class="collapse mt-3">
-                <label class="form-label">Motivo da Reprovação</label>
-                <textarea class="form-control" rows="3"></textarea>
-                <button class="btn btn-danger mt-2">
-                  Confirmar Reprovação
-                </button>
-              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -1574,6 +1577,54 @@
 
     <!-- App Javascript (Require in all Page) -->
     <script src="/assets/js/app.js"></script>
+    <!-- Adicione o script do SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script>
+      // Função para exibir SweetAlert de sucesso
+      function mostrarAlertaSucesso(mensagem) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucesso!',
+          text: mensagem,
+          confirmButtonColor: '#0d6efd'
+        });
+      }
+
+      // Função para validar o processo
+      function validarProcesso() {
+        // Aqui você pode adicionar lógica de validação antes de mostrar o alerta
+        mostrarAlertaSucesso('Operação executada com sucesso! Processo validado.');
+        
+        // Fechar o modal após a validação (opcional)
+        setTimeout(() => {
+          $('#detailsModal1').modal('hide');
+        }, 1500);
+      }
+
+      // Função para confirmar reprovação
+      function confirmarReprovacao() {
+        const motivo = document.getElementById('motivoReprovacaoText').value;
+        
+        if (!motivo.trim()) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Atenção',
+            text: 'Por favor, informe o motivo da reprovação.',
+            confirmButtonColor: '#0d6efd'
+          });
+          return;
+        }
+        
+        // Aqui você pode adicionar lógica de reprovação antes de mostrar o alerta
+        mostrarAlertaSucesso('Operação executada com sucesso! Processo reprovado.');
+        
+        // Fechar o modal após a reprovação (opcional)
+        setTimeout(() => {
+          $('#detailsModal1').modal('hide');
+        }, 1500);
+      }
+    </script>
   </body>
 
   <!-- Mirrored from techzaa.in/larkon/admin/tables-basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Sep 2025 13:19:43 GMT -->
